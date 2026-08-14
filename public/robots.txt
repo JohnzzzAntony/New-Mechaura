@@ -1,0 +1,29 @@
+# Robots.txt for Mechaura International UAE
+# https://mechaurainternational.com
+
+User-agent: *
+Allow: /
+Disallow: /scratch/
+Disallow: /.git/
+
+# Allow major AI search engine bots for Generative Engine Optimization (GEO/AEO)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Sitemap location
+Sitemap: https://mechaurainternational.com/sitemap.xml
