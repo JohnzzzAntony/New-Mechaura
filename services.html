@@ -50,7 +50,12 @@
     "provider": {
       "@type": "Organization",
       "name": "Mechaura International FZE LLC",
-      "url": "https://mechaurainternational.com"
+      "url": "https://mechaurainternational.com",
+      "sameAs": [
+        "https://www.instagram.com/mechaura_international",
+        "https://www.threads.net/@mechaura_international",
+        "https://www.linkedin.com/company/mechaura-international"
+      ]
     },
     "areaServed": {
       "@type": "Country",
@@ -90,7 +95,7 @@
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="apple-touch-icon" href="images/logo.png">
 
-  <!-- Fonts -->
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
@@ -117,6 +122,7 @@
         <a href="services.html" class="nav-link active" data-hover="Services">Services</a>
         <a href="products.html" class="nav-link" data-hover="Products">Products</a>
         <a href="sectors.html" class="nav-link" data-hover="Sectors">Sectors</a>
+        <a href="blog.html" class="nav-link" data-hover="Blog">Blog</a>
         <a href="contact.html" class="nav-link" data-hover="Contact">Contact</a>
       </div>
       <button class="menu-btn" aria-label="Toggle navigation menu">
@@ -134,6 +140,7 @@
       <a href="services.html" class="mob-link">Services</a>
       <a href="products.html" class="mob-link">Products</a>
       <a href="sectors.html" class="mob-link">Sectors</a>
+      <a href="blog.html" class="mob-link">Blog</a>
       <a href="contact.html" class="mob-link">Contact</a>
     </div>
   </div>
@@ -151,88 +158,87 @@
               <span class="current">Services</span>
             </div>
           </nav>
-          <h1 class="section-heading reveal-text">What We <span class="accent-text">Deliver.</span></h1>
-          <p style="color: var(--text-secondary); max-width: 600px; margin-top: 15px; font-size: 1.1rem;" class="reveal-fade">End-to-end industrial trading, bespoke manufacturing support, and specialized distribution designed to keep your business operating at peak productivity.</p>
+          <h1 class="section-heading reveal-text">What <span class="accent-text">We Do.</span></h1>
+          <p style="color: var(--text-secondary); max-width: 600px; margin-top: 15px; font-size: 1.1rem;" class="reveal-fade">End-to-end industrial supply solutions, precision tool distribution, and customized manufacturing support across the UAE and Middle East.</p>
         </div>
       </section>
 
-      <div class="container">
-          <p class="services-intro reveal-fade">At Mechaura International, we do more than just trade. We provide comprehensive supply chain solutions, technical expertise, and a reliable bridge between global manufacturers and regional industrial needs.</p>
-      </div>
-
-      <!-- SERVICES -->
-      <section class="services container" id="services">
+      <!-- SERVICES CONTENT -->
+      <section class="services-content-section section">
+        <div class="container">
           <div class="services-grid-new">
-            <!-- Card 1: Industrial Tools -->
-            <div class="service-card-new stagger-fade">
-              <div class="scn-img-wrap">
-                <img src="images/manufacture.png" alt="Industrial Tools">
-                <div class="scn-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-              </div>
-              <div class="scn-info">
-                <h3>Industrial Tools</h3>
-                <p>We provide a wide range of precision-engineered industrial tools tailored to meet rigorous operational requirements. From manual instruments to high-tech CNC tooling, our quality is guaranteed.</p>
-              </div>
-            </div>
-
-            <!-- Card 2: Specialized Brushes -->
-            <div class="service-card-new stagger-fade">
-              <div class="scn-img-wrap">
-                <img src="images/sp.png" alt="Specialized Brushes">
-                <div class="scn-icon"><i class="fa-solid fa-broom"></i></div>
-              </div>
-              <div class="scn-info">
-                <h3>Specialized Brushes</h3>
-                <p>Expert distribution of industrial and commercial brushes. We specialize in abrasive removal, cleaning, and surface finishing brushes used in demanding manufacturing environments.</p>
-              </div>
-            </div>
-
-            <!-- Card 3: Industrial Equipment -->
-            <div class="service-card-new stagger-fade">
-              <div class="scn-img-wrap">
-                <img src="images/industrial_hydraulic_pumps.png" alt="Industrial Equipment">
-                <div class="scn-icon"><i class="fa-solid fa-industry"></i></div>
-              </div>
-              <div class="scn-info">
-                <h3>Industrial Equipment</h3>
-                <p>Sourcing and supplying heavy-duty machinery and systems. We focus on hydraulic power units, filtration systems, and mechanical assemblies that keep your production line moving.</p>
-              </div>
-            </div>
             
-            <!-- Card 4: Supply Chain -->
-            <div class="service-card-new stagger-fade">
+            <!-- Service 1 -->
+            <div class="service-card-new reveal-fade">
               <div class="scn-img-wrap">
-                <img src="images/Auto.png" alt="Supply Chain Solutions">
-                <div class="scn-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                <img src="images/industrial-equipment.png" alt="Industrial Tools Distribution UAE">
+                <div class="scn-icon">
+                  <i class="fa-solid fa-wrench"></i>
+                </div>
               </div>
               <div class="scn-info">
-                <h3>Supply Chain Solutions</h3>
-                <p>Efficient logistics and strategic inventory management. We ensure that critical industrial components are delivered right when they are needed, minimizing your operational downtime.</p>
+                <h3>Industrial Equipment Distribution</h3>
+                <p>We supply a wide range of reliable and certified industrial equipment, tailored to the operational demands of manufacturing, construction, and engineering enterprises.</p>
               </div>
             </div>
+
+            <!-- Service 2 -->
+            <div class="service-card-new reveal-fade">
+              <div class="scn-img-wrap">
+                <img src="images/brush-product.png" alt="Specialized Industrial Brushes UAE">
+                <div class="scn-icon">
+                  <i class="fa-solid fa-brush"></i>
+                </div>
+              </div>
+              <div class="scn-info">
+                <h3>Specialized Industrial Brushes</h3>
+                <p>We provide specialized brushes designed for diverse applications, ensuring optimal cleaning, deburring, and finishing performance for high-precision industrial processes.</p>
+              </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card-new reveal-fade">
+              <div class="scn-img-wrap">
+                <img src="images/manufacture.png" alt="Heavy-Duty Equipment Sourcing UAE">
+                <div class="scn-icon">
+                  <i class="fa-solid fa-truck-ramp-box"></i>
+                </div>
+              </div>
+              <div class="scn-info">
+                <h3>Heavy Equipment Sourcing</h3>
+                <p>Leveraging our international network, we source robust and reliable heavy equipment from certified global manufacturers to support large-scale industrial projects.</p>
+              </div>
+            </div>
+
           </div>
+        </div>
       </section>
 
-      <!-- CAPABILITIES SECTION -->
-      <section class="capabilities-section">
+      <!-- VALUE PROPOSITION -->
+      <section class="why-choose-section section" style="background: var(--surface-color); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
           <div class="container">
-              <h2 class="section-heading reveal-text" style="color: white; position: relative; z-index: 10;">Our Strategic <span class="accent-text">Capabilities.</span></h2>
-              <div class="cap-grid">
-                  <div class="cap-item stagger-fade">
-                      <h4><i class="fa-solid fa-circle-check"></i> Technical Consultation</h4>
-                      <p>Our engineers provide in-depth product analysis to ensure every component perfectly matches your system specifications.</p>
+              <h2 class="section-heading text-center reveal-text mb-lg">Why Choose <span class="accent-text">Mechaura?</span></h2>
+              <div class="services-grid-new" style="margin-top: 0;">
+                  <div class="service-card-new reveal-fade" style="background: var(--bg-color); color: #fff; border: 1px solid rgba(255,255,255,0.05);">
+                      <div class="scn-info" style="padding: 2.5rem 2rem;">
+                          <div style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;"><i class="fa-solid fa-globe"></i></div>
+                          <h3 style="color: #fff;">Global Sourcing</h3>
+                          <p style="color: var(--text-secondary);">Direct relationships with world-class manufacturers ensuring competitive pricing and authentic components.</p>
+                      </div>
                   </div>
-                  <div class="cap-item stagger-fade">
-                      <h4><i class="fa-solid fa-circle-check"></i> Global Procurement</h4>
-                      <p>Leveraging a vast network of international manufacturers to source rare or highly specialized industrial parts.</p>
+                  <div class="service-card-new reveal-fade" style="background: var(--bg-color); color: #fff; border: 1px solid rgba(255,255,255,0.05);">
+                      <div class="scn-info" style="padding: 2.5rem 2rem;">
+                          <div style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;"><i class="fa-solid fa-bolt"></i></div>
+                          <h3 style="color: #fff;">Rapid Fulfillment</h3>
+                          <p style="color: var(--text-secondary);">Strategic warehousing in Dubai enabling expedited same-day and next-day delivery across the UAE.</p>
+                      </div>
                   </div>
-                  <div class="cap-item stagger-fade">
-                      <h4><i class="fa-solid fa-circle-check"></i> Inventory Management</h4>
-                      <p>Stocking critical components in our regional hubs to provide rapid response times for local businesses.</p>
-                  </div>
-                  <div class="cap-item stagger-fade">
-                      <h4><i class="fa-solid fa-circle-check"></i> Compliance & Safety</h4>
-                      <p>All supplied equipment meets international safety standards and ISO certifications for industrial usage.</p>
+                  <div class="service-card-new reveal-fade" style="background: var(--bg-color); color: #fff; border: 1px solid rgba(255,255,255,0.05);">
+                      <div class="scn-info" style="padding: 2.5rem 2rem;">
+                          <div style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;"><i class="fa-solid fa-shield-halved"></i></div>
+                          <h3 style="color: #fff;">Certified Quality</h3>
+                          <p style="color: var(--text-secondary);">All supplied equipment meets international safety standards and ISO certifications for industrial usage.</p>
+                      </div>
                   </div>
               </div>
           </div>
@@ -267,15 +273,20 @@
                 <a href="services.html">Services</a>
                 <a href="products.html">Products</a>
                 <a href="sectors.html">Sectors</a>
+                <a href="blog.html">Blog</a>
+                <a href="delivery-policy.html">Delivery Policy</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-conditions.html">Terms & Conditions</a>
                 <a href="contact.html">Contact</a>
               </nav>
             </div>
             <div class="fb-right">
               <p class="fb-location"><i class="fa-solid fa-location-dot"></i> Dubai, UAE</p>
               <div class="social-links">
-                <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover-link"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter" class="hover-link"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="mailto:info@mechaurainternational.com" aria-label="Email" class="hover-link"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.instagram.com/mechaura_international" target="_blank" rel="noopener" aria-label="Instagram" class="ig"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.threads.net/@mechaura_international" target="_blank" rel="noopener" aria-label="Threads" class="threads"><i class="fa-brands fa-threads"></i></a>
+                <a href="https://www.linkedin.com/company/mechaura-international" target="_blank" rel="noopener" aria-label="LinkedIn" class="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="mailto:info@mechaurainternational.com" aria-label="Email" class="email"><i class="fa-solid fa-envelope"></i></a>
               </div>
             </div>
           </div>
@@ -285,6 +296,13 @@
     </div>
   </main>
 
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/971566202517?text=Hello%20Mechaura%20International,%20I%20would%20like%20to%20inquire%20about%20your%20industrial%20supply%20services." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with Mechaura International on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="whatsapp-tooltip">Chat with us on WhatsApp</span>
+  </a>
+
+  <!-- Mobile Bottom Nav -->
   <nav class="mobile-bottom-nav">
     <a href="index.html" class="mbn-link">
       <i class="fa-solid fa-house"></i>
@@ -297,6 +315,10 @@
     <a href="services.html" class="mbn-link active">
       <i class="fa-solid fa-gears"></i>
       <span>Services</span>
+    </a>
+    <a href="blog.html" class="mbn-link">
+      <i class="fa-solid fa-newspaper"></i>
+      <span>Blog</span>
     </a>
     <a href="contact.html" class="mbn-link">
       <i class="fa-solid fa-envelope"></i>

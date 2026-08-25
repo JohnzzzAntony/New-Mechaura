@@ -54,6 +54,11 @@
       "name": "Mechaura International FZE LLC",
       "url": "https://mechaurainternational.com",
       "logo": "https://mechaurainternational.com/images/logo.png",
+      "sameAs": [
+        "https://www.instagram.com/mechaura_international",
+        "https://www.threads.net/@mechaura_international",
+        "https://www.linkedin.com/company/mechaura-international"
+      ],
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Dubai",
@@ -66,7 +71,7 @@
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="apple-touch-icon" href="images/logo.png">
 
-  <!-- Fonts -->
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
@@ -93,6 +98,7 @@
         <a href="services.html" class="nav-link" data-hover="Services">Services</a>
         <a href="products.html" class="nav-link" data-hover="Products">Products</a>
         <a href="sectors.html" class="nav-link" data-hover="Sectors">Sectors</a>
+        <a href="blog.html" class="nav-link" data-hover="Blog">Blog</a>
         <a href="contact.html" class="nav-link" data-hover="Contact">Contact</a>
       </div>
       <button class="menu-btn" aria-label="Toggle navigation menu">
@@ -110,6 +116,7 @@
       <a href="services.html" class="mob-link">Services</a>
       <a href="products.html" class="mob-link">Products</a>
       <a href="sectors.html" class="mob-link">Sectors</a>
+      <a href="blog.html" class="mob-link">Blog</a>
       <a href="contact.html" class="mob-link">Contact</a>
     </div>
   </div>
@@ -162,6 +169,42 @@
         </div>
       </section>
 
+      <!-- Trust Badges Strip -->
+      <section class="trust-strip">
+        <div class="container">
+          <div class="trust-grid">
+            <div class="trust-card">
+              <i class="fa-solid fa-certificate"></i>
+              <div class="trust-card-text">
+                <h4>Certified Quality</h4>
+                <p>100% genuine industrial supplies</p>
+              </div>
+            </div>
+            <div class="trust-card">
+              <i class="fa-solid fa-truck-fast"></i>
+              <div class="trust-card-text">
+                <h4>Express Dispatch</h4>
+                <p>Same-day & next-day UAE fulfillment</p>
+              </div>
+            </div>
+            <div class="trust-card">
+              <i class="fa-solid fa-headset"></i>
+              <div class="trust-card-text">
+                <h4>Engineering Support</h4>
+                <p>Direct technical consultation</p>
+              </div>
+            </div>
+            <div class="trust-card">
+              <i class="fa-solid fa-handshake"></i>
+              <div class="trust-card-text">
+                <h4>Reliable Partner</h4>
+                <p>Supplying top UAE contractors</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- FOOTER -->
       <footer class="footer section" id="contact">
         <div class="container">
@@ -191,15 +234,20 @@
                 <a href="services.html">Services</a>
                 <a href="products.html">Products</a>
                 <a href="sectors.html">Sectors</a>
+                <a href="blog.html">Blog</a>
+                <a href="delivery-policy.html">Delivery Policy</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-conditions.html">Terms & Conditions</a>
                 <a href="contact.html">Contact</a>
               </nav>
             </div>
             <div class="fb-right">
               <p class="fb-location"><i class="fa-solid fa-location-dot"></i> Dubai, UAE</p>
               <div class="social-links">
-                <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover-link"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter" class="hover-link"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="mailto:info@mechaurainternational.com" aria-label="Email" class="hover-link"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.instagram.com/mechaura_international" target="_blank" rel="noopener" aria-label="Instagram" class="ig"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.threads.net/@mechaura_international" target="_blank" rel="noopener" aria-label="Threads" class="threads"><i class="fa-brands fa-threads"></i></a>
+                <a href="https://www.linkedin.com/company/mechaura-international" target="_blank" rel="noopener" aria-label="LinkedIn" class="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="mailto:info@mechaurainternational.com" aria-label="Email" class="email"><i class="fa-solid fa-envelope"></i></a>
               </div>
             </div>
           </div>
@@ -209,6 +257,13 @@
     </div>
   </main>
 
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/971566202517?text=Hello%20Mechaura%20International,%20I%20would%20like%20to%20know%20more%20about%20your%20company%20and%20industrial%20supplies." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with Mechaura International on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="whatsapp-tooltip">Chat with us on WhatsApp</span>
+  </a>
+
+  <!-- Mobile Bottom Nav -->
   <nav class="mobile-bottom-nav">
     <a href="index.html" class="mbn-link">
       <i class="fa-solid fa-house"></i>
@@ -218,9 +273,9 @@
       <i class="fa-solid fa-box-open"></i>
       <span>Products</span>
     </a>
-    <a href="services.html" class="mbn-link">
-      <i class="fa-solid fa-gears"></i>
-      <span>Services</span>
+    <a href="blog.html" class="mbn-link">
+      <i class="fa-solid fa-newspaper"></i>
+      <span>Blog</span>
     </a>
     <a href="contact.html" class="mbn-link">
       <i class="fa-solid fa-envelope"></i>

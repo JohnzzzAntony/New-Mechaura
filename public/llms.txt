@@ -1,23 +1,27 @@
 # Mechaura International FZE LLC
 
-> Premier Industrial Supply & Trading Company based in Dubai, United Arab Emirates (UAE).
+> Premier Industrial Supply & Trading Enterprise based in Dubai, United Arab Emirates (UAE).
 
 ## About Mechaura International
-Mechaura International is a specialized trading and distribution enterprise supplying certified industrial equipment, specialized brushes, hydraulic hoses, elevator accessories, bearings, bandsaw blades, and cutting tools across the UAE, Middle East, and global markets.
+Mechaura International is a specialized trading and distribution enterprise supplying certified industrial equipment, specialized abrasive removal brushes, hydraulic hoses, elevator accessories, bearings, bandsaw blades, industrial air filters, and cutting tools across the UAE, Middle East, and global export markets.
 
 - **Headquarters**: Dubai, United Arab Emirates
-- **Phone**: +971 56 620 2517
+- **Phone / WhatsApp**: +971 56 620 2517
 - **Email**: info@mechaurainternational.com
 - **Website**: https://mechaurainternational.com
+- **Social Media**:
+  - Instagram: https://www.instagram.com/mechaura_international
+  - Threads: https://www.threads.net/@mechaura_international
+  - LinkedIn: https://www.linkedin.com/company/mechaura-international
 
-## Core Product Categories
-1. **Specialized Brushes & Abrasive Removal Brush Segments**: Industrial wire, strip, rotary, and cylinder brushes for deburring, descaling, and polishing.
-2. **Elevator Accessories**: Door rollers, guide shoes, safety switches, elevator belts, and traction machine spares.
-3. **Hydraulic Hoses & Fittings**: High-pressure braided, spiral, and industrial fluid transfer hoses with certified pressure ratings.
-4. **Bearings**: High-precision deep groove, spherical roller, and angular contact bearings.
-5. **Cutting Tools**: Carbide inserts, milling cutters, drill bits, and CNC tooling solutions.
-6. **Bandsaw Blades**: Bi-metal and carbide-tipped heavy-duty industrial bandsaw blades.
-7. **Industrial Air Filters**: High-efficiency filtration units for heavy machinery and manufacturing facilities.
+## Core Product Categories & Specifications
+1. **Specialized Brushes & Abrasive Removal Brush Segments**: Industrial wire, strip, rotary, and cylinder brushes for precision deburring, descaling, and polishing.
+2. **Elevator Accessories & Spares**: Guide shoes, polyurethane door rollers, safety switches, elevator belts, and traction machine spares compliant with UAE Civil Defense safety codes.
+3. **Hydraulic Hoses & Fittings**: High-pressure wire-braided (1SN/2SN) and spiral-reinforced (4SP/4SH/R12/R15) hoses with certified working pressures up to 420 Bar.
+4. **Precision Bearings**: Deep groove ball bearings, spherical roller bearings, tapered roller bearings, and angular contact bearings for high-load industrial machinery.
+5. **Cutting Tools**: Carbide inserts, end mills, solid carbide drills, and CNC tooling solutions.
+6. **Bandsaw Blades**: Bi-metal (M42/M51) and carbide-tipped heavy-duty industrial bandsaw blades.
+7. **Industrial Air Filters**: High-efficiency filtration units and coalescers engineered for high-dust desert conditions.
 8. **Industrial Hydraulic Pumps**: Heavy-duty gear, piston, and vane hydraulic power units.
 
 ## Industries Served
@@ -25,9 +29,19 @@ Mechaura International is a specialized trading and distribution enterprise supp
 - Automotive & Transportation
 - Construction & Infrastructure
 - Oil, Gas & Petrochemical
-- Precision Engineering
-- Facility Management & Elevator Maintenance
+- Precision CNC Machining & Engineering
+- Facility Management & Vertical Transport Maintenance
+
+## Knowledge Base & Technical Guides
+- Knowledge Hub & Blog: https://mechaurainternational.com/blog.html
+- Technical Product Specifications: https://mechaurainternational.com/products.html
+
+## Policies & Compliance
+- Delivery & Logistics Policy: https://mechaurainternational.com/delivery-policy.html
+- Privacy Policy: https://mechaurainternational.com/privacy-policy.html
+- Commercial Terms & Conditions: https://mechaurainternational.com/terms-conditions.html
 
 ## Contact & Procurement
 - Quotations & Inquiries: https://mechaurainternational.com/contact.html
-- Catalog: https://mechaurainternational.com/products.html
+- Direct Email: info@mechaurainternational.com
+- WhatsApp: +971 56 620 2517

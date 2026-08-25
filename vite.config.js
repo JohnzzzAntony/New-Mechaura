@@ -13,7 +13,11 @@ export default defineConfig({
                 products: 'products.html',
                 sectors: 'sectors.html',
                 contact: 'contact.html',
-                productDetail: 'product-detail.html'
+                productDetail: 'product-detail.html',
+                blog: 'blog.html',
+                deliveryPolicy: 'delivery-policy.html',
+                privacyPolicy: 'privacy-policy.html',
+                termsConditions: 'terms-conditions.html'
             }
         }
     },
