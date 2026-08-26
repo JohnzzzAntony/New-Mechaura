@@ -10,7 +10,8 @@
     "media": "node tools/generate-product-media.mjs",
     "audit": "node tools/audit-check.mjs",
     "preview": "vite preview",
-    "deploy": "npm run build && node tools/deploy-ghpages.mjs"
+    "deploy": "npm run build && node tools/deploy-ghpages.mjs",
+    "deploy:preview": "node tools/deploy-preview.mjs"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0",

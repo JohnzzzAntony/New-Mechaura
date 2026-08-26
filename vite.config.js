@@ -1,8 +1,20 @@
 import { defineConfig } from 'vite'
-import { mkdirSync, renameSync, writeFileSync, existsSync } from 'node:fs'
+import { mkdirSync, renameSync, writeFileSync, existsSync, readdirSync, readFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 
 const SITE = 'https://mechaurainternational.com'
+
+/**
+ * Production serves from the domain root, so links are root-absolute.
+ *
+ * Set BASE_PATH to preview the built site on a GitHub Pages *project* URL
+ * (https://<user>.github.io/<repo>/), which serves from a subfolder:
+ *   BASE_PATH=/mechaurainternational/ npm run build
+ *
+ * Always redeploy without BASE_PATH before the custom domain goes live —
+ * a subpath build will break every link at the domain root.
+ */
+const BASE = process.env.BASE_PATH || '/'
 
 /** Every page in the site, keyed by the clean URL it is served at. */
 const productSlugs = [
@@ -104,10 +116,10 @@ function cleanUrlsBuild() {
 <title>Redirecting…</title>
 <link rel="canonical" href="${target}">
 <meta name="robots" content="noindex, follow">
-<meta http-equiv="refresh" content="0; url=/${name}">
-<script>location.replace('/${name}' + location.search + location.hash);</script>
+<meta http-equiv="refresh" content="0; url=${BASE}${name}">
+<script>location.replace('${BASE}${name}' + location.search + location.hash);</script>
 </head>
-<body><p>This page has moved to <a href="/${name}">${target}</a>.</p></body>
+<body><p>This page has moved to <a href="${BASE}${name}">${target}</a>.</p></body>
 </html>
 `,
                     'utf8'
@@ -117,10 +129,48 @@ function cleanUrlsBuild() {
     }
 }
 
+/**
+ * When building for a subfolder (BASE_PATH), the hand-written root-absolute
+ * links in the HTML — /about, /images/logo.webp — still point at the domain
+ * root and 404. Vite rewrites the assets it processes but not these, so
+ * prefix any remaining internal URL with the base.
+ */
+function rebaseInternalLinks() {
+    return {
+        name: 'mechaura-rebase-internal-links',
+        apply: 'build',
+        enforce: 'post',
+        closeBundle() {
+            if (BASE === '/') return
+
+            const dist = resolve(process.cwd(), 'dist')
+            const prefix = BASE.replace(/\/$/, '')
+            let touched = 0
+
+            const walk = (dir) => {
+                for (const entry of readdirSync(dir, { withFileTypes: true })) {
+                    const p = join(dir, entry.name)
+                    if (entry.isDirectory()) { walk(p); continue }
+                    if (!entry.name.endsWith('.html')) continue
+
+                    const before = readFileSync(p, 'utf8')
+                    const after = before.replace(
+                        /((?:href|src)=")(\/(?!\/)[^"]*)"/g,
+                        (m, attr, url) => (url.startsWith(`${prefix}/`) ? m : `${attr}${prefix}${url}"`)
+                    )
+                    if (after !== before) { writeFileSync(p, after, 'utf8'); touched++ }
+                }
+            }
+            walk(dist)
+            console.log(`\n  rebased internal links in ${touched} file(s) to ${BASE}`)
+        }
+    }
+}
+
 export default defineConfig({
     // Root-absolute so assets resolve from nested clean URLs such as /products/.
-    base: '/',
-    plugins: [cleanUrlsDev(), cleanUrlsBuild()],
+    base: BASE,
+    plugins: [cleanUrlsDev(), cleanUrlsBuild(), rebaseInternalLinks()],
     build: {
         outDir: 'dist',
         rollupOptions: {
