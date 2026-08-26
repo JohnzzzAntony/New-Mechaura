@@ -11,7 +11,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { SITE, BRAND, LEGAL, PHONE, PHONE_RAW, EMAIL, GTM, AUTHOR, products, locations, gccMarkets } from './site-data.mjs';
+import { SITE, BRAND, LEGAL, PHONE, PHONE_RAW, EMAIL, GTM, GOOGLE_TAG, AUTHOR, products, locations, gccMarkets } from './site-data.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const esc = (s) => String(s).replace(/&(?!amp;|lt;|gt;|quot;|#\d+;|nbsp;|mdash;|ndash;|middot;|hellip;|rsquo;|ldquo;|rdquo;)/g, '&amp;');
@@ -20,6 +20,16 @@ const jsonLd = (o) => JSON.stringify(o, null, 2);
 /* ------------------------------------------------------------------ */
 /* Shared chrome                                                       */
 /* ------------------------------------------------------------------ */
+
+const gtagHead = `  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '${GOOGLE_TAG}');
+  </script>`;
 
 const gtmHead = `  <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -39,6 +49,7 @@ function head({ title, desc, keywords, canonical, ogImage, schema, active }) {
 <html lang="en">
 
 <head>
+${gtagHead}
 ${gtmHead}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

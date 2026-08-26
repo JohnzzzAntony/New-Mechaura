@@ -10,6 +10,7 @@ export const PHONE = '+971 56 620 2517';
 export const PHONE_RAW = '+971566202517';
 export const EMAIL = 'info@mechaurainternational.com';
 export const GTM = 'GTM-PSF2HX47';
+export const GOOGLE_TAG = 'AW-18410739502';
 
 export const AUTHOR = {
   name: 'Mechaura Technical Desk',

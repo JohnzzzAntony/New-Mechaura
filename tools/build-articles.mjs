@@ -8,7 +8,7 @@
  * Run with: node tools/build-articles.mjs
  */
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { SITE, BRAND, LEGAL, PHONE, PHONE_RAW, EMAIL, GTM, AUTHOR, gccMarkets } from './site-data.mjs';
+import { SITE, BRAND, LEGAL, PHONE, PHONE_RAW, EMAIL, GTM, GOOGLE_TAG, AUTHOR, gccMarkets } from './site-data.mjs';
 import { articles } from './article-content.mjs';
 
 const blog = readFileSync('blog.html', 'utf8');
@@ -207,6 +207,15 @@ ${renderBlocks(expanded.blocks)}`;
 <html lang="en">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '${GOOGLE_TAG}');
+  </script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
