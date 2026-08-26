@@ -129,6 +129,17 @@
   </footer>
 
   <script>
+    // Old addresses ended in .html (/about.html). The site now serves clean URLs
+    // (/about), so forward those rather than showing this page. No redirect stub
+    // can live at /about.html: GitHub Pages would serve it for /about too, which
+    // loops. Handling it here keeps the clean URL working.
+    (function rewriteLegacyHtmlUrls() {
+      var path = location.pathname;
+      if (!/\.html$/.test(path) || /\/(404|index)\.html$/.test(path)) return;
+      var clean = path.replace(/\.html$/, '');
+      location.replace(clean + location.search + location.hash);
+    })();
+
     // Mobile menu, without pulling in the full site bundle.
     document.querySelector('.menu-btn')?.addEventListener('click', () => document.querySelector('.mob-overlay').classList.add('active'));
     document.querySelector('.mob-close')?.addEventListener('click', () => document.querySelector('.mob-overlay').classList.remove('active'));

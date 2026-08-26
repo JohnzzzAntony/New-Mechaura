@@ -18,10 +18,19 @@ import { execSync } from 'node:child_process';
 import { rmSync, existsSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-const REPO = 'mechaurainternational';
-const BASE_PATH = `/${REPO}/`;
+// Derive owner/repo from the git remote rather than hardcoding: GitHub Pages
+// project paths are case-sensitive, and the remote has changed before.
+const remote = execSync('git remote get-url origin', { encoding: 'utf8' }).trim();
+const match = remote.match(/github\.com[:/]([^/]+)\/(.+?)(?:\.git)?$/i);
+if (!match) throw new Error(`Could not parse a GitHub owner/repo from origin: ${remote}`);
 
-console.log(`Building preview with base ${BASE_PATH} ...\n`);
+const [, OWNER, REPO] = match;
+const BASE_PATH = `/${REPO}/`;
+const PAGES_URL = `https://${OWNER.toLowerCase()}.github.io${BASE_PATH}`;
+
+console.log(`Repo:    ${OWNER}/${REPO}`);
+console.log(`Preview: ${PAGES_URL}`);
+console.log(`Building with base ${BASE_PATH} ...\n`);
 
 execSync('npm run build', {
   stdio: 'inherit',
@@ -50,5 +59,5 @@ writeFileSync(
 console.log('\nDeploying preview to gh-pages ...\n');
 execSync('node tools/deploy-ghpages.mjs', { stdio: 'inherit' });
 
-console.log(`\nPreview live shortly at: https://muhammedanasm.github.io${BASE_PATH}`);
+console.log(`\nPreview live shortly at: ${PAGES_URL}`);
 console.log('Remember: run `npm run deploy` to restore the production build.');

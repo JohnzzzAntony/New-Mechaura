@@ -98,9 +98,15 @@ function cleanUrlsDev() {
 
 /**
  * Turns `dist/about.html` into `dist/about/index.html` so the site is served at
- * `/about` on GitHub Pages (and any plain static host), and leaves a
- * meta-refresh stub at the old `/about.html` address so previously indexed
- * links keep working.
+ * `/about`.
+ *
+ * Deliberately leaves nothing behind at `dist/about.html`. GitHub Pages resolves
+ * an extensionless request by trying `about.html` BEFORE `about/index.html`, so
+ * a redirect stub at that path shadows the real page — and because the stub
+ * points back at `/about`, it produces an infinite redirect loop.
+ *
+ * Old `*.html` addresses are instead handled by 404.html, which rewrites them
+ * to the clean URL. See rewriteLegacyHtmlUrls in 404.html.
  */
 function cleanUrlsBuild() {
     return {
@@ -116,25 +122,6 @@ function cleanUrlsBuild() {
                 const to = join(dist, name, 'index.html')
                 mkdirSync(dirname(to), { recursive: true })
                 renameSync(from, to)
-
-                const target = `${SITE}/${name}`
-                writeFileSync(
-                    from,
-                    `<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Redirecting…</title>
-<link rel="canonical" href="${target}">
-<meta name="robots" content="noindex, follow">
-<meta http-equiv="refresh" content="0; url=${BASE}${name}">
-<script>location.replace('${BASE}${name}' + location.search + location.hash);</script>
-</head>
-<body><p>This page has moved to <a href="${BASE}${name}">${target}</a>.</p></body>
-</html>
-`,
-                    'utf8'
-                )
             }
         }
     }
