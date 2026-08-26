@@ -16,6 +16,17 @@ const SITE = 'https://mechaurainternational.com'
  */
 const BASE = process.env.BASE_PATH || '/'
 
+// Git Bash on Windows rewrites a leading-slash env value into a Windows path
+// (/foo/ becomes C:/Program Files/Git/foo/). Catch it rather than silently
+// building a broken site — set BASE_PATH from Node, or use npm run deploy:preview.
+if (BASE !== '/' && (/^[A-Za-z]:/.test(BASE) || !BASE.startsWith('/') || !BASE.endsWith('/'))) {
+    throw new Error(
+        `BASE_PATH is "${BASE}", which is not a valid base path.\n` +
+        'It must start and end with "/" (e.g. /mechaurainternational/).\n' +
+        'On Git Bash, shell path conversion mangles this — run "npm run deploy:preview" instead.'
+    )
+}
+
 /** Every page in the site, keyed by the clean URL it is served at. */
 const productSlugs = [
     'abrasive-brushes',
