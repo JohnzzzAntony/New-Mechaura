@@ -9,9 +9,11 @@
     "pages": "node tools/build-pages.mjs && node tools/build-articles.mjs && node tools/build-sitemap.mjs && node tools/optimise-images.mjs",
     "media": "node tools/generate-product-media.mjs",
     "audit": "node tools/audit-check.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && node tools/deploy-ghpages.mjs"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "sharp": "^0.35.4",
     "vite": "^7.3.1"
   }
