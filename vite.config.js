@@ -27,6 +27,7 @@ const articleSlugs = [
 
 const pages = {
     main: 'index.html',
+    notFound: '404.html',
     about: 'about.html',
     services: 'services.html',
     products: 'products.html',
@@ -49,7 +50,7 @@ const pages = {
 
 const cleanNames = Object.values(pages)
     .map((f) => f.replace(/\.html$/, ''))
-    .filter((n) => n !== 'index')
+    .filter((n) => n !== 'index' && n !== '404')
 
 /**
  * Serves `/about` as `about.html` during `vite dev` so local browsing matches

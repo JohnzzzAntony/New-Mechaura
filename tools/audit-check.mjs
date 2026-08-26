@@ -19,7 +19,9 @@ const real = pages.filter(
   (p) =>
     !readFileSync(p, 'utf8').includes('<title>Redirecting') &&
     // Google's ownership-verification file is intentionally bare markup.
-    !/google[0-9a-f]+\.html$/.test(p)
+    !/google[0-9a-f]+\.html$/.test(p) &&
+    // The error page is intentionally noindex, with no canonical or social tags.
+    !/[\\/]404\.html$/.test(p)
 );
 const corpus = real.map((p) => readFileSync(p, 'utf8')).join('\n');
 

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Page Not Found | Mechaura International</title>
+  <meta name="description" content="The page you requested could not be found. Browse Mechaura International's industrial supply range or contact our technical desk in Dubai, UAE.">
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="apple-touch-icon" href="/images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap">
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar scrolled" aria-label="Main Navigation">
+    <div class="nav-container">
+      <a href="/" class="logo-link" aria-label="Mechaura International Home">
+        <div class="logo-wrapper">
+          <img src="/images/logo.webp" alt="Mechaura International Logo" class="logo-icon" width="48" height="48">
+          <div class="logo-text">
+            <span class="logo-main">MECHAURA</span>
+            <span class="logo-sub">INTERNATIONAL</span>
+          </div>
+        </div>
+      </a>
+      <div class="menu-links">
+        <a href="/about" class="nav-link" data-hover="About">About</a>
+        <a href="/services" class="nav-link" data-hover="Services">Services</a>
+        <a href="/products" class="nav-link" data-hover="Products">Products</a>
+        <a href="/sectors" class="nav-link" data-hover="Sectors">Sectors</a>
+        <a href="/blog" class="nav-link" data-hover="Blog">Blog</a>
+        <a href="/contact" class="nav-link" data-hover="Contact">Contact</a>
+      </div>
+      <button class="menu-btn" aria-label="Open mobile navigation menu">
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mob-overlay" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <div class="mob-close" aria-label="Close menu"><i class="fa-solid fa-times"></i></div>
+    <div class="mob-links">
+      <a href="/about" class="mob-link">About</a>
+      <a href="/services" class="mob-link">Services</a>
+      <a href="/products" class="mob-link">Products</a>
+      <a href="/sectors" class="mob-link">Sectors</a>
+      <a href="/blog" class="mob-link">Blog</a>
+      <a href="/contact" class="mob-link">Contact</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="section pillar-hero">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Error 404</span>
+          <h1 class="section-title">That page has <span class="accent-text">moved or never existed.</span></h1>
+          <p class="section-desc">The address you followed did not match anything on our site. If you arrived from an
+            old link, the page has most likely been reorganised — our product range now lives under individual pages.</p>
+        </div>
+
+        <div class="product-index" style="margin-top: 2.5rem;">
+          <span class="pi-label">Try one of these:</span>
+          <a href="/products/abrasive-brushes">Abrasive Brush Segments</a>
+          <a href="/products/hydraulic-hoses">Hydraulic Hoses</a>
+          <a href="/products/industrial-bearings">Industrial Bearings</a>
+          <a href="/products/bandsaw-blades">Bandsaw Blades</a>
+          <a href="/products/cutting-tools">Cutting Tools</a>
+          <a href="/products/elevator-accessories">Elevator Accessories</a>
+          <a href="/products/industrial-air-filters">Industrial Air Filters</a>
+          <a href="/products/hydraulic-pumps">Hydraulic Pumps</a>
+          <a href="/abrasive-brushes-for-shot-blast-machines" class="pi-featured">Brushes for Shot Blast Machines</a>
+        </div>
+
+        <div class="pillar-actions">
+          <a href="/" class="explore-btn">Back to Home <div class="btn-arr"><i class="fa-solid fa-arrow-right"></i></div></a>
+          <a href="/contact" class="cta-ghost-btn"><i class="fa-solid fa-envelope"></i> Contact our technical desk</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer section">
+    <div class="container">
+      <div class="footer-separator"></div>
+      <div class="footer-bottom">
+        <div class="fb-left">
+          <div class="fb-logo">
+            <img src="/images/logo.webp" alt="Mechaura International" class="fb-logo-img" width="48" height="48">
+            <div class="fb-logo-name">
+              <span class="fb-brand">MECHAURA</span>
+              <span class="fb-sub">INTERNATIONAL</span>
+            </div>
+          </div>
+          <p class="fb-copy">&copy; 2026 Mechaura International FZE LLC.<br>All Rights Reserved.</p>
+        </div>
+        <div class="fb-right">
+          <p class="fb-location"><i class="fa-solid fa-location-dot"></i> Dubai, UAE</p>
+          <div class="social-links">
+            <a href="mailto:info@mechaurainternational.com" aria-label="Email" class="email"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu, without pulling in the full site bundle.
+    document.querySelector('.menu-btn')?.addEventListener('click', () => document.querySelector('.mob-overlay').classList.add('active'));
+    document.querySelector('.mob-close')?.addEventListener('click', () => document.querySelector('.mob-overlay').classList.remove('active'));
+  </script>
+</body>
+
+</html>
