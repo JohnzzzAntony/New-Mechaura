@@ -240,10 +240,10 @@ export const articles = {
       ['table', {
         head: ['Material section', 'Suggested pitch', 'Notes'],
         rows: [
-          ['Thin wall tube (< 3 mm)', '10/14 TPI', 'Fine pitch essential to avoid stripping'],
+          ['Thin wall tube (&lt; 3 mm)', '10/14 TPI', 'Fine pitch essential to avoid stripping'],
           ['Tube and profile bundles', '6/10 or 8/12 TPI', 'Variable pitch reduces harmonic vibration'],
           ['Solid bar 25 – 75 mm', '4/6 or 5/8 TPI', 'Most common general fabrication range'],
-          ['Heavy solid > 150 mm', '2/3 or 3/4 TPI', 'Coarse gullets needed for chip clearance'],
+          ['Heavy solid &gt; 150 mm', '2/3 or 3/4 TPI', 'Coarse gullets needed for chip clearance'],
         ],
       }],
       ['p', 'Variable-pitch designations such as 4/6 mean the pitch alternates between those values along the band. This breaks up the harmonic vibration that causes chatter, giving cleaner cut squareness and quieter operation.'],
