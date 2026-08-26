@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Staggered lists/cards
-    gsap.utils.toArray('.services, .products, .industries').forEach(section => {
+    gsap.utils.toArray('.services, .products, .industries, .why-section, .process-section, .insights-section').forEach(section => {
         const items = section.querySelectorAll('.stagger-fade');
         if (items.length > 0) {
             gsap.from(items, {
@@ -219,24 +219,51 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================================
     // 8. Products Swiper Setup
     // ==========================================
-    const productsSwiper = new Swiper('.products-swiper', {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        loop: true,
-        grabCursor: true,
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        breakpoints: {
-            640: { slidesPerView: 2, spaceBetween: 30 },
-            1024: { slidesPerView: 3, spaceBetween: 40 }
-        }
-    });
+    // Swiper only ships on pages that use the carousel — guard so the rest of
+    // this script still runs everywhere else.
+    if (typeof Swiper !== 'undefined' && document.querySelector('.products-swiper')) {
+        new Swiper('.products-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            grabCursor: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                640: { slidesPerView: 2, spaceBetween: 30 },
+                1024: { slidesPerView: 3, spaceBetween: 40 }
+            }
+        });
+    }
+
+    // ==========================================
+    // 8b. Static Product Gallery (generated product pages)
+    // ==========================================
+    const galleryThumbs = document.getElementById('product-thumbs');
+    const galleryMain = document.getElementById('product-img');
+
+    if (galleryThumbs && galleryMain) {
+        const buttons = Array.from(galleryThumbs.querySelectorAll('.pd-thumb'));
+        const label = document.getElementById('product-view-label');
+        const baseAlt = (galleryMain.alt || '').split(' — ')[0];
+
+        buttons.forEach((btn, i) => {
+            btn.addEventListener('click', () => {
+                const src = btn.dataset.src;
+                const view = btn.dataset.label || '';
+                galleryMain.src = src;
+                galleryMain.alt = `${baseAlt} — ${view}`;
+                if (label) label.innerText = `${view} · ${i + 1} / ${buttons.length}`;
+                buttons.forEach((b) => b.classList.toggle('active', b === btn));
+            });
+        });
+    }
 
     // ==========================================
     // 9. FAQ Accordion Interaction

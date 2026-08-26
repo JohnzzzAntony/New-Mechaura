@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://mechaurainternational.com/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -12,63 +12,201 @@
     </image:image>
   </url>
   <url>
-    <loc>https://mechaurainternational.com/products.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <loc>https://mechaurainternational.com/products</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mechaurainternational.com/services.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <loc>https://mechaurainternational.com/abrasive-brushes-for-shot-blast-machines</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://mechaurainternational.com/images/sp.png</image:loc>
+      <image:title>Abrasive brushes for shot blast machines</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mechaurainternational.com/products/abrasive-brushes</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://mechaurainternational.com/images/sp.png</image:loc>
+      <image:title>Abrasive Removal Brush Segments</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mechaurainternational.com/products/hydraulic-hoses</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://mechaurainternational.com/images/hydraulic-hose.png</image:loc>
+      <image:title>Hydraulic Hoses &amp; Fittings</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mechaurainternational.com/products/industrial-bearings</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://mechaurainternational.com/images/bear.png</image:loc>
+      <image:title>Industrial Bearings</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mechaurainternational.com/products/bandsaw-blades</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://mechaurainternational.com/images/bandsaw.png</image:loc>
+      <image:title>Bandsaw Blades</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mechaurainternational.com/products/cutting-tools</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://mechaurainternational.com/images/cut.png</image:loc>
+      <image:title>Cutting Tools &amp; CNC Tooling</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mechaurainternational.com/products/elevator-accessories</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://mechaurainternational.com/images/elevator.png</image:loc>
+      <image:title>Elevator Accessories &amp; Spares</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mechaurainternational.com/products/industrial-air-filters</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://mechaurainternational.com/images/industrial_air_filters.png</image:loc>
+      <image:title>Industrial Air Filters</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mechaurainternational.com/products/hydraulic-pumps</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://mechaurainternational.com/images/industrial_hydraulic_pumps.png</image:loc>
+      <image:title>Industrial Hydraulic Pumps</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mechaurainternational.com/industrial-supplies-dubai</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mechaurainternational.com/sectors.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <loc>https://mechaurainternational.com/industrial-supplies-abu-dhabi</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mechaurainternational.com/blog.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <loc>https://mechaurainternational.com/industrial-supplies-sharjah</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mechaurainternational.com/services</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mechaurainternational.com/sectors</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mechaurainternational.com/contact</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mechaurainternational.com/blog</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://mechaurainternational.com/about.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <loc>https://mechaurainternational.com/blog/abrasive-removal-brush-segments-guide</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://mechaurainternational.com/blog/hydraulic-hose-failure-prevention</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://mechaurainternational.com/blog/elevator-spares-inspection-checklist</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://mechaurainternational.com/blog/precision-vs-standard-bearings</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://mechaurainternational.com/blog/bimetal-vs-carbide-bandsaw-blades</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://mechaurainternational.com/blog/industrial-air-filters-arid-climates</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://mechaurainternational.com/about</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mechaurainternational.com/contact.html</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://mechaurainternational.com/delivery-policy</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://mechaurainternational.com/product-detail.html</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://mechaurainternational.com/privacy-policy</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://mechaurainternational.com/delivery-policy.html</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://mechaurainternational.com/privacy-policy.html</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://mechaurainternational.com/terms-conditions.html</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://mechaurainternational.com/terms-conditions</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

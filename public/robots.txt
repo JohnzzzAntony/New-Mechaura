@@ -1,4 +1,4 @@
-# Robots.txt for Mechaura International UAE
+# Robots.txt for Mechaura International FZE LLC
 # https://mechaurainternational.com
 
 User-agent: *
@@ -6,24 +6,70 @@ Allow: /
 Disallow: /scratch/
 Disallow: /.git/
 
-# Allow major AI search engine bots for Generative Engine Optimization (GEO/AEO)
+# Legacy .html addresses are redirect stubs — index the clean URLs instead.
+Disallow: /*.html$
+Allow: /googlefd4c40fe556b6d4a.html
+
+# Major search crawlers
 User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
+User-agent: Applebot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# AI / answer engines (Generative Engine Optimization)
 User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
 Allow: /
 
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: Applebot
+User-agent: Perplexity-User
 Allow: /
 
-# Sitemap location
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
 Sitemap: https://mechaurainternational.com/sitemap.xml
