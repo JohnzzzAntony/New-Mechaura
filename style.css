@@ -4561,3 +4561,245 @@ textarea:focus-visible,
         margin-bottom: 2rem;
     }
 }
+
+/* ==========================================================================
+   v5 — Premium refinement
+   --------------------------------------------------------------------------
+   Measured problems this addresses on the 1440px homepage:
+     · four different H2 treatments (64px uppercase / 54px / 48px / 128px)
+     · five section-padding values (48 / 96 / 112 / 128px)
+     · five paragraphs running to ~98 characters (comfortable is 45-75)
+     · container sat 20px from the viewport edge, leaving no breathing room
+   ========================================================================== */
+
+:root {
+    /* One vertical rhythm for the whole site */
+    --section-y: clamp(4rem, 2.2rem + 6vw, 7.5rem);
+    --section-y-tight: clamp(3rem, 1.8rem + 4vw, 5rem);
+
+    /* Comfortable reading measure */
+    --measure: 68ch;
+    --measure-narrow: 56ch;
+
+    /* Layout */
+    --container-max: 1320px;
+    --gutter: clamp(1.25rem, 0.5rem + 3vw, 4rem);
+}
+
+/* ---- Container: narrower cap, generous fluid gutters -------------------- */
+.container {
+    max-width: var(--container-max);
+    padding-inline: var(--gutter);
+}
+
+.container.narrow {
+    max-width: 780px;
+}
+
+/* ---- Vertical rhythm: one scale, applied everywhere -------------------- */
+.section,
+.about,
+.why-section,
+.services,
+.products,
+.process-section,
+.industries,
+.insights-section,
+.cta-section,
+.faq-section,
+.related-section,
+.article-body {
+    padding-block: var(--section-y);
+}
+
+.trust-strip,
+.brands-section,
+.marquee-section {
+    padding-block: var(--section-y-tight);
+}
+
+.product-page,
+.pillar-hero,
+.article-page {
+    padding-top: calc(var(--section-y) + 3.5rem);
+    padding-bottom: var(--section-y);
+}
+
+.footer {
+    padding-top: var(--section-y);
+    padding-bottom: var(--section-y-tight);
+}
+
+/* ---- Typography: a single, coherent heading scale ---------------------- */
+
+/* The uppercase display treatment and the sentence-case treatment now share
+   one size ramp, so headings stop competing with each other. */
+.section-heading {
+    font-size: clamp(2rem, 1.2rem + 3.4vw, 3.4rem);
+    line-height: 1.06;
+    letter-spacing: -0.025em;
+}
+
+.section-title {
+    font-size: clamp(1.9rem, 1.2rem + 3vw, 3.1rem);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+}
+
+.mega-text {
+    font-size: clamp(2.6rem, 1.2rem + 6.5vw, 6rem);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+}
+
+/* Eyebrow labels read as one family across every section */
+.section-tag {
+    font-weight: 600;
+    letter-spacing: 0.2em;
+}
+
+/* ---- Reading measure --------------------------------------------------- */
+.section-desc,
+.about-desc p,
+.pd-description,
+.brands-note {
+    max-width: var(--measure);
+}
+
+.section-head.centered .section-desc,
+.brands-note {
+    margin-inline: auto;
+}
+
+.article-content p,
+.article-content ul,
+.article-content ol,
+.article-body p {
+    max-width: var(--measure);
+}
+
+/* Headline measure — long titles should break before they run edge to edge */
+.section-title,
+.section-heading {
+    max-width: 20ch;
+}
+
+.section-head.centered .section-title,
+.section-head.centered .section-heading {
+    max-width: 24ch;
+    margin-inline: auto;
+}
+
+.hero-title {
+    max-width: 16ch;
+    margin-inline: auto;
+}
+
+/* ---- Surface treatment: consistent card language ----------------------- */
+.why-card,
+.tst-card,
+.ins-card,
+.rel-card,
+.av-card,
+.am-chip,
+.area-list li,
+.author-box,
+.why-quote,
+.cta-box {
+    border-radius: 18px;
+}
+
+.trust-card,
+.sector-card,
+.service-card-new {
+    border-radius: 16px;
+}
+
+/* A single, quieter elevation model — the previous mix of heavy orange glows
+   read as noisy rather than premium. */
+.why-card:hover,
+.tst-card:hover,
+.av-card:hover,
+.am-chip:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.04);
+    transform: translateY(-3px);
+}
+
+.ins-card:hover,
+.rel-card:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-4px);
+    box-shadow: 0 24px 50px -30px rgba(0, 0, 0, 0.9);
+}
+
+/* Accent stays for genuinely interactive affordances rather than every card */
+.explore-btn:hover,
+.pd-thumb.active {
+    border-color: var(--accent);
+}
+
+/* ---- Section headers get consistent spacing --------------------------- */
+.section-head {
+    margin-bottom: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+}
+
+.mb-lg {
+    margin-bottom: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+}
+
+/* ---- Grid gaps normalise ---------------------------------------------- */
+.rel-grid,
+.insights-grid,
+.tst-grid,
+.why-cards,
+.services-grid-new {
+    gap: clamp(1rem, 0.6rem + 1.2vw, 1.75rem);
+}
+
+/* ==========================================================================
+   Carousel images must not lazy-load
+   --------------------------------------------------------------------------
+   Slides sit outside the viewport, so loading="lazy" left them blank until
+   the carousel advanced — which is what produced the empty panels in the
+   product strip.
+   ========================================================================== */
+.swiper-slide img {
+    content-visibility: visible;
+}
+
+/* ---- Mobile refinements ------------------------------------------------ */
+@media (max-width: 768px) {
+    .section-title,
+    .section-heading,
+    .hero-title {
+        max-width: none;
+    }
+
+    .section-head {
+        margin-bottom: 2rem;
+    }
+
+    /* Centred headings read better left-aligned on a narrow column */
+    .section-head.centered {
+        text-align: left;
+    }
+
+    .section-head.centered .section-title,
+    .section-head.centered .section-heading,
+    .section-head.centered .section-desc {
+        margin-inline: 0;
+        max-width: none;
+    }
+
+    .text-center {
+        text-align: left;
+    }
+
+    /* Keep genuinely centred elements centred */
+    .brands-note,
+    .process-step,
+    .loader-text {
+        text-align: center;
+    }
+}
