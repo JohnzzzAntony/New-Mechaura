@@ -90,23 +90,19 @@ ${gtmHead}
 ${schema.map((s) => `  <script type="application/ld+json">\n${jsonLd(s)}\n  </script>`).join('\n\n')}
 
   <!-- Fonts: preconnect + non-blocking load -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap"
-    media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap">
-  </noscript>
 
   <!-- Icons: non-blocking -->
   <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <!-- Type: Aeonik loads from /fonts via @font-face in style.css.
+       Switzer is the licensed-free stand-in until those files are added. -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="preload" as="style" href="https://api.fontshare.com/v2/css?f%5B%5D=switzer@400,500,600,700&display=swap">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f%5B%5D=switzer@400,500,600,700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f%5B%5D=switzer@400,500,600,700&display=swap"></noscript>
 
   <link rel="stylesheet" href="/style.css">
 </head>

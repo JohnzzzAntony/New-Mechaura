@@ -1,6 +1,12 @@
 // Wait for DOM to load
 document.addEventListener("DOMContentLoaded", () => {
 
+    // If GSAP is unavailable the CSS-hidden hero copy must still show.
+    if (typeof gsap === 'undefined') {
+        document.querySelectorAll('.hero-subtitle').forEach((el) => el.classList.add('is-revealed'));
+        return;
+    }
+
     // Register GSAP plugins
     gsap.registerPlugin(ScrollTrigger);
 
@@ -91,9 +97,16 @@ document.addEventListener("DOMContentLoaded", () => {
             { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
             "-=1"
         )
-        .fromTo('.explore-btn, .scroll-down',
+        // .hero-subtitle is opacity:0 in CSS awaiting this reveal — without it
+        // the hero's supporting copy never becomes visible.
+        .fromTo('.hero-subtitle',
+            { y: 24, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' },
+            "-=0.75"
+        )
+        .fromTo('.explore-btn, .view-all-btn, .hero-stats, .scroll-down',
             { y: 20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: 'power3.out' },
+            { y: 0, opacity: 1, duration: 0.8, stagger: 0.12, ease: 'power3.out' },
             "-=0.6"
         );
 

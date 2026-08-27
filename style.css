@@ -4068,3 +4068,496 @@ body.loading {
         overflow-x: auto;
     }
 }
+
+/* ==========================================================================
+   v4 — Typography (Aeonik), fluid scale, responsive corrections
+   --------------------------------------------------------------------------
+   Aeonik is a commercial typeface (CoType Foundry) and cannot be bundled or
+   served from a CDN without a licence. Drop the licensed files into
+   /public/fonts/ using the names below and they take effect immediately.
+
+     public/fonts/Aeonik-Regular.woff2   (400)
+     public/fonts/Aeonik-Medium.woff2    (500)
+     public/fonts/Aeonik-Bold.woff2      (700)
+
+   Until then the stack falls through to Switzer — a free geometric grotesque
+   with near-identical proportions — so the site reads as intended either way.
+   ========================================================================== */
+
+@font-face {
+    font-family: 'Aeonik';
+    src: url('/fonts/Aeonik-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: url('/fonts/Aeonik-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik';
+    src: url('/fonts/Aeonik-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    /* Aeonik first; Switzer is the licensed-free stand-in until the files land. */
+    --font-heading: 'Aeonik', 'Switzer', 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Aeonik', 'Switzer', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    /* ---- Fluid type scale (min stays >= 12px for legibility) ---- */
+    --fs-display: clamp(2.4rem, 1.4rem + 4.6vw, 5rem);
+    --fs-h1: clamp(2rem, 1.3rem + 3.2vw, 3.6rem);
+    --fs-h2: clamp(1.6rem, 1.2rem + 2vw, 2.6rem);
+    --fs-h3: clamp(1.1rem, 0.98rem + 0.6vw, 1.35rem);
+    --fs-body-lg: clamp(1rem, 0.96rem + 0.25vw, 1.12rem);
+    --fs-body: clamp(0.94rem, 0.92rem + 0.14vw, 1rem);
+    --fs-small: clamp(0.85rem, 0.83rem + 0.1vw, 0.9rem);
+    --fs-label: clamp(0.75rem, 0.73rem + 0.1vw, 0.8rem);   /* never below 12px */
+
+    /* ---- Spacing scale ---- */
+    --space-2xs: 0.5rem;
+    --space-xs: 0.75rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2.5rem;
+    --space-xl: 4rem;
+    --space-2xl: clamp(4rem, 2rem + 8vw, 8rem);
+
+    /* ---- Minimum comfortable touch target (WCAG 2.5.5) ---- */
+    --tap-min: 44px;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    /* Guards against any single rogue element creating a sideways scroll. */
+    overflow-x: hidden;
+}
+
+/* Optical refinement — makes the geometric grotesque sit better at display sizes */
+h1, h2, h3, .section-title, .hero-title, .mega-text, .article-h1 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+}
+
+p, li {
+    text-wrap: pretty;
+}
+
+/* ==========================================================================
+   FIX — generated product pages were missing the gallery styles
+   --------------------------------------------------------------------------
+   .pd-gallery / .pd-image-box only existed inside product-detail.html's inline
+   <style>. The generated /products/<slug> pages never received them, so the
+   800px-wide product image was unconstrained and forced the whole document to
+   815px on a 375px screen.
+   ========================================================================== */
+.pd-gallery {
+    position: sticky;
+    top: 100px;
+    min-width: 0;
+}
+
+.pd-image-box {
+    background: var(--surface-light);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    aspect-ratio: 4 / 3;
+    width: 100%;
+}
+
+.pd-image-box img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Grid and flex children default to min-width:auto, which stops them shrinking
+   below their content. Every multi-column layout on the site needs this. */
+.pd-grid > *,
+.about-grid > *,
+.why-grid > *,
+.contact-grid > *,
+.rel-grid > *,
+.insights-grid > *,
+.tst-grid > *,
+.services-grid-new > *,
+.sectors-grid > * {
+    min-width: 0;
+}
+
+/* Media never exceeds its container, whatever width/height attributes say. */
+img,
+svg,
+video,
+table {
+    max-width: 100%;
+}
+
+/* FIX — product page H1 was left at 40% opacity by an stray !important */
+.pd-info-box h1 {
+    color: var(--text-primary) !important;
+}
+
+/* ==========================================================================
+   Touch targets — WCAG 2.5.5 asks for 44x44 CSS px
+   ========================================================================== */
+.menu-btn {
+    min-width: var(--tap-min);
+    min-height: var(--tap-min);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 6px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.view-all-btn,
+.scn-link,
+.ins-link,
+.product-index a,
+.blog-read-btn {
+    min-height: var(--tap-min);
+    display: inline-flex;
+    align-items: center;
+}
+
+.mob-close,
+.faq-question {
+    min-height: var(--tap-min);
+}
+
+/* Bullets stay visually small but gain an invisible, thumb-sized hit area. */
+.swiper-pagination-bullet {
+    position: relative;
+}
+
+.swiper-pagination-bullet::after {
+    content: '';
+    position: absolute;
+    inset: -17px;
+}
+
+.social-links a,
+.pd-thumb {
+    min-width: var(--tap-min);
+    min-height: var(--tap-min);
+}
+
+/* ==========================================================================
+   Legibility floors — nothing below 12px
+   ========================================================================== */
+.logo-sub,
+.lt-sub,
+.hs-label,
+.stat-label,
+.am-chip span,
+.pi-label,
+.ins-badge,
+.rel-cat,
+.fb-sub,
+.tst-company,
+.wq-role {
+    font-size: var(--fs-label);
+}
+
+.logo-sub {
+    letter-spacing: 0.18em;
+}
+
+/* ==========================================================================
+   Long unbroken strings (emails, part numbers, URLs) must not push layout
+   ========================================================================== */
+.huge-email,
+.contact-info-item a,
+.contact-info-item span,
+.footer-phone,
+.article-content a {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+/* ==========================================================================
+   Focus visibility — keyboard users could not see where they were
+   ========================================================================== */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.pd-thumb:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ==========================================================================
+   Responsive — unified breakpoints
+     1024px  tablet landscape and below
+      768px  tablet portrait and below
+      480px  phone
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .pd-gallery {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1.25rem;
+    }
+
+    .section {
+        padding: 3.5rem 0;
+    }
+
+    /* Hero */
+    .hero-title {
+        font-size: var(--fs-h1);
+    }
+
+    .hero-subtitle {
+        font-size: var(--fs-body-lg);
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.85rem;
+        width: 100%;
+    }
+
+    .hero-actions .explore-btn,
+    .hero-actions .view-all-btn {
+        width: 100%;
+        justify-content: center;
+        margin-left: 0 !important;
+    }
+
+    /* Section headings */
+    .section-heading {
+        font-size: clamp(2rem, 8vw, 2.6rem);
+    }
+
+    .section-title {
+        font-size: var(--fs-h2);
+    }
+
+    /* Cards and grids collapse to one column */
+    .services-grid-new,
+    .sectors-grid,
+    .rel-grid,
+    .insights-grid,
+    .tst-grid,
+    .why-cards,
+    .about-values {
+        grid-template-columns: 1fr;
+    }
+
+    .about-grid,
+    .contact-grid,
+    .pd-grid,
+    .why-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+
+    /* Contact card padding was forcing a 387px layout on a 375px screen */
+    .contact-info-card,
+    .contact-form-wrapper,
+    .quote-form-container {
+        padding: 1.5rem;
+    }
+
+    .contact-info-item span,
+    .contact-info-item a {
+        font-size: 0.95rem;
+    }
+
+    /* Forms go single column and stop iOS zooming on focus (needs >= 16px) */
+    .q-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select,
+    .q-input,
+    .q-textarea {
+        font-size: 16px;
+    }
+
+    /* Buttons become full width so they are easy to hit one-handed */
+    .explore-btn,
+    .cta-ghost-btn,
+    .submit-btn,
+    .submit-quote-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .pd-actions,
+    .pillar-actions,
+    .cta-actions,
+    .article-next {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    /* Footer */
+    .mega-text {
+        font-size: clamp(2.2rem, 12vw, 3.4rem);
+    }
+
+    .huge-email {
+        font-size: clamp(0.95rem, 4.4vw, 1.4rem);
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-lg);
+    }
+
+    /* Tables scroll rather than stretch the page */
+    .spec-table,
+    .article-content table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .spec-table tbody th,
+    .spec-table td,
+    .article-content th,
+    .article-content td {
+        white-space: normal;
+    }
+
+    /* Keep clear of the fixed bottom navigation */
+    .footer {
+        padding-bottom: calc(3.5rem + 72px);
+    }
+
+    .whatsapp-float {
+        bottom: calc(72px + 1rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pd-thumbs {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .area-list {
+        grid-template-columns: 1fr;
+    }
+
+    .product-index {
+        gap: 0.5rem;
+    }
+
+    .product-index a {
+        font-size: var(--fs-label);
+    }
+
+    .trust-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---- v4 corrections found in device testing ---------------------------- */
+
+/* .section-tag set its own 0.72rem, bypassing the label floor */
+.section-tag {
+    font-size: var(--fs-label);
+}
+
+/* Footer nav links were 20px tall — well under the 44px touch minimum */
+.footer-nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--tap-min);
+    min-width: var(--tap-min);
+    padding: 0 0.25rem;
+}
+
+/* Standalone email/phone links in the footer need a comfortable hit area */
+.huge-email,
+.footer-phone {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--tap-min);
+}
+
+/* Inline links inside prose keep their natural height — WCAG 2.5.5 exempts
+   targets that sit inline within a sentence. */
+
+/* Short footer labels (e.g. "Blog") still need a 44px-wide hit area */
+.footer-nav a {
+    justify-content: center;
+    min-width: var(--tap-min);
+    padding: 0 0.25rem;
+}
+
+/* Safety net: if the reveal animation never runs (JS blocked, GSAP fails to
+   load), the hero copy must still be readable rather than invisible. */
+.no-js .hero-subtitle,
+.hero-subtitle.is-revealed {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    /* The scroll cue overlapped the stats bar once the hero stacked. The stats
+       already sit at the fold and invite scrolling, so the cue is redundant. */
+    .scroll-down {
+        display: none;
+    }
+
+    .hero {
+        min-height: auto;
+        padding-top: 6.5rem;
+        padding-bottom: 3rem;
+    }
+
+    .hero-subtitle {
+        margin-bottom: 2rem;
+    }
+}
