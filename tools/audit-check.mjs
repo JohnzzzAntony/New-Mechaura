@@ -89,3 +89,10 @@ console.log(
     .map(([t, n]) => `${String(n).padStart(4)}  ${t}`)
     .join('\n')
 );
+
+// Exit non-zero so CI actually blocks a deploy when a page has regressed —
+// a missing title, canonical, alt text, a second H1 or invalid JSON-LD.
+if (problems.length) {
+  console.error(`\n${problems.length} page(s) failed the SEO checks.`);
+  process.exit(1);
+}

@@ -1,0 +1,85 @@
+name: Build and deploy to GitHub Pages
+
+# Every push to main rebuilds the site and republishes it to the gh-pages
+# branch, which is what GitHub Pages serves at mechaurainternational.com.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Needed so the job can push the built output back to gh-pages.
+permissions:
+  contents: write
+
+# A newer push supersedes one already running; never publish out of order.
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        # Generates product/article/location pages, the sitemap and WebP
+        # images, then bundles with Vite into dist/.
+        run: npm run build
+
+      - name: Verify SEO signals
+        # Fails the deploy if a page loses its title, canonical, single H1,
+        # image alt text or valid structured data.
+        run: npm run audit
+
+      - name: Check the build is publishable
+        run: |
+          set -e
+          for f in index.html CNAME .nojekyll 404.html sitemap.xml robots.txt; do
+            if [ ! -f "dist/$f" ]; then
+              echo "::error::dist/$f is missing — refusing to deploy"
+              exit 1
+            fi
+          done
+          if grep -rq 'MechauraInternational/' dist/index.html; then
+            echo "::error::dist contains subpath links; this build is not for the custom domain"
+            exit 1
+          fi
+          echo "dist/ looks correct — $(find dist -type f | wc -l) files"
+
+      - name: Publish to gh-pages
+        run: |
+          set -e
+          cd dist
+          git init -q
+          git checkout -q -b gh-pages
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Deploy ${GITHUB_SHA::7} from ${GITHUB_REF_NAME}"
+          git push --force \
+            "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+            gh-pages:gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Summary
+        run: |
+          {
+            echo "### Deployed to GitHub Pages"
+            echo ""
+            echo "- Commit: \`${GITHUB_SHA::7}\`"
+            echo "- Live at: https://mechaurainternational.com"
+            echo "- Files published: $(find dist -type f | wc -l)"
+          } >> "$GITHUB_STEP_SUMMARY"
