@@ -18,7 +18,7 @@ import { join, extname, basename } from 'node:path';
 const MAX_WIDTH = 1600;
 const QUALITY = 78;
 
-const dirs = ['public/images', 'public/assets', 'images', 'assets'];
+const dirs = ['public/images', 'public/assets'];
 
 let converted = 0;
 let savedBytes = 0;

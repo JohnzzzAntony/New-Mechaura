@@ -3,7 +3,7 @@
  * product gallery has multiple related visuals alongside its photograph.
  *
  * Run with:  node tools/generate-product-media.mjs
- * Output:    public/images/products/*.svg   (mirrored to images/products/*.svg)
+ * Output:    public/images/products/*.svg
  */
 
 import { mkdirSync, writeFileSync } from 'node:fs';
@@ -453,7 +453,7 @@ const products = {
 
 /* -------------------------------------------------------------------------- */
 
-const outDirs = [join(ROOT, 'public', 'images', 'products'), join(ROOT, 'images', 'products')];
+const outDirs = [join(ROOT, 'public', 'images', 'products')];
 outDirs.forEach((d) => mkdirSync(d, { recursive: true }));
 
 let count = 0;

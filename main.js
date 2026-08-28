@@ -1,9 +1,54 @@
+// Register Service Worker for rapid caching & offline support
+if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost')) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then((reg) => {
+            console.log('[Mechaura] Service Worker active:', reg.scope);
+        }).catch((err) => {
+            console.warn('[Mechaura] Service Worker registration failed:', err);
+        });
+    });
+}
+
+// Global cache management utility (run in console: clearMechauraCache())
+window.clearMechauraCache = async function () {
+    if ('serviceWorker' in navigator) {
+        const regs = await navigator.serviceWorker.getRegistrations();
+        for (let reg of regs) await reg.unregister();
+    }
+    if ('caches' in window) {
+        const keys = await caches.keys();
+        for (let key of keys) await caches.delete(key);
+    }
+    console.log('[Mechaura] Cache successfully cleared.');
+    window.location.reload(true);
+};
+
 // Wait for DOM to load
 document.addEventListener("DOMContentLoaded", () => {
 
-    // If GSAP is unavailable the CSS-hidden hero copy must still show.
+    const isMobile = window.innerWidth <= 768;
+    const hasVisited = sessionStorage.getItem('mechaura_visited');
+    const loader = document.querySelector('.loader');
+
+    // Dismiss loader immediately on mobile or returning visits
+    if (isMobile || hasVisited || !loader) {
+        if (loader) loader.style.display = 'none';
+        document.body.classList.remove('loading');
+    } else {
+        sessionStorage.setItem('mechaura_visited', 'true');
+        // Fast entrance for first desktop visit
+        setTimeout(() => {
+            if (loader) {
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+            }
+            document.body.classList.remove('loading');
+        }, 350);
+    }
+
+    // If GSAP is unavailable the hero copy is already visible via CSS
     if (typeof gsap === 'undefined') {
-        document.querySelectorAll('.hero-subtitle').forEach((el) => el.classList.add('is-revealed'));
+        document.body.classList.remove('loading');
         return;
     }
 
@@ -11,27 +56,28 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger);
 
     // ==========================================
-    // 1. Lenis Smooth Scroll Setup
+    // 1. Lenis Smooth Scroll Setup (Desktop Only for max mobile performance)
     // ==========================================
-    const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: 'vertical',
-        gestureDirection: 'vertical',
-        smooth: true,
-        mouseMultiplier: 1,
-        smoothTouch: false,
-        touchMultiplier: 2,
-        infinite: false,
-    });
+    if (!isMobile && typeof Lenis !== 'undefined') {
+        const lenis = new Lenis({
+            duration: 1.1,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
+        });
 
-    // Connect Lenis to GSAP ScrollTrigger
-    lenis.on('scroll', ScrollTrigger.update);
+        lenis.on('scroll', ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-    });
-    gsap.ticker.lagSmoothing(0, 0);
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0, 0);
+    }
 
     // ==========================================
     // 2. Custom Cursor (Desktop Only)
@@ -69,46 +115,6 @@ document.addEventListener("DOMContentLoaded", () => {
             el.addEventListener('mouseleave', () => follower.classList.remove('active'));
         });
     }
-
-    // ==========================================
-    // 3. Preloader & Initial Reveal
-    // ==========================================
-    const tlLoader = gsap.timeline({
-        onComplete: () => {
-            document.body.classList.remove('loading');
-        }
-    });
-
-    // Loader out
-    tlLoader.to('.loader', {
-        yPercent: -100,
-        duration: 0.8,
-        delay: 4.2, // Match the faster 4s CSS animations
-        ease: 'power4.inOut'
-    })
-        // Hero Elements Reveal
-        .to('.hero-img', {
-            scale: 1,
-            duration: 1.5,
-            ease: 'power3.out'
-        }, "-=0.4")
-        .fromTo('.hero-title',
-            { y: 30, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
-            "-=1"
-        )
-        // .hero-subtitle is opacity:0 in CSS awaiting this reveal — without it
-        // the hero's supporting copy never becomes visible.
-        .fromTo('.hero-subtitle',
-            { y: 24, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' },
-            "-=0.75"
-        )
-        .fromTo('.explore-btn, .view-all-btn, .hero-stats, .scroll-down',
-            { y: 20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8, stagger: 0.12, ease: 'power3.out' },
-            "-=0.6"
-        );
 
     // ==========================================
     // 4. Navbar Background on Scroll

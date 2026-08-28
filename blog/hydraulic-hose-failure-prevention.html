@@ -150,13 +150,16 @@
   </script>
 
 
+  <!-- Preconnects & High-Priority Asset Preload -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
   <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
-  <!-- Type: Satoshi (Fontshare, free for commercial use).
-       Satoshi is a free geometric grotesque chosen as the closest match to Aeonik. -->
-  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <!-- Type: Satoshi (Fontshare, free for commercial use) -->
   <link rel="preload" as="style" href="https://api.fontshare.com/v2/css?f%5B%5D=satoshi@400,500,600,700&display=swap">
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f%5B%5D=satoshi@400,500,600,700&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f%5B%5D=satoshi@400,500,600,700&display=swap"></noscript>
@@ -172,7 +175,7 @@
     <div class="nav-container">
       <a href="/" class="logo-link" aria-label="Mechaura International Home">
         <div class="logo-wrapper">
-          <img src="/images/logo.webp" alt="Mechaura International Logo" class="logo-icon" width="48" height="48">
+          <img src="/images/logo.webp" alt="Mechaura International Logo" class="logo-icon" width="48" height="48" loading="eager" decoding="async">
           <div class="logo-text">
             <span class="logo-main">MECHAURA</span>
             <span class="logo-sub">INTERNATIONAL</span>
@@ -338,15 +341,6 @@
 
       <footer class="footer section">
         <div class="container">
-          <div class="footer-top">
-            <h2 class="mega-text">Let's Talk.</h2>
-            <a href="mailto:info@mechaurainternational.com" class="huge-email hover-link">info@mechaurainternational.com</a>
-            <div class="footer-contact-info">
-              <a href="tel:+971566202517" class="footer-phone hover-link">+971 56 620 2517</a>
-              <p class="footer-location">Dubai, UAE</p>
-            </div>
-          </div>
-          <div class="footer-separator"></div>
           <div class="footer-bottom">
             <div class="fb-left">
               <div class="fb-logo">
@@ -356,31 +350,52 @@
                   <span class="fb-sub">INTERNATIONAL</span>
                 </div>
               </div>
-              <p class="fb-copy">&copy; 2026 Mechaura International FZE LLC.<br>All Rights Reserved.</p>
-            </div>
-            <div class="fb-center">
-              <nav class="footer-nav">
-                <a href="/about">About</a>
-                <a href="/services">Services</a>
-                <a href="/products">Products</a>
-                <a href="/sectors">Sectors</a>
-                <a href="/blog">Blog</a>
-                <a href="/industrial-supplies-dubai">Dubai</a>
-                <a href="/industrial-supplies-abu-dhabi">Abu Dhabi</a>
-                <a href="/industrial-supplies-sharjah">Sharjah</a>
-                <a href="/delivery-policy">Delivery Policy</a>
-                <a href="/privacy-policy">Privacy Policy</a>
-                <a href="/terms-conditions">Terms &amp; Conditions</a>
-                <a href="/contact">Contact</a>
-              </nav>
-            </div>
-            <div class="fb-right">
-              <p class="fb-location"><i class="fa-solid fa-location-dot"></i> Dubai, UAE</p>
+              <div class="fb-contact-info">
+                <a href="tel:+971566202517" class="fb-contact-item"><i class="fa-solid fa-phone"></i> +971 56 620 2517</a>
+                <a href="mailto:info@mechaurainternational.com" class="fb-contact-item"><i class="fa-solid fa-envelope"></i> info@mechaurainternational.com</a>
+                <p class="fb-location-text"><i class="fa-solid fa-location-dot"></i> Dubai, UAE</p>
+              </div>
               <div class="social-links">
                 <a href="https://www.instagram.com/mechaura_international" target="_blank" rel="noopener" aria-label="Instagram" class="ig"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://www.threads.net/@mechaura_international" target="_blank" rel="noopener" aria-label="Threads" class="threads"><i class="fa-brands fa-threads"></i></a>
                 <a href="https://www.linkedin.com/company/mechaura-international" target="_blank" rel="noopener" aria-label="LinkedIn" class="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
                 <a href="mailto:info@mechaurainternational.com" aria-label="Email" class="email"><i class="fa-solid fa-envelope"></i></a>
+              </div>
+              <p class="fb-copy">&copy; 2026 Mechaura International FZE LLC.<br>All Rights Reserved.</p>
+            </div>
+            <div class="fb-center">
+              <div class="footer-columns">
+                <div class="footer-col">
+                  <span class="footer-col-title">Information</span>
+                  <ul class="footer-col-links">
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/sectors">Sectors</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col">
+                  <span class="footer-col-title">Legal</span>
+                  <ul class="footer-col-links">
+                    <li><a href="/delivery-policy">Delivery Policy</a></li>
+                    <li><a href="/terms-conditions">Terms &amp; Conditions</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col">
+                  <span class="footer-col-title">Locations Delivered</span>
+                  <ul class="footer-col-links">
+                    <li><a href="/industrial-supplies-dubai">Dubai</a></li>
+                    <li><a href="/industrial-supplies-abu-dhabi">Abu Dhabi</a></li>
+                    <li><a href="/industrial-supplies-sharjah">Sharjah</a></li>
+                    <li><a href="/industrial-supplies-dubai#gcc-supply">Ras Al Khaimah</a></li>
+                    <li><a href="/industrial-supplies-dubai#gcc-supply">Umm Al Quwain</a></li>
+                    <li><a href="/industrial-supplies-dubai#gcc-supply">Ajman</a></li>
+                    <li><a href="/industrial-supplies-dubai#gcc-supply">Fujairah</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

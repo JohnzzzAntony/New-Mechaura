@@ -213,9 +213,13 @@
   }
   </script>
 
-  <!-- Fonts (Optimized for Core Web Vitals with display=swap) -->
+  <!-- Preconnects & High-Priority Asset Preload for Instant First Contentful Paint -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" as="image" href="/assets/hero_equipment.webp" type="image/webp" fetchpriority="high">
 
-  <!-- FontAwesome Icons -->
+  <!-- FontAwesome Icons (Non-blocking async load) -->
   <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
@@ -223,10 +227,7 @@
   <!-- Swiper JS Stylesheet -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-  <!-- Main Stylesheet -->
-  <!-- Type: Satoshi (Fontshare, free for commercial use).
-       Satoshi is a free geometric grotesque chosen as the closest match to Aeonik. -->
-  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <!-- Main Typography: Satoshi (display=swap) -->
   <link rel="preload" as="style" href="https://api.fontshare.com/v2/css?f%5B%5D=satoshi@400,500,600,700&display=swap">
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f%5B%5D=satoshi@400,500,600,700&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f%5B%5D=satoshi@400,500,600,700&display=swap"></noscript>
@@ -234,7 +235,7 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 
-<body class="loading">
+<body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSF2HX47"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -243,10 +244,10 @@
   <div class="cursor"></div>
   <div class="cursor-follower"></div>
 
-  <!-- Preloader -->
+  <!-- Preloader (Fast Non-Blocking Entrance) -->
   <div class="loader">
     <div class="loader-logo">
-      <img src="/images/logo.webp" alt="Mechaura Logo" loading="lazy" decoding="async">
+      <img src="/images/logo.webp" alt="Mechaura Logo" width="80" height="80" loading="eager" decoding="async">
     </div>
     <div class="loader-text">
       <div class="lt-wrapper lt-bg">
@@ -264,7 +265,7 @@
     <div class="nav-container">
       <a href="#home" class="logo-link" aria-label="Mechaura International Home">
         <div class="logo-wrapper">
-          <img src="/images/logo.webp" alt="Mechaura International Logo" class="logo-icon" width="48" height="48">
+          <img src="/images/logo.webp" alt="Mechaura International Logo" class="logo-icon" width="48" height="48" loading="eager" decoding="async">
           <div class="logo-text">
             <span class="logo-main">MECHAURA</span>
             <span class="logo-sub">INTERNATIONAL</span>
@@ -305,7 +306,7 @@
       <!-- HERO -->
       <section class="hero" id="home">
         <div class="hero-bg-video">
-          <img src="/assets/hero_equipment.webp" class="hero-img" alt="Mechaura Industrial Machinery & Engineering Equipment UAE" fetchpriority="high">
+          <img src="/assets/hero_equipment.webp" class="hero-img" alt="Mechaura Industrial Machinery & Engineering Equipment UAE" fetchpriority="high" loading="eager" decoding="async" width="1920" height="1080">
           <div class="hero-overlay-dark"></div>
           <!-- Dynamic grid aesthetic overlay -->
           <div class="grid-overlay"></div>
@@ -358,28 +359,28 @@
             <div class="trust-card">
               <i class="fa-solid fa-certificate"></i>
               <div class="trust-card-text">
-                <h4>Certified Quality</h4>
+                <h3>Certified Quality</h3>
                 <p>ISO-grade industrial components</p>
               </div>
             </div>
             <div class="trust-card">
               <i class="fa-solid fa-truck-fast"></i>
               <div class="trust-card-text">
-                <h4>Rapid UAE Delivery</h4>
+                <h3>Rapid UAE Delivery</h3>
                 <p>Same/next-day dispatch available</p>
               </div>
             </div>
             <div class="trust-card">
               <i class="fa-solid fa-shield-halved"></i>
               <div class="trust-card-text">
-                <h4>Authentic Spares</h4>
+                <h3>Authentic Spares</h3>
                 <p>100% verified manufacturer items</p>
               </div>
             </div>
             <div class="trust-card">
               <i class="fa-solid fa-headset"></i>
               <div class="trust-card-text">
-                <h4>Engineering Support</h4>
+                <h3>Engineering Support</h3>
                 <p>Expert procurement consultation</p>
               </div>
             </div>
@@ -444,7 +445,7 @@
           </div>
           <div class="about-right">
             <div class="about-facility reveal-fade">
-              <img src="/images/about.webp" alt="Mechaura International warehouse with organised industrial inventory in Dubai, UAE" loading="lazy">
+              <img src="/images/about.webp" alt="Mechaura International warehouse with organised industrial inventory in Dubai, UAE" loading="lazy" decoding="async" width="600" height="400">
               <span class="af-badge">UAE Distribution Facility</span>
             </div>
 
@@ -453,28 +454,28 @@
               <div class="av-card reveal-fade">
                 <div class="av-icon"><i class="fa-solid fa-shield-halved"></i></div>
                 <div>
-                  <h4>Quality First</h4>
+                  <h3>Quality First</h3>
                   <p>Every line is sourced against specification and inspected before it leaves our facility.</p>
                 </div>
               </div>
               <div class="av-card reveal-fade">
                 <div class="av-icon"><i class="fa-solid fa-tags"></i></div>
                 <div>
-                  <h4>Competitive Pricing</h4>
+                  <h3>Competitive Pricing</h3>
                   <p>Direct manufacturer relationships keep landed cost low without trading away quality.</p>
                 </div>
               </div>
               <div class="av-card reveal-fade">
                 <div class="av-icon"><i class="fa-solid fa-truck-fast"></i></div>
                 <div>
-                  <h4>On-Time Delivery</h4>
+                  <h3>On-Time Delivery</h3>
                   <p>Held stock and a dedicated dispatch network keep lead times predictable across the Emirates.</p>
                 </div>
               </div>
               <div class="av-card reveal-fade">
                 <div class="av-icon"><i class="fa-solid fa-headset"></i></div>
                 <div>
-                  <h4>Engineering Support</h4>
+                  <h3>Engineering Support</h3>
                   <p>Application-led advice from a team that understands continuous-duty operating conditions.</p>
                 </div>
               </div>
@@ -570,7 +571,7 @@
             <!-- Card 1 -->
             <article class="service-card-new stagger-fade">
               <div class="scn-img-wrap">
-                <img src="/images/manufacture.webp" alt="Industrial tools and precision tooling supplied across the UAE" loading="lazy">
+                <img src="/images/manufacture.webp" alt="Industrial tools and precision tooling supplied across the UAE" loading="lazy" decoding="async" width="600" height="400">
                 <span class="scn-num" aria-hidden="true">01</span>
                 <div class="scn-icon"><i class="fa-solid fa-gears"></i></div>
               </div>
@@ -590,7 +591,7 @@
             <!-- Card 2 -->
             <article class="service-card-new stagger-fade">
               <div class="scn-img-wrap">
-                <img src="/images/sp.webp" alt="Specialized industrial and commercial brushes for surface treatment" loading="lazy">
+                <img src="/images/sp.webp" alt="Specialized industrial and commercial brushes for surface treatment" loading="lazy" decoding="async" width="600" height="400">
                 <span class="scn-num" aria-hidden="true">02</span>
                 <div class="scn-icon"><i class="fa-solid fa-broom"></i></div>
               </div>
@@ -610,7 +611,7 @@
             <!-- Card 3 -->
             <article class="service-card-new stagger-fade">
               <div class="scn-img-wrap">
-                <img src="/images/industrial_hydraulic_pumps.webp" alt="Heavy-duty industrial equipment and hydraulic power units" loading="lazy">
+                <img src="/images/industrial_hydraulic_pumps.webp" alt="Heavy-duty industrial equipment and hydraulic power units" loading="lazy" decoding="async" width="600" height="400">
                 <span class="scn-num" aria-hidden="true">03</span>
                 <div class="scn-icon"><i class="fa-solid fa-industry"></i></div>
               </div>
@@ -648,9 +649,9 @@
               <div class="swiper-slide">
                 <a href="/products/industrial-air-filters" class="prod-card-new">
                   <div class="pcn-img-wrap">
-                    <img src="/images/industrial_air_filters.webp" class="p-img" alt="Industrial Air Filter" decoding="async">
+                    <img src="/images/industrial_air_filters.webp" class="p-img" alt="Industrial Air Filter" loading="lazy" decoding="async" width="400" height="300">
                   </div>
-                  <h4>INDUSTRIAL AIR FILTER</h4>
+                  <h3>INDUSTRIAL AIR FILTER</h3>
                 </a>
               </div>
 
@@ -658,9 +659,9 @@
               <div class="swiper-slide">
                 <a href="/products/hydraulic-pumps" class="prod-card-new">
                   <div class="pcn-img-wrap">
-                    <img src="/images/industrial_hydraulic_pumps.webp" class="p-img" alt="Industrial Hydraulic Pumps" decoding="async">
+                    <img src="/images/industrial_hydraulic_pumps.webp" class="p-img" alt="Industrial Hydraulic Pumps" loading="lazy" decoding="async" width="400" height="300">
                   </div>
-                  <h4>INDUSTRIAL HYDRAULIC PUMPS</h4>
+                  <h3>INDUSTRIAL HYDRAULIC PUMPS</h3>
                 </a>
               </div>
 
@@ -668,9 +669,9 @@
               <div class="swiper-slide">
                 <a href="/products/abrasive-brushes" class="prod-card-new">
                   <div class="pcn-img-wrap">
-                    <img src="/images/brush.webp" class="p-img" alt="Abrasive Removal Brush" decoding="async">
+                    <img src="/images/brush.webp" class="p-img" alt="Abrasive Removal Brush" loading="lazy" decoding="async" width="400" height="300">
                   </div>
-                  <h4>ABRASIVE REMOVAL BRUSH</h4>
+                  <h3>ABRASIVE REMOVAL BRUSH</h3>
                 </a>
               </div>
 
@@ -678,9 +679,9 @@
               <div class="swiper-slide">
                 <a href="/products/hydraulic-hoses" class="prod-card-new">
                   <div class="pcn-img-wrap">
-                    <img src="/images/hydraulic-hose.webp" class="p-img" alt="Hydraulic Hose" decoding="async">
+                    <img src="/images/hydraulic-hose.webp" class="p-img" alt="Hydraulic Hose" loading="lazy" decoding="async" width="400" height="300">
                   </div>
-                  <h4>HYDRAULIC HOSE</h4>
+                  <h3>HYDRAULIC HOSE</h3>
                 </a>
               </div>
 
@@ -688,9 +689,9 @@
               <div class="swiper-slide">
                 <a href="/products/elevator-accessories" class="prod-card-new">
                   <div class="pcn-img-wrap">
-                    <img src="/images/elevator.webp" class="p-img" alt="Elevator Accessories" decoding="async">
+                    <img src="/images/elevator.webp" class="p-img" alt="Elevator Accessories" loading="lazy" decoding="async" width="400" height="300">
                   </div>
-                  <h4>ELEVATOR ACCESSORIES</h4>
+                  <h3>ELEVATOR ACCESSORIES</h3>
                 </a>
               </div>
 
@@ -698,9 +699,9 @@
               <div class="swiper-slide">
                 <a href="/products/bandsaw-blades" class="prod-card-new">
                   <div class="pcn-img-wrap">
-                    <img src="/images/bandsaw.webp" class="p-img" alt="Bandsaw Blades" decoding="async">
+                    <img src="/images/bandsaw.webp" class="p-img" alt="Bandsaw Blades" loading="lazy" decoding="async" width="400" height="300">
                   </div>
-                  <h4>BANDSAW BLADES</h4>
+                  <h3>BANDSAW BLADES</h3>
                 </a>
               </div>
 
@@ -708,9 +709,9 @@
               <div class="swiper-slide">
                 <a href="/products/industrial-bearings" class="prod-card-new">
                   <div class="pcn-img-wrap">
-                    <img src="/images/bear.webp" class="p-img" alt="Bearings" decoding="async">
+                    <img src="/images/bear.webp" class="p-img" alt="Bearings" loading="lazy" decoding="async" width="400" height="300">
                   </div>
-                  <h4>BEARINGS</h4>
+                  <h3>BEARINGS</h3>
                 </a>
               </div>
 
@@ -718,9 +719,9 @@
               <div class="swiper-slide">
                 <a href="/products/cutting-tools" class="prod-card-new">
                   <div class="pcn-img-wrap">
-                    <img src="/images/cut.webp" class="p-img" alt="Cutting Tools" decoding="async">
+                    <img src="/images/cut.webp" class="p-img" alt="Cutting Tools" loading="lazy" decoding="async" width="400" height="300">
                   </div>
-                  <h4>CUTTING TOOLS</h4>
+                  <h3>CUTTING TOOLS</h3>
                 </a>
               </div>
             </div>
@@ -861,20 +862,20 @@
           </div>
         </div>
 
-        <div class="brands-marquee" role="list" aria-label="Brands we source from">
+        <div class="brands-marquee" aria-label="Brands we source from">
           <div class="bm-track" aria-hidden="false">
-            <span class="bm-item" role="listitem">SKF</span>
-            <span class="bm-item" role="listitem">FAG</span>
-            <span class="bm-item" role="listitem">NSK</span>
-            <span class="bm-item" role="listitem">NTN</span>
-            <span class="bm-item" role="listitem">Timken</span>
-            <span class="bm-item" role="listitem">Parker</span>
-            <span class="bm-item" role="listitem">Gates</span>
-            <span class="bm-item" role="listitem">Eaton</span>
-            <span class="bm-item" role="listitem">Bosch Rexroth</span>
-            <span class="bm-item" role="listitem">Sandvik</span>
-            <span class="bm-item" role="listitem">Lenox</span>
-            <span class="bm-item" role="listitem">Osborn</span>
+            <span class="bm-item">SKF</span>
+            <span class="bm-item">FAG</span>
+            <span class="bm-item">NSK</span>
+            <span class="bm-item">NTN</span>
+            <span class="bm-item">Timken</span>
+            <span class="bm-item">Parker</span>
+            <span class="bm-item">Gates</span>
+            <span class="bm-item">Eaton</span>
+            <span class="bm-item">Bosch Rexroth</span>
+            <span class="bm-item">Sandvik</span>
+            <span class="bm-item">Lenox</span>
+            <span class="bm-item">Osborn</span>
           </div>
           <div class="bm-track" aria-hidden="true">
             <span class="bm-item">SKF</span>
@@ -969,7 +970,7 @@
             <article class="ins-card reveal-fade">
               <a href="/blog?article=article-1" aria-label="Read: Abrasive Removal Brush Segments guide">
                 <div class="ins-img">
-                  <img src="/images/brush-product.webp" alt="Abrasive removal brush segments used for industrial deburring" loading="lazy">
+                  <img src="/images/brush-product.webp" alt="Abrasive removal brush segments used for industrial deburring" loading="lazy" decoding="async" width="600" height="400">
                   <span class="ins-badge">Surface Treatment</span>
                 </div>
               </a>
@@ -989,7 +990,7 @@
             <article class="ins-card reveal-fade">
               <a href="/blog?article=article-2" aria-label="Read: Hydraulic hose failure prevention guide">
                 <div class="ins-img">
-                  <img src="/images/hydraulic-hose.webp" alt="High-pressure hydraulic hose assemblies for heavy industry" loading="lazy">
+                  <img src="/images/hydraulic-hose.webp" alt="High-pressure hydraulic hose assemblies for heavy industry" loading="lazy" decoding="async" width="600" height="400">
                   <span class="ins-badge">Fluid Power</span>
                 </div>
               </a>
@@ -1009,7 +1010,7 @@
             <article class="ins-card reveal-fade">
               <a href="/blog?article=article-4" aria-label="Read: Precision bearings comparison guide">
                 <div class="ins-img">
-                  <img src="/images/bearings.webp" alt="Precision industrial bearings for high-load machinery" loading="lazy">
+                  <img src="/images/bearings.webp" alt="Precision industrial bearings for high-load machinery" loading="lazy" decoding="async" width="600" height="400">
                   <span class="ins-badge">Motion Control</span>
                 </div>
               </a>
@@ -1106,16 +1107,6 @@
       <!-- CONTACT / FOOTER -->
       <footer class="footer section" id="contact">
         <div class="container">
-          <div class="footer-top">
-            <h2 class="mega-text reveal-text">Let's Talk.</h2>
-            <a href="mailto:info@mechaurainternational.com"
-              class="huge-email hover-link">info@mechaurainternational.com</a>
-            <div class="footer-contact-info reveal-fade">
-              <a href="tel:+971566202517" class="footer-phone hover-link">+971 56 620 2517</a>
-              <p class="footer-location">Dubai, UAE</p>
-            </div>
-          </div>
-          <div class="footer-separator"></div>
           <div class="footer-bottom">
             <div class="fb-left">
               <div class="fb-logo">
@@ -1125,31 +1116,52 @@
                   <span class="fb-sub">INTERNATIONAL</span>
                 </div>
               </div>
-              <p class="fb-copy">&copy; 2026 Mechaura International FZE LLC.<br>All Rights Reserved.</p>
-            </div>
-            <div class="fb-center">
-              <nav class="footer-nav">
-                <a href="/about">About</a>
-                <a href="/services">Services</a>
-                <a href="/products">Products</a>
-                <a href="/sectors">Sectors</a>
-                <a href="/blog">Blog</a>
-                <a href="/industrial-supplies-dubai">Dubai</a>
-                <a href="/industrial-supplies-abu-dhabi">Abu Dhabi</a>
-                <a href="/industrial-supplies-sharjah">Sharjah</a>
-                <a href="/delivery-policy">Delivery Policy</a>
-                <a href="/privacy-policy">Privacy Policy</a>
-                <a href="/terms-conditions">Terms & Conditions</a>
-                <a href="/contact">Contact</a>
-              </nav>
-            </div>
-            <div class="fb-right">
-              <p class="fb-location"><i class="fa-solid fa-location-dot"></i> Dubai, UAE</p>
+              <div class="fb-contact-info">
+                <a href="tel:+971566202517" class="fb-contact-item"><i class="fa-solid fa-phone"></i> +971 56 620 2517</a>
+                <a href="mailto:info@mechaurainternational.com" class="fb-contact-item"><i class="fa-solid fa-envelope"></i> info@mechaurainternational.com</a>
+                <p class="fb-location-text"><i class="fa-solid fa-location-dot"></i> Dubai, UAE</p>
+              </div>
               <div class="social-links">
                 <a href="https://www.instagram.com/mechaura_international" target="_blank" rel="noopener" aria-label="Instagram" class="ig"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://www.threads.net/@mechaura_international" target="_blank" rel="noopener" aria-label="Threads" class="threads"><i class="fa-brands fa-threads"></i></a>
                 <a href="https://www.linkedin.com/company/mechaura-international" target="_blank" rel="noopener" aria-label="LinkedIn" class="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
                 <a href="mailto:info@mechaurainternational.com" aria-label="Email" class="email"><i class="fa-solid fa-envelope"></i></a>
+              </div>
+              <p class="fb-copy">&copy; 2026 Mechaura International FZE LLC.<br>All Rights Reserved.</p>
+            </div>
+            <div class="fb-center">
+              <div class="footer-columns">
+                <div class="footer-col">
+                  <span class="footer-col-title">Information</span>
+                  <ul class="footer-col-links">
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/sectors">Sectors</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col">
+                  <span class="footer-col-title">Legal</span>
+                  <ul class="footer-col-links">
+                    <li><a href="/delivery-policy">Delivery Policy</a></li>
+                    <li><a href="/terms-conditions">Terms &amp; Conditions</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col">
+                  <span class="footer-col-title">Locations Delivered</span>
+                  <ul class="footer-col-links">
+                    <li><a href="/industrial-supplies-dubai">Dubai</a></li>
+                    <li><a href="/industrial-supplies-abu-dhabi">Abu Dhabi</a></li>
+                    <li><a href="/industrial-supplies-sharjah">Sharjah</a></li>
+                    <li><a href="/industrial-supplies-dubai#gcc-supply">Ras Al Khaimah</a></li>
+                    <li><a href="/industrial-supplies-dubai#gcc-supply">Umm Al Quwain</a></li>
+                    <li><a href="/industrial-supplies-dubai#gcc-supply">Ajman</a></li>
+                    <li><a href="/industrial-supplies-dubai#gcc-supply">Fujairah</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
