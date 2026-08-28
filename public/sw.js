@@ -3,7 +3,7 @@
  * Versioned cache management, instant offline availability, and performance acceleration.
  */
 
-const CACHE_NAME = 'mechaura-v3.0.1';
+const CACHE_NAME = 'mechaura-v3.1.0';
 
 const PRECACHE_ASSETS = [
   '/',

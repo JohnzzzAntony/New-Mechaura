@@ -2,22 +2,26 @@
 <html lang="en">
 
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18410739502"></script>
+    <!-- Analytics: deferred until after first paint -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'AW-18410739502');
+    function _loadGTM() {
+      var ga = document.createElement('script');
+      ga.async = true;
+      ga.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18410739502';
+      document.head.appendChild(ga);
+      gtag('js', new Date());
+      gtag('config', 'AW-18410739502');
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+        f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PSF2HX47');
+    }
+    if (document.readyState === 'complete') { _loadGTM(); }
+    else { window.addEventListener('load', _loadGTM); }
   </script>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-PSF2HX47');</script>
-  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy | Mechaura International UAE</title>
@@ -341,10 +345,24 @@
     </a>
   </nav>
 
-  <script defer src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script defer src="https://unpkg.com/split-type"></script>
+    <!-- GSAP / Lenis / SplitType: desktop only — mobile gets native CSS -->
+  <script>
+    (function () {
+      if (window.innerWidth <= 768) return;
+      var scripts = [
+        'https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js',
+        'https://unpkg.com/split-type'
+      ];
+      scripts.forEach(function (src) {
+        var s = document.createElement('script');
+        s.src = src;
+        s.defer = true;
+        document.body.appendChild(s);
+      });
+    })();
+  </script>
   <script type="module" src="/main.js"></script>
 </body>
 

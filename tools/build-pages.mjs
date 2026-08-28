@@ -21,23 +21,26 @@ const jsonLd = (o) => JSON.stringify(o, null, 2);
 /* Shared chrome                                                       */
 /* ------------------------------------------------------------------ */
 
-const gtagHead = `  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG}"></script>
+const gtagHead = `  <!-- Analytics: deferred until after first paint -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', '${GOOGLE_TAG}');
+    function _loadGTM() {
+      var ga = document.createElement('script');
+      ga.async = true;
+      ga.src = 'https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG}';
+      document.head.appendChild(ga);
+      gtag('js', new Date());
+      gtag('config', '${GOOGLE_TAG}');
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+        f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','${GTM}');
+    }
+    if (document.readyState === 'complete') { _loadGTM(); }
+    else { window.addEventListener('load', _loadGTM); }
   </script>`;
-
-const gtmHead = `  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','${GTM}');</script>
-  <!-- End Google Tag Manager -->`;
 
 const gtmBody = `  <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM}"
@@ -50,7 +53,6 @@ function head({ title, desc, keywords, canonical, ogImage, schema, active }) {
 
 <head>
 ${gtagHead}
-${gtmHead}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -89,10 +91,34 @@ ${gtmHead}
 
 ${schema.map((s) => `  <script type="application/ld+json">\n${jsonLd(s)}\n  </script>`).join('\n\n')}
 
-  <!-- Preconnects & High-Priority Asset Preload -->
+  <!-- Preconnects -->
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <!-- CRITICAL CSS: inline for instant first paint -->
+  <style>
+    :root{--bg-color:#050505;--surface-color:#111111;--text-primary:#ffffff;--text-secondary:#999999;--accent:#FF4500;--font-heading:'Space Grotesk',sans-serif;--font-body:'Inter',sans-serif}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background-color:#050505;color:#fff;font-family:sans-serif;overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased}
+    .navbar{position:fixed;top:0;left:0;width:100%;padding:2rem 0;z-index:100;background:linear-gradient(to bottom,rgba(0,0,0,.6) 0%,transparent 100%);transition:padding .3s}
+    .navbar.scrolled{padding:1.5rem 0;background:rgba(5,5,5,.8);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.05)}
+    @media(max-width:768px){.navbar{background:rgba(0,0,0,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:.8rem 0}}
+    .nav-container{display:flex;justify-content:space-between;align-items:center;max-width:1400px;margin:0 auto;padding:0 4%;position:relative}
+    .logo-link{display:block;text-decoration:none;color:#fff;position:relative;transition:transform .3s ease;z-index:5;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
+    .logo-wrapper{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+    .logo-icon{height:clamp(30px,6vw,48px);width:auto;margin-bottom:4px}
+    .logo-text{display:flex;flex-direction:column;align-items:flex-start}
+    .logo-main{font-family:'Space Grotesk',sans-serif;font-size:clamp(1rem,3vw,1.6rem);font-weight:700;line-height:.9;letter-spacing:.02em;text-transform:uppercase}
+    .logo-sub{font-size:clamp(.4rem,1.2vw,.6rem);font-weight:500;color:#FF4500;letter-spacing:.4em;margin-top:2px;text-transform:uppercase}
+    .menu-links{display:flex;gap:3rem}
+    .nav-link{font-size:.9rem;text-transform:uppercase;letter-spacing:.1em}
+    .menu-btn{display:none;background:none;border:none;cursor:pointer;width:40px;height:20px;position:relative;z-index:102}
+    @media(max-width:768px){.menu-links{display:none}.menu-btn{display:block}}
+    .reveal-text,.reveal-fade,.stagger-fade{opacity:1}
+    .mobile-bottom-nav{position:fixed;bottom:0;left:0;width:100%;height:60px;z-index:99}
+    @media(min-width:769px){.mobile-bottom-nav{display:none}}
+  </style>
 
   <!-- Icons: non-blocking -->
   <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -100,12 +126,19 @@ ${schema.map((s) => `  <script type="application/ld+json">\n${jsonLd(s)}\n  </sc
     media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
+  <!-- Swiper CSS: non-blocking -->
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
+
   <!-- Type: Satoshi (Fontshare, free for commercial use) -->
   <link rel="preload" as="style" href="https://api.fontshare.com/v2/css?f%5B%5D=satoshi@400,500,600,700&display=swap">
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f%5B%5D=satoshi@400,500,600,700&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f%5B%5D=satoshi@400,500,600,700&display=swap"></noscript>
 
-  <link rel="stylesheet" href="/style.css">
+  <!-- Full stylesheet: non-blocking (critical CSS above covers first paint) -->
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/style.css"></noscript>
 </head>
 
 <body>
@@ -293,14 +326,27 @@ function footer(activeBottom) {
     <span class="whatsapp-tooltip">Chat with us on WhatsApp</span>
   </a>
 
-  <nav class="mobile-bottom-nav">
-${mbn}
-  </nav>
+  <!-- Swiper (always: used in products carousel) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-  <script defer src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script defer src="https://unpkg.com/split-type"></script>
+  <!-- GSAP / Lenis / SplitType: desktop only — mobile gets native CSS -->
+  <script>
+    (function () {
+      if (window.innerWidth <= 768) return;
+      var scripts = [
+        'https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js',
+        'https://unpkg.com/split-type'
+      ];
+      scripts.forEach(function (src) {
+        var s = document.createElement('script');
+        s.src = src;
+        s.defer = true;
+        document.body.appendChild(s);
+      });
+    })();
+  </script>
   <script type="module" src="/main.js"></script>
 </body>
 

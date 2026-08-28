@@ -5005,3 +5005,94 @@ textarea:focus-visible,
     align-items: center;
     min-height: var(--tap-min);
 }
+
+/* ==========================================================================
+   Performance: content-visibility (skip off-screen paint)
+   ========================================================================== */
+.about.section,
+.services.section,
+.products.section,
+.industries.section,
+.why-section,
+.process-section,
+.insights-section,
+.faq-section,
+.cta-section,
+.footer.section {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 600px;
+}
+
+/* ==========================================================================
+   Performance: Reduced Motion (accessibility + perf)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .marquee-inner {
+        animation: none !important;
+    }
+
+    .parallax-img-container img {
+        transform: none !important;
+    }
+}
+
+/* ==========================================================================
+   Performance: Mobile animation bypass (≤768px)
+   Kill expensive transitions that GSAP won't run anyway
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Freeze parallax — no JS will drive it */
+    .parallax-img-container img {
+        transform: none !important;
+    }
+
+    /* Reduce marquee speed on mobile (less repaints) */
+    .marquee-inner {
+        animation-duration: 35s;
+    }
+
+    /* Remove hover transforms — touch devices don't hover */
+    .service-card-new:hover,
+    .prod-card-new:hover .pcn-img-wrap,
+    .explore-btn:hover,
+    .logo-link:hover {
+        transform: none !important;
+    }
+
+    /* Remove expensive backdrop-filter on mobile where GPU is limited */
+    .mob-overlay {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    /* Disable clip-path animation — use opacity instead */
+    .mob-overlay {
+        clip-path: none !important;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+    }
+
+    .mob-overlay.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+/* ==========================================================================
+   No-JS fallback: ensure reveal classes are visible without JS
+   ========================================================================== */
+.reveal-text,
+.reveal-fade,
+.stagger-fade {
+    opacity: 1;
+}
