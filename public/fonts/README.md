@@ -1,16 +1,29 @@
-# Aeonik font files
+# Fonts
 
-Aeonik is a commercial typeface from CoType Foundry. It is not bundled with
-this repository because it cannot be redistributed without a licence.
+The site ships **Satoshi** (Indian Type Foundry, via Fontshare) — a geometric
+grotesque chosen as the closest freely-licensed match to Aeonik. It is free for
+commercial use and loaded from the Fontshare CDN.
 
-Once you hold a webfont licence, drop these three files here:
+Weights used: 400, 500, 600, 700 — all native faces, no synthetic bolding.
 
-    Aeonik-Regular.woff2   (weight 400)
-    Aeonik-Medium.woff2    (weight 500)
-    Aeonik-Bold.woff2      (weight 700)
+## Switching to genuine Aeonik later
 
-The @font-face rules in style.css already point at these exact paths, so the
-site picks them up on the next build with no code change.
+Aeonik is a commercial typeface from CoType Foundry and cannot be redistributed
+here. If you buy a webfont licence:
 
-Until they are present the stack falls through to Switzer, a free geometric
-grotesque with near-identical proportions, loaded from Fontshare.
+1. Drop the files into this folder:
+
+       Aeonik-Regular.woff2   (400)
+       Aeonik-Medium.woff2    (500)
+       Aeonik-Bold.woff2      (700)
+
+2. Add this to `style.css`:
+
+       @font-face { font-family:'Aeonik'; src:url('/fonts/Aeonik-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+       @font-face { font-family:'Aeonik'; src:url('/fonts/Aeonik-Medium.woff2')  format('woff2'); font-weight:500; font-display:swap; }
+       @font-face { font-family:'Aeonik'; src:url('/fonts/Aeonik-Bold.woff2')    format('woff2'); font-weight:700; font-display:swap; }
+
+3. Move `'Aeonik'` ahead of `'Satoshi'` in `--font-heading` and `--font-body`.
+
+Aeonik is already listed in the stack after Satoshi, so step 3 is the only edit
+needed to make it take priority.

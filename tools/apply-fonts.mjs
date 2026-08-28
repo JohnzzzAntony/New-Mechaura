@@ -1,5 +1,5 @@
 /**
- * Swaps the Google Fonts links (Space Grotesk + Inter) for the Switzer stack
+ * Swaps the Google Fonts links (Space Grotesk + Inter) for the Satoshi stack
  * on Fontshare, which stands in for Aeonik until the licensed files are added.
  *
  * Aeonik itself is loaded via @font-face from /fonts/ in style.css — it takes
@@ -10,10 +10,10 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
-const FONTSHARE = 'https://api.fontshare.com/v2/css?f%5B%5D=switzer@400,500,600,700&display=swap';
+const FONTSHARE = 'https://api.fontshare.com/v2/css?f%5B%5D=satoshi@400,500,600,700&display=swap';
 
 const NEW_BLOCK = `  <!-- Type: Aeonik loads from /fonts via @font-face in style.css.
-       Switzer is the licensed-free stand-in until those files are added. -->
+       Satoshi is the licensed-free stand-in until those files are added. -->
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="preload" as="style" href="${FONTSHARE}">
   <link rel="stylesheet" href="${FONTSHARE}" media="print" onload="this.media='all'">
