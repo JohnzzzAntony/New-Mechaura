@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         _initMenuAndNav();
         _initFaq();
         _initGallery();
+        _initFooterAccordion();
         return;
     }
 
@@ -77,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         _initMenuAndNav();
         _initFaq();
         _initGallery();
+        _initFooterAccordion();
         return;
     }
 
@@ -237,6 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
     _initMenuAndNav();
     _initFaq();
     _initGallery();
+    _initFooterAccordion();
 
 });
 
@@ -326,4 +329,31 @@ function _initSwiper() {
             }
         });
     }
+}
+
+function _initFooterAccordion() {
+    const footerCols = document.querySelectorAll('.footer-col');
+    footerCols.forEach(col => {
+        const toggleBtn = col.querySelector('.footer-col-title');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                // Only accordion on mobile viewports
+                if (window.innerWidth > 768) return;
+
+                const isOpen = col.classList.contains('active');
+
+                // Close other footer columns for clean accordion behavior
+                footerCols.forEach(other => {
+                    if (other !== col) {
+                        other.classList.remove('active');
+                        const otherBtn = other.querySelector('.footer-col-title');
+                        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                col.classList.toggle('active', !isOpen);
+                toggleBtn.setAttribute('aria-expanded', String(!isOpen));
+            });
+        }
+    });
 }

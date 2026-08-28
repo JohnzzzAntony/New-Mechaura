@@ -1287,6 +1287,20 @@ body.loading {
     letter-spacing: 0.14em;
     color: var(--accent);
     margin-bottom: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+    border: none;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+    cursor: default;
+}
+
+/* Hide accordion arrow on desktop */
+.footer-col-arrow {
+    display: none;
 }
 
 .footer-col-links {
@@ -1333,6 +1347,78 @@ body.loading {
 
 .footer-col-links a:hover::after {
     width: 100%;
+}
+
+/* ==========================================
+   Mobile Footer Collapsible Accordion (≤768px)
+   ========================================== */
+@media (max-width: 768px) {
+    .footer-columns {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .footer-col {
+        gap: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 0.25rem;
+    }
+
+    .footer-col-title {
+        cursor: pointer;
+        padding: 0.85rem 0;
+        font-size: 0.85rem;
+        color: #ffffff;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .footer-col-title span {
+        color: #ffffff;
+        transition: color 0.2s ease;
+    }
+
+    .footer-col.active .footer-col-title span {
+        color: var(--accent);
+    }
+
+    .footer-col-arrow {
+        display: inline-block;
+        font-size: 0.75rem;
+        color: var(--accent);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .footer-col.active .footer-col-arrow {
+        transform: rotate(180deg);
+    }
+
+    .footer-col-links {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        margin-top: 0;
+        padding-bottom: 0;
+        gap: 0.6rem;
+        transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+        pointer-events: none;
+    }
+
+    .footer-col.active .footer-col-links {
+        max-height: 400px;
+        opacity: 1;
+        margin-top: 0.25rem;
+        padding-bottom: 0.85rem;
+        pointer-events: all;
+    }
+
+    .footer-col-links a {
+        font-size: 0.88rem;
+        padding: 0.3rem 0;
+        color: var(--text-secondary);
+    }
 }
 
 /* Legacy fallback */
