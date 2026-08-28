@@ -470,6 +470,9 @@ ${thumbs}
               </div>
             </div>
 
+            <!-- Intro only, so this column stays close to the gallery's height.
+                 Specification and applications run full width below, which is
+                 what stops a tall right column leaving the gallery side blank. -->
             <div class="pd-info-box">
               <span class="pd-category">${esc(pr.category)}</span>
               <h1>${esc(pr.name)} in the UAE</h1>
@@ -480,6 +483,18 @@ ${thumbs}
                 <p>${esc(pr.definition)}</p>
               </div>
 
+              <div class="pd-actions">
+                <a href="/contact" class="explore-btn">Request a Quote <div class="btn-arr"><i class="fa-solid fa-arrow-right"></i></div></a>
+                <a href="tel:${PHONE_RAW}" class="cta-ghost-btn"><i class="fa-solid fa-phone"></i> ${PHONE}</a>
+              </div>
+              <p class="pd-note"><i class="fa-solid fa-truck-fast accent-text"></i> Dispatched across Dubai, Abu Dhabi,
+                Sharjah and the wider UAE, with export to Saudi Arabia, Oman, Qatar, Kuwait and Bahrain.</p>
+            </div>
+          </div>
+
+          <!-- Full-width detail: spec table and applications sit side by side -->
+          <div class="pd-detail">
+            <div class="pd-detail-col">
               <h2 class="pd-sub">Technical specification</h2>
               <table class="spec-table">
                 <caption class="visually-hidden">Technical specification for ${esc(pr.name)}</caption>
@@ -487,18 +502,23 @@ ${thumbs}
 ${specRows}
                 </tbody>
               </table>
+            </div>
 
+            <div class="pd-detail-col">
               <h2 class="pd-sub">Typical applications</h2>
               <ul class="app-list">
 ${appItems}
               </ul>
 
-              <div class="pd-actions">
-                <a href="/contact" class="explore-btn">Request a Quote <div class="btn-arr"><i class="fa-solid fa-arrow-right"></i></div></a>
-                <a href="tel:${PHONE_RAW}" class="cta-ghost-btn"><i class="fa-solid fa-phone"></i> ${PHONE}</a>
+              <div class="pd-assurance">
+                <h3>Supplied with</h3>
+                <ul class="app-list">
+                  <li><i class="fa-solid fa-check"></i> Itemised quotation stating grade, size and standard</li>
+                  <li><i class="fa-solid fa-check"></i> Batch traceability where the product carries it</li>
+                  <li><i class="fa-solid fa-check"></i> Test certificates and datasheets on request</li>
+                  <li><i class="fa-solid fa-check"></i> A named contact who stays with the account after dispatch</li>
+                </ul>
               </div>
-              <p class="pd-note"><i class="fa-solid fa-truck-fast accent-text"></i> Dispatched across Dubai, Abu Dhabi,
-                Sharjah and the wider UAE, with export to Saudi Arabia, Oman, Qatar, Kuwait and Bahrain.</p>
             </div>
           </div>
         </div>
