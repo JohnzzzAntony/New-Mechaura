@@ -3,6 +3,19 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js').then((reg) => {
             console.log('[Mechaura] Service Worker active:', reg.scope);
+            // Check for updates on every page load
+            reg.update();
+            reg.addEventListener('updatefound', () => {
+                const newWorker = reg.installing;
+                if (newWorker) {
+                    newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            console.log('[Mechaura] New version found, applying...');
+                            window.location.reload();
+                        }
+                    });
+                }
+            });
         }).catch((err) => {
             console.warn('[Mechaura] Service Worker registration failed:', err);
         });
