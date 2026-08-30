@@ -126,8 +126,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
-  <!-- Type: Satoshi (Fontshare, free for commercial use).
-       Satoshi is a free geometric grotesque chosen as the closest match to Aeonik. -->
+  <!-- Type: Satoshi -->
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="preload" as="style" href="https://api.fontshare.com/v2/css?f%5B%5D=satoshi@400,500,600,700&display=swap">
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f%5B%5D=satoshi@400,500,600,700&display=swap" media="print" onload="this.media='all'">
@@ -136,11 +135,12 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 
-<body>
+<body class="dark-sect">
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSF2HX47"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+
   <!-- Navigation -->
   <nav class="navbar scrolled" aria-label="Main Navigation">
     <div class="nav-container">
@@ -148,22 +148,22 @@
         <div class="logo-wrapper">
           <img src="/images/logo.webp" alt="Mechaura Logo" class="logo-icon" width="48" height="48">
           <div class="logo-text">
-            <span class="logo-main">MECHAURA</span>
-            <span class="logo-sub">INTERNATIONAL</span>
+            <span class="logo-main" style="color:#fff;">MECHAURA</span>
+            <span class="logo-sub" style="color:#aaa;">INTERNATIONAL</span>
           </div>
         </div>
       </a>
       <div class="menu-links">
-        <a href="/about" class="nav-link" data-hover="About">About</a>
-        <a href="/services" class="nav-link active" data-hover="Services">Services</a>
-        <a href="/products" class="nav-link" data-hover="Products">Products</a>
-        <a href="/sectors" class="nav-link" data-hover="Sectors">Sectors</a>
-        <a href="/blog" class="nav-link" data-hover="Blog">Blog</a>
-        <a href="/contact" class="nav-link" data-hover="Contact">Contact</a>
+        <a href="/about" class="nav-link" data-hover="About" style="color:#fff;">About</a>
+        <a href="/services" class="nav-link active" data-hover="Services" style="color:#fff;">Services</a>
+        <a href="/products" class="nav-link" data-hover="Products" style="color:#fff;">Products</a>
+        <a href="/sectors" class="nav-link" data-hover="Sectors" style="color:#fff;">Sectors</a>
+        <a href="/blog" class="nav-link" data-hover="Blog" style="color:#fff;">Blog</a>
+        <a href="/contact" class="nav-link" data-hover="Contact" style="color:#fff;">Contact</a>
       </div>
       <button class="menu-btn" aria-label="Toggle navigation menu">
-        <div class="menu-line"></div>
-        <div class="menu-line"></div>
+        <div class="menu-line" style="background:#fff;"></div>
+        <div class="menu-line" style="background:#fff;"></div>
       </button>
     </div>
   </nav>
@@ -207,7 +207,7 @@
             <!-- Service 1 -->
             <div class="service-card-new reveal-fade">
               <div class="scn-img-wrap">
-                <img src="/images/industrial-equipment.webp" alt="Industrial Tools Distribution UAE" loading="lazy" decoding="async">
+                <img src="/images/industries/engineering-fabrication.webp" alt="Industrial Equipment & Tools Distribution UAE" loading="lazy" decoding="async">
                 <div class="scn-icon">
                   <i class="fa-solid fa-wrench"></i>
                 </div>
@@ -235,7 +235,7 @@
             <!-- Service 3 -->
             <div class="service-card-new reveal-fade">
               <div class="scn-img-wrap">
-                <img src="/images/manufacture.webp" alt="Heavy-Duty Equipment Sourcing UAE" loading="lazy" decoding="async">
+                <img src="/images/industries/manufacturing.webp" alt="Heavy-Duty Equipment Sourcing UAE" loading="lazy" decoding="async">
                 <div class="scn-icon">
                   <i class="fa-solid fa-truck-ramp-box"></i>
                 </div>
@@ -446,7 +446,7 @@
     </a>
   </nav>
 
-    <!-- GSAP / Lenis / SplitType: desktop only — mobile gets native CSS -->
+  <!-- GSAP / Lenis / SplitType: desktop only — mobile gets native CSS -->
   <script>
     (function () {
       if (window.innerWidth <= 768) return;

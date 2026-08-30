@@ -18,7 +18,7 @@ import { join, extname, basename } from 'node:path';
 const MAX_WIDTH = 1600;
 const QUALITY = 78;
 
-const dirs = ['public/images', 'public/assets'];
+const dirs = ['public/images', 'public/images/products', 'public/images/industries', 'public/assets'];
 
 let converted = 0;
 let savedBytes = 0;
@@ -26,7 +26,8 @@ let savedBytes = 0;
 for (const dir of dirs) {
   if (!existsSync(dir)) continue;
   for (const file of readdirSync(dir)) {
-    if (extname(file).toLowerCase() !== '.png') continue;
+    const ext = extname(file).toLowerCase();
+    if (ext !== '.png' && ext !== '.jpeg' && ext !== '.jpg') continue;
     const src = join(dir, file);
     const out = join(dir, `${basename(file, extname(file))}.webp`);
 

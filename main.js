@@ -318,6 +318,45 @@ function _initGallery() {
                 buttons.forEach((b) => b.classList.toggle('active', b === btn));
             });
         });
+
+        // Auto-scrolling gallery
+        startAutoScroll(buttons, label, baseAlt);
+    }
+}
+
+function startAutoScroll(buttons, label, baseAlt) {
+    let autoScrollInterval = setInterval(() => {
+        const activeBtn = document.querySelector('.pd-thumb.active');
+        let nextIndex = 0;
+
+        if (activeBtn) {
+            const currentIndex = buttons.indexOf(activeBtn);
+            nextIndex = (currentIndex + 1) % buttons.length;
+        } else {
+            nextIndex = 0;
+        }
+
+        const nextBtn = buttons[nextIndex];
+        if (nextBtn) {
+            const src = nextBtn.dataset.src;
+            const view = nextBtn.dataset.label || '';
+            galleryMain.src = src;
+            galleryMain.alt = `${baseAlt} — ${view}`;
+            if (label) label.innerText = `${view} · ${nextIndex + 1} / ${buttons.length}`;
+            buttons.forEach((b) => b.classList.remove('active'));
+            nextBtn.classList.add('active');
+        }
+    }, 3000);
+
+    // Pause auto-scroll on hover
+    const galleryThumbs = document.getElementById('product-thumbs');
+    if (galleryThumbs) {
+        galleryThumbs.addEventListener('mouseenter', () => {
+            clearInterval(autoScrollInterval);
+        });
+        galleryThumbs.addEventListener('mouseleave', () => {
+            startAutoScroll(buttons, label, baseAlt);
+        });
     }
 }
 

@@ -34,8 +34,16 @@ export const products = [
       'Abrasive removal brush segments in Dubai & UAE — silicon carbide, ceramic and wire fill for deburring, descaling and weld polishing. Custom trim and backing built to drawing. Fast quotes.',
     keywords:
       'Abrasive Removal Brush Segment UAE, Industrial Brushes Dubai, Deburring Brush UAE, Strip Brush Dubai, Wheel Brush UAE, Blast Machine Brush',
-    hero: '/images/sp.png',
-    photos: ['/images/brush.png', '/images/brush-product.png', '/assets/specialized_brushes.png'],
+    hero: '/images/products/pomelli_photoshoot_image_1_1_0829.webp',
+    photos: [
+      '/images/products/brush1.webp',
+      '/images/products/brush2.webp',
+      '/images/products/brush3.webp',
+      '/images/products/shot-blasting-machine-1.webp',
+      '/images/products/shot-blasting-machine-2.webp',
+      '/images/brush-product.webp',
+      '/images/brush.webp'
+    ],
     lead:
       'Expertly engineered industrial brushes for deburring, descaling, surface preparation and precision finishing — supplied across the UAE in standard profiles and built to drawing where the catalogue does not fit.',
     definition:

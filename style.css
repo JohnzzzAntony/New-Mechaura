@@ -88,6 +88,7 @@ ul {
     line-height: 1.1;
     text-transform: uppercase;
     letter-spacing: -0.02em;
+    text-align: left;
 }
 
 .accent-text {
@@ -580,6 +581,7 @@ body.loading {
     line-height: 1;
     text-transform: uppercase;
     margin-bottom: 2rem;
+    text-align: left;
     opacity: 1;
 }
 
@@ -716,6 +718,7 @@ body.loading {
    ========================================================================== */
 .marquee-section {
     padding: 3rem 0;
+    height: 0px;
     background: var(--accent);
     color: #fff;
     overflow: hidden;
@@ -725,7 +728,7 @@ body.loading {
 }
 
 .marquee-inner {
-    display: flex;
+    display: contents;
     width: fit-content;
     animation: marqueeRoll 25s linear infinite;
 }
@@ -825,7 +828,7 @@ body.loading {
 
 .service-card-new:hover {
     transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,69,0,0.15);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 69, 0, 0.15);
 }
 
 .service-card-new::after {
@@ -1000,19 +1003,21 @@ body.loading {
    ========================================================================== */
 .sectors-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
-    margin-top: 4rem;
+    margin-top: 3.5rem;
 }
 
 .sector-card {
     background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 3rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 2.8rem 2.2rem;
     border-radius: 20px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .sector-card::before {
@@ -1022,27 +1027,27 @@ body.loading {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, var(--accent), transparent);
+    background: linear-gradient(135deg, rgba(255, 69, 0, 0.2), transparent 70%);
     opacity: 0;
     transition: opacity 0.4s;
     z-index: 0;
 }
 
 .sector-card:hover {
-    background: rgba(0, 0, 0, 0.4);
-    /* Darken bg on hover to make image pop */
-    border-color: rgba(255, 69, 0, 0.5);
-    transform: translateY(-10px);
+    background: rgba(8, 8, 8, 0.85);
+    border-color: rgba(255, 69, 0, 0.6);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 69, 0, 0.15);
 }
 
 .sector-card:hover::before {
-    opacity: 0.1;
+    opacity: 1;
 }
 
 .sector-card:hover h3,
 .sector-card:hover p {
     color: #fff;
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
 
 .sector-hover-bg {
@@ -1053,24 +1058,22 @@ body.loading {
     height: 100%;
     background-size: cover;
     background-position: center;
-    opacity: 0;
-    transform: scale(1.1);
+    opacity: 0.15;
+    transform: scale(1.08);
     transition: opacity 0.6s, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 0;
-    /* Changed from -1 to 0 */
 }
 
 .sector-card:hover .sector-hover-bg {
-    opacity: 0.4;
-    /* Slightly higher opacity */
+    opacity: 0.45;
     transform: scale(1);
 }
 
 .sc-num {
     font-family: var(--font-heading);
-    font-size: 5rem;
+    font-size: 4.5rem;
     font-weight: 700;
-    color: rgba(255,255,255,0.04);
+    color: rgba(255, 255, 255, 0.05);
     position: absolute;
     top: 0.8rem;
     right: 1.2rem;
@@ -1082,25 +1085,23 @@ body.loading {
 }
 
 .sector-card:hover .sc-num {
-    color: rgba(255,69,0,0.12);
+    color: rgba(255, 69, 0, 0.18);
 }
 
 .sc-icon {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: var(--accent);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     position: relative;
     z-index: 2;
-    /* Content above background */
 }
 
 .sector-card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
     font-family: var(--font-heading);
     position: relative;
     z-index: 2;
-    /* Content above background */
 }
 
 .sector-card p {
@@ -1108,7 +1109,55 @@ body.loading {
     line-height: 1.6;
     position: relative;
     z-index: 2;
-    /* Content above background */
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.sector-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.sector-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #e0e0e0;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.sector-card:hover .sector-tag {
+    background: rgba(255, 69, 0, 0.15);
+    border-color: rgba(255, 69, 0, 0.3);
+    color: #fff;
+}
+
+.sector-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    position: relative;
+    z-index: 2;
+    transition: gap 0.3s ease, color 0.3s ease;
+    margin-top: auto;
+}
+
+.sector-card-link:hover {
+    gap: 0.8rem;
+    color: #ff6b33;
 }
 
 /* ==========================================================================
@@ -1442,7 +1491,7 @@ body.loading {
     letter-spacing: 0.15em;
     color: var(--text-secondary);
     padding-bottom: 4px;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s;
 }
 
@@ -1465,7 +1514,7 @@ body.loading {
     gap: 2.5rem;
     margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .stat-item {
@@ -1590,7 +1639,7 @@ body.loading {
 .product-detail-card:hover {
     transform: translateY(-10px);
     border-color: var(--accent);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .product-detail-card:hover .pdc-img {
@@ -1776,7 +1825,9 @@ body.loading {
     .cta-banner h2 {
         font-size: 2rem;
     }
-    .features-grid, .cap-grid {
+
+    .features-grid,
+    .cap-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -1809,13 +1860,14 @@ body.loading {
     padding: 12px 0;
     justify-content: space-around;
     align-items: center;
-    box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 768px) {
     .mobile-bottom-nav {
         display: flex;
     }
+
     /* Add padding to smooth-content instead of body for Lenis compatibility */
     #smooth-content {
         padding-bottom: 80px;
@@ -1839,7 +1891,8 @@ body.loading {
     font-size: 1.3rem;
 }
 
-.mbn-link.active, .mbn-link:hover {
+.mbn-link.active,
+.mbn-link:hover {
     color: var(--accent);
     transform: translateY(-2px);
 }
@@ -1885,10 +1938,13 @@ body.loading {
 }
 
 @keyframes pulseGlow {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
         opacity: 1;
     }
+
     50% {
         transform: scale(1.4);
         opacity: 0.6;
@@ -2088,13 +2144,16 @@ body.loading {
     .faq-section {
         padding: 4rem 0;
     }
+
     .faq-question {
         padding: 1.2rem 1.4rem;
         font-size: 1rem;
     }
+
     .faq-answer {
         padding: 0 1.4rem;
     }
+
     .faq-item.active .faq-answer {
         padding: 0 1.4rem 1.4rem 1.4rem;
     }
@@ -2169,10 +2228,12 @@ body.loading {
         transform: scale(1);
         opacity: 0.8;
     }
+
     70% {
         transform: scale(1.4);
         opacity: 0;
     }
+
     100% {
         transform: scale(1.4);
         opacity: 0;
@@ -2187,6 +2248,7 @@ body.loading {
         height: 52px;
         font-size: 26px;
     }
+
     .whatsapp-tooltip {
         display: none;
     }
@@ -2263,6 +2325,7 @@ body.loading {
     margin-bottom: 1rem;
     line-height: 1.1;
     letter-spacing: -0.02em;
+    text-align: left;
 }
 
 .legal-meta-badge {
@@ -2370,7 +2433,8 @@ body.loading {
     margin-bottom: 14px;
 }
 
-.legal-block ul, .legal-block ol {
+.legal-block ul,
+.legal-block ol {
     margin: 14px 0 20px 24px;
     color: var(--text-secondary);
     font-size: 0.96rem;
@@ -2400,9 +2464,11 @@ body.loading {
     .legal-layout {
         grid-template-columns: 1fr;
     }
+
     .legal-sidebar {
         display: none;
     }
+
     .legal-content {
         padding: 25px;
     }
@@ -2606,7 +2672,8 @@ body.loading {
     overflow: hidden;
 }
 
-.article-body-content th, .article-body-content td {
+.article-body-content th,
+.article-body-content td {
     padding: 14px 18px;
     text-align: left;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -3134,13 +3201,13 @@ body.loading {
     transform: translateY(-4px);
 }
 
-.tst-card > i {
+.tst-card>i {
     font-size: 1.7rem;
     color: rgba(255, 69, 0, 0.45);
     transition: color var(--t-fast);
 }
 
-.tst-card:hover > i {
+.tst-card:hover>i {
     color: rgba(255, 69, 0, 0.85);
 }
 
@@ -3968,6 +4035,7 @@ body.loading {
 }
 
 @media (max-width: 768px) {
+
     .product-page,
     .pillar-hero {
         padding-top: 7rem;
@@ -4198,7 +4266,8 @@ body.loading {
     --fs-body-lg: clamp(1rem, 0.96rem + 0.25vw, 1.12rem);
     --fs-body: clamp(0.94rem, 0.92rem + 0.14vw, 1rem);
     --fs-small: clamp(0.85rem, 0.83rem + 0.1vw, 0.9rem);
-    --fs-label: clamp(0.75rem, 0.73rem + 0.1vw, 0.8rem);   /* never below 12px */
+    --fs-label: clamp(0.75rem, 0.73rem + 0.1vw, 0.8rem);
+    /* never below 12px */
 
     /* ---- Spacing scale ---- */
     --space-2xs: 0.5rem;
@@ -4221,13 +4290,20 @@ body {
 }
 
 /* Optical refinement — makes the geometric grotesque sit better at display sizes */
-h1, h2, h3, .section-title, .hero-title, .mega-text, .article-h1 {
+h1,
+h2,
+h3,
+.section-title,
+.hero-title,
+.mega-text,
+.article-h1 {
     font-family: var(--font-heading);
     letter-spacing: -0.02em;
     text-wrap: balance;
 }
 
-p, li {
+p,
+li {
     text-wrap: pretty;
 }
 
@@ -4263,15 +4339,15 @@ p, li {
 
 /* Grid and flex children default to min-width:auto, which stops them shrinking
    below their content. Every multi-column layout on the site needs this. */
-.pd-grid > *,
-.about-grid > *,
-.why-grid > *,
-.contact-grid > *,
-.rel-grid > *,
-.insights-grid > *,
-.tst-grid > *,
-.services-grid-new > *,
-.sectors-grid > * {
+.pd-grid>*,
+.about-grid>*,
+.why-grid>*,
+.contact-grid>*,
+.rel-grid>*,
+.insights-grid>*,
+.tst-grid>*,
+.services-grid-new>*,
+.sectors-grid>* {
     min-width: 0;
 }
 
@@ -4384,6 +4460,7 @@ textarea:focus-visible,
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
@@ -4622,6 +4699,7 @@ textarea:focus-visible,
 }
 
 @media (max-width: 768px) {
+
     /* The scroll cue overlapped the stats bar once the hero stacked. The stats
        already sit at the fold and invite scrolling, so the cue is redundant. */
     .scroll-down {
@@ -4847,6 +4925,7 @@ textarea:focus-visible,
 
 /* ---- Mobile refinements ------------------------------------------------ */
 @media (max-width: 768px) {
+
     .section-title,
     .section-heading,
     .hero-title {
@@ -4942,7 +5021,7 @@ textarea:focus-visible,
    overhangs its card by 25px, so the two crowded each other.
    -------------------------------------------------------------------------- */
 .services .products-cta,
-.services-grid-new + .products-cta {
+.services-grid-new+.products-cta {
     margin-top: clamp(3rem, 2rem + 2vw, 4.5rem);
 }
 
@@ -5055,6 +5134,7 @@ textarea:focus-visible,
    dead area.
    ========================================================================== */
 @media (min-width: 993px) {
+
     .why-grid,
     .about-grid,
     .contact-grid {
@@ -5076,6 +5156,7 @@ textarea:focus-visible,
 
 /* Guard: sticky must not apply once columns stack, or it detaches oddly */
 @media (max-width: 992px) {
+
     .why-intro,
     .contact-info-card,
     .about-left,
@@ -5113,6 +5194,7 @@ textarea:focus-visible,
    Performance: Reduced Motion (accessibility + perf)
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
@@ -5136,6 +5218,7 @@ textarea:focus-visible,
    Kill expensive transitions that GSAP won't run anyway
    ========================================================================== */
 @media (max-width: 768px) {
+
     /* Freeze parallax — no JS will drive it */
     .parallax-img-container img {
         transform: none !important;
@@ -5181,4 +5264,253 @@ textarea:focus-visible,
 .reveal-fade,
 .stagger-fade {
     opacity: 1;
+}
+
+/* ==========================================================================
+   Industrial Video Showcase Section
+   ========================================================================== */
+.video-showcase {
+    position: relative;
+    background: radial-gradient(circle at 50% 0%, rgba(255, 107, 0, 0.05) 0%, transparent 60%), #080808;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.showcase-video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+@media (min-width: 992px) {
+    .showcase-video-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.video-card {
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.video-card:hover {
+    border-color: rgba(255, 107, 0, 0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 107, 0, 0.15);
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000000;
+    overflow: hidden;
+}
+
+.showcase-player {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border: none;
+    outline: none;
+    background: #000;
+}
+
+.video-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex-grow: 1;
+}
+
+.video-tag-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    background: rgba(255, 107, 0, 0.08);
+    border: 1px solid rgba(255, 107, 0, 0.2);
+    padding: 0.35rem 0.75rem;
+    border-radius: 100px;
+    width: fit-content;
+}
+
+.video-info h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.35;
+    margin: 0;
+}
+
+.video-info p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Industry Matrix Styles for sectors.html */
+.sector-matrix-section {
+    background: #0a0a0a;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.matrix-card {
+    background: #121212;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.matrix-card:hover {
+    border-color: rgba(255, 69, 0, 0.4);
+    transform: translateY(-4px);
+}
+
+.matrix-card-head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.matrix-card-head i {
+    font-size: 1.5rem;
+    color: var(--accent);
+}
+
+.matrix-card-head h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.matrix-items {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.matrix-items li {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+}
+
+.matrix-items li i {
+    color: var(--accent);
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
+
+/* Pillar Gallery & Video styles */
+.pillar-media-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+}
+
+.pillar-media-item {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #111;
+}
+
+.pillar-media-item img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.pillar-media-item:hover img {
+    transform: scale(1.03);
+}
+
+.pillar-video-card {
+    margin: 2.5rem 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #0d0d0d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.pillar-video-card video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+}
+
+.pillar-video-caption {
+    padding: 1rem 1.25rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    background: #141414;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .showcase-video-grid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+    }
+
+    .matrix-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pillar-media-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .pillar-media-item img {
+        height: 200px;
+    }
+
+    .video-info {
+        padding: 1.25rem;
+    }
+
+    .video-info h3 {
+        font-size: 1.1rem;
+    }
 }

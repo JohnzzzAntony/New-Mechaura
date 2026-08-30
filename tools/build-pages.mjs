@@ -756,6 +756,32 @@ ${breadcrumbNav(trail)}
             <li><i class="fa-solid fa-check"></i> <strong>Housekeeping and safety.</strong> Loose shot on a shop floor is a slip hazard and it migrates into bearings and drives.</li>
           </ul>
 
+          <div class="pillar-video-card">
+            <video controls playsinline preload="metadata" poster="/images/products/shot-blasting-machine-1.webp">
+              <source src="/videos/machinery-processing.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="pillar-video-caption">
+              <i class="fa-solid fa-circle-play" style="color: var(--accent)"></i>
+              <span>Continuous shot blasting &amp; surface finishing line in operation</span>
+            </div>
+          </div>
+
+          <div class="pillar-media-grid">
+            <div class="pillar-media-item">
+              <img src="/images/products/shot-blasting-machine-1.webp" alt="Continuous Plate and Pipe Shot Blasting Machine" loading="lazy" decoding="async" width="600" height="400">
+            </div>
+            <div class="pillar-media-item">
+              <img src="/images/products/shot-blasting-machine-2.webp" alt="Heavy-Duty Roller Conveyor Shot Blast Machine" loading="lazy" decoding="async" width="600" height="400">
+            </div>
+            <div class="pillar-media-item">
+              <img src="/images/products/shot-blasting-machine-3.webp" alt="Industrial Shot Blast Processing Unit" loading="lazy" decoding="async" width="600" height="400">
+            </div>
+            <div class="pillar-media-item">
+              <img src="/images/products/shot-blasting-machine-4.webp" alt="Automated Surface Finishing Cabinet" loading="lazy" decoding="async" width="600" height="400">
+            </div>
+          </div>
+
           <h2>Choosing the fill material</h2>
           <p>Fill choice is driven by the substrate, not by the machine. The table below covers the four we supply most often.</p>
           <div class="table-wrap">
