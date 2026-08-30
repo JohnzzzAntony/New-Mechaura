@@ -901,6 +901,32 @@ body.loading {
 /* ==========================================================================
    Products (Swiper Layout)
    ========================================================================== */
+
+/* Products section header — fully centered */
+.products .section-heading {
+    text-align: center;
+    max-width: none;
+    margin-inline: auto;
+}
+
+.section-sub {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.06em;
+    margin-top: -0.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.75;
+}
+
+.products-section-head {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .products-swiper {
     width: 100%;
     padding-bottom: 3rem;
@@ -947,6 +973,7 @@ body.loading {
     transform: scale(1.1);
 }
 
+.prod-card-new h3,
 .prod-card-new h4 {
     font-size: 0.9rem;
     font-weight: 700;
@@ -957,6 +984,7 @@ body.loading {
     transition: color 0.3s;
 }
 
+.prod-card-new:hover h3,
 .prod-card-new:hover h4 {
     color: var(--accent);
 }
@@ -4959,11 +4987,20 @@ textarea:focus-visible,
         text-align: left;
     }
 
+
     /* Keep genuinely centred elements centred */
     .brands-note,
     .process-step,
-    .loader-text {
+    .loader-text,
+    .products-section-head,
+    .products .section-heading,
+    .section-sub {
         text-align: center;
+    }
+
+    .products .section-heading {
+        max-width: none;
+        margin-inline: auto;
     }
 }
 

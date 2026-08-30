@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         _initFaq();
         _initGallery();
         _initFooterAccordion();
+        _initSwiper();
         return;
     }
 
@@ -363,21 +364,25 @@ function startAutoScroll(buttons, label, baseAlt) {
 function _initSwiper() {
     if (typeof Swiper !== 'undefined' && document.querySelector('.products-swiper')) {
         new Swiper('.products-swiper', {
-            slidesPerView: 1,
-            spaceBetween: 20,
+            slidesPerView: 1.3,
+            spaceBetween: 16,
+            centeredSlides: true,
             loop: true,
             grabCursor: true,
             autoplay: {
-                delay: 3000,
+                delay: 2800,
                 disableOnInteraction: false,
+                pauseOnMouseEnter: true,
             },
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
             },
             breakpoints: {
-                640: { slidesPerView: 2, spaceBetween: 30 },
-                1024: { slidesPerView: 3, spaceBetween: 40 }
+                480: { slidesPerView: 1.8, spaceBetween: 20, centeredSlides: false },
+                640: { slidesPerView: 2.2, spaceBetween: 24, centeredSlides: false },
+                900: { slidesPerView: 3, spaceBetween: 32, centeredSlides: false },
+                1200: { slidesPerView: 3.5, spaceBetween: 40, centeredSlides: false }
             }
         });
     }
