@@ -86,7 +86,6 @@ ul {
     font-size: 4rem;
     font-weight: 700;
     line-height: 1.1;
-    text-transform: uppercase;
     letter-spacing: -0.02em;
     text-align: left;
     margin-left: 0;
@@ -980,11 +979,10 @@ body.loading {
 
 .prod-card-new h3,
 .prod-card-new h4 {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 700;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
     color: var(--text-primary);
-    text-transform: lowercase;
     text-align: left;
     transition: color 0.3s;
 }

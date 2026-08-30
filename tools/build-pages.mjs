@@ -272,9 +272,9 @@ function footer(activeBottom) {
                 <p class="fb-location-text"><i class="fa-solid fa-location-dot"></i> Dubai, UAE</p>
               </div>
               <div class="social-links">
-                <a href="https://www.instagram.com/mechaura_international" target="_blank" rel="noopener" aria-label="Instagram" class="ig"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.threads.net/@mechaura_international" target="_blank" rel="noopener" aria-label="Threads" class="threads"><i class="fa-brands fa-threads"></i></a>
-                <a href="https://www.linkedin.com/company/mechaura-international" target="_blank" rel="noopener" aria-label="LinkedIn" class="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/mechaura_international" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="ig"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.threads.net/@mechaura_international" target="_blank" rel="noopener noreferrer" aria-label="Threads" class="threads"><i class="fa-brands fa-threads"></i></a>
+                <a href="https://www.linkedin.com/company/mechaura-international" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
                 <a href="mailto:${EMAIL}" aria-label="Email" class="email"><i class="fa-solid fa-envelope"></i></a>
               </div>
               <p class="fb-copy">&copy; 2026 ${LEGAL}.<br>All Rights Reserved.</p>
@@ -330,7 +330,7 @@ function footer(activeBottom) {
     </div>
   </main>
 
-  <a href="https://wa.me/971566202517?text=Hello%20Mechaura%20International,%20I%20would%20like%20to%20inquire%20about%20industrial%20products." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with ${BRAND} on WhatsApp">
+  <a href="https://wa.me/971566202517?text=Hello%20Mechaura%20International,%20I%20would%20like%20to%20inquire%20about%20industrial%20products." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with ${BRAND} on WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
     <span class="whatsapp-tooltip">Chat with us on WhatsApp</span>
   </a>
