@@ -232,7 +232,7 @@ ${sectionHead({ eyebrow: 'FAQ', title: 'Frequently asked questions', id: 'faq-h'
     title: 'Industrial Supplier UAE | Abrasive Brushes & Tools | Mechaura',
     desc: 'Industrial components and MRO supply across the UAE and GCC — abrasive brush segments, hydraulic hoses and pumps, bearings, bandsaw blades, cutting tools, elevator spares and air filters. Fast, itemised quotes.',
     keywords: 'Industrial Supplier UAE, Industrial Supplies Dubai, MRO Supplier UAE, Abrasive Brushes Dubai, Hydraulic Hoses UAE, Bearings Dubai',
-    ogImage: '/images/hero-banner.jpg',
+    ogImage: '/images/hero-banner-og.jpg',
     bodyClass: 'is-home',
     schema: [
       orgSchema,

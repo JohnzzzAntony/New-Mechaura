@@ -28,6 +28,7 @@ for (const dir of dirs) {
   for (const file of readdirSync(dir)) {
     const ext = extname(file).toLowerCase();
     if (ext !== '.png' && ext !== '.jpeg' && ext !== '.jpg') continue;
+    if (/-og.[a-z]+$/.test(file)) continue; // social-share images stay JPEG/PNG
     const src = join(dir, file);
     const out = join(dir, `${basename(file, extname(file))}.webp`);
     if (existsSync(out) && statSync(out).mtimeMs >= statSync(src).mtimeMs) continue;
