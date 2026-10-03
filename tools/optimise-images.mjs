@@ -2,8 +2,8 @@
  * Image optimisation for Core Web Vitals.
  *
  * The source PNGs run 2–4 MB each, which destroys LCP on a photo-led design.
- * This script writes a resized WebP alongside each one and rewrites in-page
- * <img> references to it.
+ * This script writes a resized WebP alongside each one; pages reference the
+ * WebP directly (tools/build-site.mjs). Up-to-date WebPs are skipped.
  *
  * Social/OG images keep their PNG URLs — some scrapers still handle WebP badly,
  * and og:image is fetched by the platform rather than the visitor, so its size
@@ -12,7 +12,7 @@
  * Run with: node tools/optimise-images.mjs
  */
 import sharp from 'sharp';
-import { readdirSync, statSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readdirSync, statSync, existsSync } from 'node:fs';
 import { join, extname, basename } from 'node:path';
 
 const MAX_WIDTH = 1600;
@@ -30,6 +30,7 @@ for (const dir of dirs) {
     if (ext !== '.png' && ext !== '.jpeg' && ext !== '.jpg') continue;
     const src = join(dir, file);
     const out = join(dir, `${basename(file, extname(file))}.webp`);
+    if (existsSync(out) && statSync(out).mtimeMs >= statSync(src).mtimeMs) continue;
 
     const before = statSync(src).size;
     const meta = await sharp(src).metadata();
@@ -49,34 +50,3 @@ for (const dir of dirs) {
 }
 
 console.log(`\n${converted} images converted, ${(savedBytes / 1048576).toFixed(1)} MB saved.\n`);
-
-/* ---- rewrite in-page <img> references to .webp ------------------------ */
-const htmlFiles = [
-  ...readdirSync('.').filter((f) => f.endsWith('.html')),
-  ...(existsSync('products') ? readdirSync('products').map((f) => join('products', f)) : []),
-  ...(existsSync('blog') ? readdirSync('blog').map((f) => join('blog', f)) : []),
-];
-
-let touched = 0;
-for (const file of htmlFiles) {
-  const before = readFileSync(file, 'utf8');
-
-  // Only <img src>, CSS url() and preload hrefs — never og:image / twitter:image,
-  // and never the JSON-LD "image" fields, which social and search prefer as PNG.
-  let after = before.replace(/(<img\b[^>]*?\bsrc=")([^"]+?)\.png(")/g, '$1$2.webp$3');
-  after = after.replace(/(url\(['"]?)(\/(?:images|assets)\/[^'")]+?)\.png(['"]?\))/g, '$1$2.webp$3');
-
-  if (after !== before) {
-    writeFileSync(file, after, 'utf8');
-    touched++;
-  }
-}
-console.log(`${touched} HTML file(s) repointed to WebP.`);
-
-/* ---- and the stylesheet ---------------------------------------------- */
-const cssBefore = readFileSync('style.css', 'utf8');
-const cssAfter = cssBefore.replace(/(url\(["']?)(\/(?:images|assets)\/[^"')]+?)\.png(["']?\))/g, '$1$2.webp$3');
-if (cssAfter !== cssBefore) {
-  writeFileSync('style.css', cssAfter, 'utf8');
-  console.log('style.css repointed to WebP.');
-}

@@ -1,6 +1,7 @@
 /**
- * Single source of truth for generated pages (products, pillar, locations).
- * Edit here, then run: node tools/build-pages.mjs
+ * Single source of truth for company facts, products and locations.
+ * Every page is generated from this file and tools/content/*. Edit, then run:
+ *   npm run pages
  */
 
 export const SITE = 'https://mechaurainternational.com';
@@ -11,6 +12,33 @@ export const PHONE_RAW = '+971566202517';
 export const EMAIL = 'info@mechaurainternational.com';
 export const GTM = 'GTM-PSF2HX47';
 export const GOOGLE_TAG = 'AW-18410739502';
+export const WHATSAPP = '971566202517';
+export const HQ = 'Dubai, United Arab Emirates';
+// Hours as published on the contact page. The Delivery Policy says
+// Monday – Saturday; confirm which is correct.
+export const HOURS = 'Sun – Sat, 08:00 – 18:00 (GST)';
+export const SOCIAL = [
+  ['LinkedIn', 'https://www.linkedin.com/company/mechaura-international', 'linkedin'],
+  ['Instagram', 'https://www.instagram.com/mechaura_international', 'instagram'],
+  ['Threads', 'https://www.threads.net/@mechaura_international', 'threads'],
+];
+
+/**
+ * RFQ submission. The site is static (GitHub Pages) and cannot receive
+ * uploads itself. Set `endpoint` to a form backend that accepts a multipart
+ * POST and forwards the fields and attachments to the sales desk. While it is
+ * empty, forms validate normally and then hand the request to the visitor's
+ * email app, asking them to attach their files there.
+ */
+export const RFQ = {
+  endpoint: '',
+  maxFiles: 5,
+  maxFileMB: 10,
+  accept: ['.pdf', '.jpg', '.jpeg', '.png', '.webp', '.doc', '.docx', '.xls', '.xlsx', '.dwg', '.dxf'],
+  // Mirrors "typically back with you inside 24 working hours" in the published
+  // process. Remove if that stops being true.
+  responseNote: 'Itemised quotations are typically returned within 24 working hours.',
+};
 
 export const AUTHOR = {
   name: 'Mechaura Technical Desk',
@@ -96,7 +124,7 @@ export const products = [
     keywords:
       'Hydraulic Hose Dubai, Hydraulic Hose UAE, High Pressure Hose Assembly Dubai, 4SP Hose UAE, Hydraulic Fittings Dubai, Hose Crimping UAE',
     hero: '/images/hydraulic-hose.png',
-    photos: ['/images/hy%20hose%20pro%20detail.png'],
+    photos: ['/images/hydraulic-hose-detail.png'],
     lead:
       'High-pressure hydraulic hoses engineered for durability and flexibility in extreme conditions — assembled, crimped and pressure-tested in house, with test certificates supplied on request.',
     definition:
@@ -510,3 +538,99 @@ export const locations = [
 ];
 
 export const gccMarkets = ['Saudi Arabia', 'Oman', 'Qatar', 'Kuwait', 'Bahrain'];
+
+/* ------------------------------------------------------------------ */
+/* Catalogue structure                                                 */
+/* ------------------------------------------------------------------ */
+
+/** Navigation groups, in menu order. */
+export const groups = [
+  { id: 'filtration', name: 'Filtration' },
+  { id: 'hydraulics', name: 'Hydraulics' },
+  { id: 'surface', name: 'Surface Treatment' },
+  { id: 'motion', name: 'Motion & Power Transmission' },
+  { id: 'cutting', name: 'Cutting & Machining' },
+  { id: 'elevator', name: 'Elevator & Lift' },
+];
+
+/**
+ * Catalogue facets per product. `types` are the sub-ranges published on the
+ * previous /products page. `brands` are manufacturers whose genuine stock or
+ * equivalents are quoted for that range: the bearing and brush brands come
+ * from the product FAQs, the rest are inferred from the brand list on the
+ * previous home page and should be confirmed.
+ */
+const catalogue = {
+  'industrial-air-filters': {
+    group: 'filtration',
+    types: ['Wire Mesh Filters', 'Depth Filters', 'Adsorption Filters', 'Coalescer Filters', 'Separator Filters', 'Spin-on Filters', 'EDM Filters', 'Radial Fin Filters'],
+    brands: [],
+    industries: ['manufacturing', 'oil-and-gas', 'construction', 'facility-management'],
+    related: ['hydraulic-pumps', 'hydraulic-hoses', 'industrial-bearings'],
+  },
+  'hydraulic-pumps': {
+    group: 'hydraulics',
+    types: ['Gear Pumps', 'Vane Pumps', 'Axial Piston Pumps', 'Radial Piston Pumps', 'Variable Displacement Pumps', 'Hydraulic Power Units'],
+    brands: ['Bosch Rexroth', 'Parker', 'Eaton'],
+    industries: ['manufacturing', 'construction', 'automotive', 'facility-management'],
+    related: ['hydraulic-hoses', 'industrial-air-filters', 'industrial-bearings'],
+  },
+  'hydraulic-hoses': {
+    group: 'hydraulics',
+    types: ['High-Pressure Hoses', 'Low-Pressure Hoses', 'PTFE Hoses', 'Thermoplastic Hoses', 'Suction & Return Hoses', 'Spiral Wire Hoses', 'Hydraulic Fittings', 'Hose Assemblies'],
+    brands: ['Parker', 'Gates', 'Eaton'],
+    industries: ['construction', 'oil-and-gas', 'automotive', 'manufacturing'],
+    related: ['hydraulic-pumps', 'industrial-air-filters', 'industrial-bearings'],
+  },
+  'abrasive-brushes': {
+    group: 'surface',
+    types: ['Strip Brushes', 'Cylinder Brushes', 'Wheel Brushes', 'Cup Brushes', 'End Brushes', 'Honing Brushes', 'Shot Blast Brushes'],
+    brands: ['Osborn', 'Weiler'],
+    industries: ['manufacturing', 'engineering-fabrication', 'automotive', 'oil-and-gas'],
+    related: ['cutting-tools', 'bandsaw-blades', 'industrial-bearings'],
+  },
+  'industrial-bearings': {
+    group: 'motion',
+    types: ['Ball Bearings', 'Roller Bearings', 'Spherical Roller Bearings', 'Tapered Roller Bearings', 'Thrust Bearings', 'Mounted Bearings', 'Linear Bearings', 'Needle Bearings'],
+    brands: ['SKF', 'FAG', 'NSK', 'NTN', 'Timken'],
+    industries: ['manufacturing', 'oil-and-gas', 'automotive', 'facility-management'],
+    related: ['hydraulic-pumps', 'abrasive-brushes', 'industrial-air-filters'],
+  },
+  'bandsaw-blades': {
+    group: 'cutting',
+    types: ['Bi-Metal Blades', 'Carbide Tipped Blades', 'Carbon Steel Blades', 'Grit Edge Blades', 'Variable Pitch Blades', 'Welded to Length'],
+    brands: ['Lenox'],
+    industries: ['engineering-fabrication', 'construction', 'manufacturing'],
+    related: ['cutting-tools', 'abrasive-brushes', 'industrial-bearings'],
+  },
+  'cutting-tools': {
+    group: 'cutting',
+    types: ['End Mills', 'Drill Bits', 'Taps & Dies', 'Reamers', 'Carbide Inserts', 'Lathe Tools', 'Tool Holders'],
+    brands: ['Sandvik'],
+    industries: ['engineering-fabrication', 'manufacturing', 'automotive'],
+    related: ['bandsaw-blades', 'abrasive-brushes', 'industrial-bearings'],
+  },
+  'elevator-accessories': {
+    group: 'elevator',
+    types: ['Guide Rails', 'Guide Shoes', 'Door Operators', 'Door Rollers', 'Elevator Ropes', 'Buffers & Safety Gears', 'Push Button Stations', 'Cabin Interiors'],
+    brands: [],
+    industries: ['facility-management', 'construction'],
+    related: ['industrial-bearings', 'industrial-air-filters', 'hydraulic-pumps'],
+  },
+};
+
+for (const p of products) Object.assign(p, catalogue[p.slug]);
+
+/** WebP version of an image path, for on-page use (og:image keeps PNG). */
+export const webp = (src) => src.replace(/\.(png|jpe?g)$/i, '.webp');
+
+/* ------------------------------------------------------------------ */
+/* Delivery — quoted from the published Delivery Policy                */
+/* ------------------------------------------------------------------ */
+
+export const delivery = [
+  ['Dubai & Sharjah', 'Same-day dispatch for in-stock consumables ordered before 11:00 GST. Standard delivery within 24 – 48 business hours.'],
+  ['Abu Dhabi & Al Ain', 'Standard delivery within 24 – 48 business hours.'],
+  ['Northern Emirates', 'Ajman, Ras Al Khaimah, Fujairah and Umm Al Quwain within 24 – 72 business hours, depending on route scheduling.'],
+  ['GCC export', 'Road freight typically 3 – 7 business days after customs clearance. Air freight available for urgent requirements.'],
+];

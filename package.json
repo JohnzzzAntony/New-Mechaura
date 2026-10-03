@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "npm run pages && vite build",
-    "pages": "node tools/build-pages.mjs && node tools/build-articles.mjs && node tools/build-sitemap.mjs && node tools/optimise-images.mjs",
+    "pages": "node tools/optimise-images.mjs && node tools/build-site.mjs",
     "media": "node tools/generate-product-media.mjs",
     "audit": "node tools/audit-check.mjs",
     "preview": "vite preview",
@@ -15,7 +15,6 @@
     "deploy:preview": "node tools/deploy-preview.mjs"
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0",
     "sharp": "^0.35.4",
     "vite": "^7.3.1"
   }

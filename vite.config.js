@@ -2,8 +2,6 @@ import { defineConfig } from 'vite'
 import { mkdirSync, renameSync, writeFileSync, existsSync, readdirSync, readFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 
-const SITE = 'https://mechaurainternational.com'
-
 /**
  * Production serves from the domain root, so links are root-absolute.
  *
@@ -27,49 +25,19 @@ if (BASE !== '/' && (/^[A-Za-z]:/.test(BASE) || !BASE.startsWith('/') || !BASE.e
     )
 }
 
-/** Every page in the site, keyed by the clean URL it is served at. */
-const productSlugs = [
-    'abrasive-brushes',
-    'hydraulic-hoses',
-    'industrial-bearings',
-    'bandsaw-blades',
-    'cutting-tools',
-    'elevator-accessories',
-    'industrial-air-filters',
-    'hydraulic-pumps'
-]
-
-const articleSlugs = [
-    'abrasive-removal-brush-segments-guide',
-    'hydraulic-hose-failure-prevention',
-    'elevator-spares-inspection-checklist',
-    'precision-vs-standard-bearings',
-    'bimetal-vs-carbide-bandsaw-blades',
-    'industrial-air-filters-arid-climates'
-]
-
-const pages = {
-    main: 'index.html',
-    notFound: '404.html',
-    about: 'about.html',
-    services: 'services.html',
-    products: 'products.html',
-    sectors: 'sectors.html',
-    contact: 'contact.html',
-    productDetail: 'product-detail.html',
-    blog: 'blog.html',
-    deliveryPolicy: 'delivery-policy.html',
-    privacyPolicy: 'privacy-policy.html',
-    termsConditions: 'terms-conditions.html',
-
-    // Generated landing pages (see tools/build-pages.mjs)
-    shotBlastBrushes: 'abrasive-brushes-for-shot-blast-machines.html',
-    locDubai: 'industrial-supplies-dubai.html',
-    locAbuDhabi: 'industrial-supplies-abu-dhabi.html',
-    locSharjah: 'industrial-supplies-sharjah.html',
-    ...Object.fromEntries(productSlugs.map((s) => [`product_${s.replace(/-/g, '_')}`, `products/${s}.html`])),
-    ...Object.fromEntries(articleSlugs.map((s) => [`article_${s.replace(/-/g, '_')}`, `blog/${s}.html`]))
-}
+/**
+ * Every generated page (see tools/build-site.mjs), keyed by its path. Pages
+ * live at the repo root and in products/, sectors/ and blog/.
+ */
+const pages = Object.fromEntries(
+    ['.', 'products', 'sectors', 'blog']
+        .flatMap((dir) =>
+            existsSync(dir)
+                ? readdirSync(dir).filter((f) => f.endsWith('.html')).map((f) => (dir === '.' ? f : `${dir}/${f}`))
+                : []
+        )
+        .map((f) => [f.replace(/\.html$/, '').replace(/\//g, '_'), f])
+)
 
 const cleanNames = Object.values(pages)
     .map((f) => f.replace(/\.html$/, ''))

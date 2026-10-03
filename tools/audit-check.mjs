@@ -49,7 +49,8 @@ for (const p of real) {
   const og = /property="og:image"/.test(s);
   const tw = /name="twitter:card"/.test(s);
   const imgs = (s.match(/<img\b/g) || []).length;
-  const alts = (s.match(/<img\b[^>]*alt="[^"]+"/g) || []).length;
+  // alt="" is correct for decorative images (WCAG H67); only a missing attribute fails.
+  const alts = (s.match(/<img\b[^>]*\salt="/g) || []).length;
   const noAlt = imgs - alts;
 
   const issues = [];

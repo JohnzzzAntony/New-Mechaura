@@ -3,21 +3,17 @@
  * Versioned cache management, instant offline availability, and performance acceleration.
  */
 
-const CACHE_NAME = 'mechaura-v3.2.0';
+const CACHE_NAME = 'mechaura-v4.0.0';
 
+// Only URLs that exist in the production build. cache.addAll() is atomic, so a
+// single 404 here (e.g. Vite-hashed CSS/JS) would discard the whole precache.
 const PRECACHE_ASSETS = [
   '/',
-  '/style.css',
-  '/main.js',
   '/images/logo.webp',
-  '/images/logo.png',
-  '/images/hero_brushes.webp',
-  '/about',
+  '/icons.svg',
   '/products',
-  '/services',
-  '/sectors',
-  '/contact',
-  '/blog'
+  '/request-quote',
+  '/contact'
 ];
 
 // Install: Pre-cache critical core shell assets & take over immediately
@@ -38,10 +34,7 @@ self.addEventListener('activate', (event) => {
     caches.keys().then((keys) => {
       return Promise.all(
         keys.map((key) => {
-          if (key !== CACHE_NAME) {
-            console.log('[SW] Deleting legacy cache:', key);
-            return caches.delete(key);
-          }
+          if (key !== CACHE_NAME) return caches.delete(key);
         })
       );
     }).then(() => self.clients.claim())

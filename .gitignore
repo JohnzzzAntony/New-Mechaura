@@ -9,7 +9,6 @@ lerna-debug.log*
 
 node_modules
 dist
-!production-ready/
 dist-ssr
 *.local
 
@@ -26,3 +25,7 @@ dist-ssr
 
 # Generated audit reports
 outputs/
+
+# Generated at build time by tools/build-site.mjs
+public/_r/
+public/search-index.json

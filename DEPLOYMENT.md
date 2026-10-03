@@ -114,13 +114,23 @@ Expected: `No per-page issues found.`
 
 `npm run build` runs, in order:
 
-1. `tools/build-pages.mjs` — 8 product pages, the shot-blast pillar page, 3 location pages
-2. `tools/build-articles.mjs` — 6 knowledge-base article pages
-3. `tools/build-sitemap.mjs` — regenerates `public/sitemap.xml`
-4. `tools/optimise-images.mjs` — WebP conversion and reference rewriting
-5. `vite build` — bundles, hashes assets, writes clean-URL directories
+1. `tools/optimise-images.mjs` — WebP conversion of new or changed PNG/JPEG sources
+2. `tools/build-site.mjs` — generates every page from `tools/site-data.mjs`,
+   `tools/content/*` and `tools/article-content.mjs`, plus
+   `public/search-index.json`, `public/sitemap.xml` and resized image
+   variants in `public/_r/` (the last three are git-ignored build output)
+3. `vite build` — bundles, hashes assets, writes clean-URL directories
 
-Output: `dist/`, roughly 13 MB, 30 indexable pages.
+Output: `dist/`, 37 indexable pages. Edit content in `tools/`, never the
+generated `.html` files at the repo root — they are overwritten on every build.
+
+### Quote / RFQ form submissions
+
+GitHub Pages cannot receive form posts. Set `RFQ.endpoint` in
+`tools/site-data.mjs` to a form backend that accepts multipart uploads and
+forwards them to the sales inbox. Until it is set, forms validate and then open
+the visitor's email app with the request pre-filled, asking them to attach
+their files.
 
 Files GitHub Pages specifically needs, all generated automatically:
 
