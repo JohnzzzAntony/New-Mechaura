@@ -81,10 +81,10 @@ const articlesForProduct = (slug) => articleMeta.filter((a) => a.products.includ
 
 function home() {
   const popular = ['Spherical roller bearing', '4SP hydraulic hose', 'Coalescer filter', 'Bi-metal bandsaw blade', 'Elevator guide shoes', 'Abrasive brush segment'];
-  const mosaic = ['industrial-air-filters', 'hydraulic-pumps', 'industrial-bearings', 'abrasive-brushes'].map(productBySlug);
   const typesTotal = products.reduce((n, p) => n + p.types.length, 0);
 
   const body = `    <section class="hero">
+      ${img({ src: '/images/hero-banner.webp', alt: 'Industrial brush segments, hydraulic hoses, hydraulic power units, bearings and filtration elements supplied by Mechaura International', sizes: '100vw', priority: true, cls: 'hero-bg' })}
       <div class="wrap hero-in">
         <div class="hero-copy">
           <p class="eyebrow eyebrow-light">Industrial components &amp; MRO supply · UAE &amp; GCC</p>
@@ -106,16 +106,6 @@ ${popular.map((q) => `            <a href="/products?q=${encodeURIComponent(q)}"
             ${btn('Talk to an Engineer', waLink('Hello Mechaura, I would like to speak to an engineer.'), 'ghost-light', 'whatsapp', ' target="_blank" rel="noopener" data-track="whatsapp_click"')}
           </div>
           <p class="hero-upload">Can’t find the exact product? <a href="/request-quote?type=identify">${icon('upload', 'i-sm')} Upload a drawing or photo</a></p>
-        </div>
-        <div class="hero-mosaic" aria-label="Product ranges">
-${mosaic
-  .map(
-    (p, i) => `          <a class="mosaic-tile" href="/products/${p.slug}">
-            ${img({ src: webp(p.hero), alt: p.name, sizes: '(min-width: 1100px) 260px, 45vw', priority: i < 2 })}
-            <span class="tile-label"><small>${String(i + 1).padStart(2, '0')} · ${esc(groupName(p.group))}</small>${esc(p.short)}</span>
-          </a>`
-  )
-  .join('\n')}
         </div>
       </div>
     </section>
@@ -242,6 +232,7 @@ ${sectionHead({ eyebrow: 'FAQ', title: 'Frequently asked questions', id: 'faq-h'
     title: 'Industrial Supplier UAE | Abrasive Brushes & Tools | Mechaura',
     desc: 'Industrial components and MRO supply across the UAE and GCC — abrasive brush segments, hydraulic hoses and pumps, bearings, bandsaw blades, cutting tools, elevator spares and air filters. Fast, itemised quotes.',
     keywords: 'Industrial Supplier UAE, Industrial Supplies Dubai, MRO Supplier UAE, Abrasive Brushes Dubai, Hydraulic Hoses UAE, Bearings Dubai',
+    ogImage: '/images/hero-banner.jpg',
     bodyClass: 'is-home',
     schema: [
       orgSchema,

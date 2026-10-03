@@ -46,7 +46,7 @@ export const jsonLd = (items) =>
 
 const PUBLIC = 'public';
 const VARIANT_DIR = join(PUBLIC, '_r');
-const VARIANT_WIDTHS = [480, 960];
+const VARIANT_WIDTHS = [480, 960, 1440];
 
 const meta = new Map(); // '/images/x.webp' -> { width, height }
 const wanted = new Map(); // variant url -> { src, width }

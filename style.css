@@ -296,18 +296,18 @@ body.nav-open { overflow: hidden; }
 /* ==========================================================================
    Hero (home)
    ========================================================================== */
-.hero {
-  position: relative; background: var(--ink); color: var(--on-ink); overflow: hidden;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 48px 48px;
-  background-position: -1px -1px;
+.hero { position: relative; isolation: isolate; background: var(--ink); color: var(--on-ink); overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 70% center; }
+.hero::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(13, 16, 20, 0.96) 0%, rgba(13, 16, 20, 0.9) 34%, rgba(13, 16, 20, 0.55) 58%, rgba(13, 16, 20, 0.12) 82%),
+    linear-gradient(0deg, rgba(13, 16, 20, 0.7), transparent 30%);
 }
-.hero::after { content: ''; position: absolute; inset: auto 0 0 0; height: 120px; background: linear-gradient(transparent, rgba(13, 16, 20, 0.6)); pointer-events: none; }
-.hero-in { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(2rem, 4vw, 4.5rem); align-items: center; padding-block: clamp(3rem, 2rem + 5vw, 6rem); }
-.hero h1 { font-size: var(--fs-display); max-width: 18ch; }
-.hero-lede { color: var(--on-ink-muted); font-size: clamp(1.05rem, 1rem + 0.35vw, 1.22rem); max-width: 58ch; margin-top: 1.25rem; }
+.hero-in { display: flex; align-items: center; min-height: clamp(560px, 46vw, 720px); padding-block: clamp(3rem, 2rem + 4vw, 5.5rem); }
+.hero-copy { max-width: 640px; }
+.hero h1 { font-size: var(--fs-display); max-width: 17ch; }
+.hero-lede { color: #c3c9d1; font-size: clamp(1.05rem, 1rem + 0.35vw, 1.22rem); max-width: 56ch; margin-top: 1.25rem; }
 
 .hero-search, .finder-search { position: relative; display: flex; align-items: center; gap: 0.5rem; margin-top: 2rem; padding: 0.4rem 0.4rem 0.4rem 1rem; background: var(--bg); color: var(--text); border-radius: var(--r); box-shadow: var(--shadow); }
 .hero-search > .i, .finder-search > .i { color: var(--muted); }
@@ -321,24 +321,12 @@ body.nav-open { overflow: hidden; }
 .hero-upload { margin-top: 1.25rem; font-size: var(--fs-small); color: var(--on-ink-muted); }
 .hero-upload a { display: inline-flex; align-items: center; gap: 0.35rem; color: var(--accent-on-ink); font-weight: 700; margin-left: 0.25rem; }
 
-.hero-mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-.mosaic-tile { position: relative; display: block; aspect-ratio: 1; overflow: hidden; border-radius: var(--r); border: 1px solid var(--ink-line); background: var(--ink-2); }
-.mosaic-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 400ms ease; }
-.mosaic-tile:hover img { transform: scale(1.04); }
-.mosaic-tile::before, .mosaic-tile::after { content: ''; position: absolute; z-index: 1; width: 14px; height: 14px; border-color: rgba(255, 255, 255, 0.7); border-style: solid; }
-.mosaic-tile::before { top: 10px; left: 10px; border-width: 1px 0 0 1px; }
-.mosaic-tile::after { right: 10px; bottom: 10px; border-width: 0 1px 1px 0; }
-.tile-label { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; display: flex; flex-direction: column; gap: 0.15rem; padding: 2rem 0.9rem 0.8rem; font-weight: 700; color: #fff; background: linear-gradient(transparent, rgba(13, 16, 20, 0.85)); }
-.tile-label small { font-family: var(--mono); font-size: 0.66rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255, 255, 255, 0.75); }
-
 @media (max-width: 960px) {
-  .hero-in { grid-template-columns: 1fr; }
-  .hero-mosaic { grid-template-columns: repeat(4, 1fr); }
-  .tile-label { padding: 1.25rem 0.5rem 0.5rem; font-size: 0.8rem; }
-  .tile-label small { display: none; }
+  .hero-bg { position: static; z-index: auto; height: auto; aspect-ratio: 1983 / 793; }
+  .hero::before { background: linear-gradient(180deg, transparent 0, transparent calc(100vw * 793 / 1983 - 60px), var(--ink) calc(100vw * 793 / 1983)); }
+  .hero-in { min-height: 0; padding-block: 1.75rem 3rem; }
 }
 @media (max-width: 560px) {
-  .hero-mosaic { grid-template-columns: 1fr 1fr; }
   .hero-search { flex-wrap: wrap; padding: 0.4rem 0.4rem 0.4rem 0.9rem; }
   .hero-search .btn { width: 100%; }
   .hero-search input { flex-basis: calc(100% - 2.5rem); }
