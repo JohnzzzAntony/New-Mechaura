@@ -24,14 +24,21 @@ export const SOCIAL = [
 ];
 
 /**
- * RFQ submission. The site is static (GitHub Pages) and cannot receive
- * uploads itself. Set `endpoint` to a form backend that accepts a multipart
- * POST and forwards the fields and attachments to the sales desk. While it is
- * empty, forms validate normally and then hand the request to the visitor's
- * email app, asking them to attach their files there.
+ * RFQ submission via Formspree (https://formspree.io). The site is static
+ * (GitHub Pages), so it cannot receive form posts itself.
+ *
+ *   formspreeId  the ID from the form's endpoint, https://formspree.io/f/<ID>
+ *   uploads      true only on a Formspree plan that accepts file uploads. When
+ *                false, the form still validates the files, then asks the
+ *                visitor to email them quoting their RFQ reference.
+ *
+ * With no ID set, forms validate and then open the visitor's email app with
+ * the request filled in.
  */
+const FORMSPREE_ID = 'mwlpgzod';
 export const RFQ = {
-  endpoint: '',
+  endpoint: FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '',
+  uploads: false,
   maxFiles: 5,
   maxFileMB: 10,
   accept: ['.pdf', '.jpg', '.jpeg', '.png', '.webp', '.doc', '.docx', '.xls', '.xlsx', '.dwg', '.dxf'],

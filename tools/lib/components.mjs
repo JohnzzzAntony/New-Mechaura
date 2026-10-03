@@ -250,7 +250,7 @@ const uploader = (id = 'files') => `              <div class="field full">
 
 const formShell = (inner, { mode, product }) => `<form class="rfq rfq-${mode}" data-rfq="${mode}" novalidate
             action="${RFQ.endpoint || `mailto:${EMAIL}`}" method="post" enctype="${RFQ.endpoint ? 'multipart/form-data' : 'text/plain'}"
-            data-endpoint="${esc(RFQ.endpoint)}" data-email="${EMAIL}" data-max-files="${RFQ.maxFiles}" data-max-mb="${RFQ.maxFileMB}" data-accept="${RFQ.accept.join(',')}">
+            data-endpoint="${esc(RFQ.endpoint)}" data-uploads="${RFQ.uploads}" data-email="${EMAIL}" data-max-files="${RFQ.maxFiles}" data-max-mb="${RFQ.maxFileMB}" data-accept="${RFQ.accept.join(',')}">
             <div class="err-summary" role="alert" tabindex="-1" hidden></div>
             <input type="hidden" name="form" value="${mode}">
             <input type="hidden" name="page" value="">

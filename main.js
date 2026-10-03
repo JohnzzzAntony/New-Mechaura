@@ -647,7 +647,9 @@ function initRfq(form) {
   /* ---- submit ---- */
   const value = (name) => form.elements[`${prefix}${name}`]?.value?.trim() || '';
 
-  function finish(ref, pending) {
+  function finish(ref, pending, filesToEmail = []) {
+    const mailFiles = `mailto:${form.dataset.email}?subject=${encodeURIComponent(`Files for RFQ ${ref}`)}&body=${encodeURIComponent(`Reference: ${ref}
+Attached: ${filesToEmail.map((f) => f.name).join(', ')}`)}`;
     const wa = `https://wa.me/971566202517?text=${encodeURIComponent(`Hello Mechaura, following up on my request ${ref}.`)}`;
     done.className = `rfq-done${pending ? ' is-pending' : ''}`;
     done.innerHTML = pending
@@ -660,7 +662,8 @@ function initRfq(form) {
          <p>Thank you. Your technical requirement has been submitted.</p>
          <p>Reference: <span class="ref">${ref}</span></p>
          <p>Our team will review your request and contact you within the stated response period.</p>
-         <div class="btn-row"><a class="btn btn-primary" href="/products">Continue browsing</a><a class="btn btn-wa" href="${wa}" target="_blank" rel="noopener" data-track="whatsapp_click">${ICON('whatsapp')} WhatsApp an Engineer</a></div>`;
+         ${filesToEmail.length ? `<p><strong>One more step:</strong> email your ${filesToEmail.length} file${filesToEmail.length > 1 ? 's' : ''} (${filesToEmail.map((f) => esc(f.name)).join(', ')}) to <a href="${mailFiles}">${form.dataset.email}</a> quoting reference ${ref}, or send ${filesToEmail.length > 1 ? 'them' : 'it'} on WhatsApp.</p>` : ''}
+         <div class="btn-row">${filesToEmail.length ? `<a class="btn btn-primary" href="${mailFiles}">${ICON('mail')} Email the files</a>` : '<a class="btn btn-primary" href="/products">Continue browsing</a>'}<a class="btn btn-wa" href="${wa}" target="_blank" rel="noopener" data-track="whatsapp_click">${ICON('whatsapp')} WhatsApp an Engineer</a></div>`;
     form.hidden = true;
     done.hidden = false;
     done.focus();
@@ -707,7 +710,10 @@ function initRfq(form) {
       if (el.value.trim()) data.append(key(el), el.value.trim());
     }
     data.append('_subject', `RFQ ${ref} — ${data.get('product') || value('requirement') || 'Industrial requirement'}`);
-    files.forEach((f) => data.append('attachments', f, f.name));
+    // File uploads need a paid Formspree plan; without it, files are emailed separately.
+    const uploads = form.dataset.uploads === 'true';
+    if (uploads) files.forEach((f) => data.append('attachments', f, f.name));
+    else if (files.length) data.append('attachments_to_follow', files.map((f) => f.name).join(', '));
 
     const btn = $('[data-submit]', form);
     const bar = $('[data-progress]', form);
@@ -715,22 +721,27 @@ function initRfq(form) {
     btn.setAttribute('aria-disabled', 'true');
     btn.dataset.label = btn.innerHTML;
     btn.textContent = 'Submitting…';
-    bar.hidden = !files.length;
+    bar.hidden = !(uploads && files.length);
 
     const xhr = new XMLHttpRequest();
     xhr.open('POST', endpoint);
     xhr.setRequestHeader('Accept', 'application/json');
     xhr.upload.addEventListener('progress', (ev) => { if (ev.lengthComputable) fill.style.width = `${Math.round((ev.loaded / ev.total) * 100)}%`; });
-    const fail = () => {
+    const fail = (detail) => {
       btn.removeAttribute('aria-disabled');
       btn.innerHTML = btn.dataset.label;
       bar.hidden = true;
       summary.hidden = false;
-      summary.innerHTML = `<strong>We couldn’t submit your request.</strong><ul><li>Check your connection and try again — your details are still here.</li><li>Or email <a href="mailto:${form.dataset.email}">${form.dataset.email}</a> or message us on <a href="https://wa.me/971566202517" target="_blank" rel="noopener">WhatsApp</a>.</li></ul>`;
+      summary.innerHTML = `<strong>We couldn’t submit your request.</strong><ul>${detail ? `<li>${esc(detail)}</li>` : ''}<li>Check your connection and try again — your details are still here.</li><li>Or email <a href="mailto:${form.dataset.email}">${form.dataset.email}</a> or message us on <a href="https://wa.me/971566202517" target="_blank" rel="noopener">WhatsApp</a>.</li></ul>`;
       summary.focus();
     };
-    xhr.addEventListener('load', () => (xhr.status >= 200 && xhr.status < 300 ? finish(ref, false) : fail()));
-    xhr.addEventListener('error', fail);
+    xhr.addEventListener('load', () => {
+      if (xhr.status >= 200 && xhr.status < 300) return finish(ref, false, uploads ? [] : files);
+      let detail = '';
+      try { detail = (JSON.parse(xhr.responseText).errors || []).map((x) => x.message).join(' '); } catch { /* non-JSON error */ }
+      fail(detail);
+    });
+    xhr.addEventListener('error', () => fail());
     xhr.send(data);
   });
 }
