@@ -2,7 +2,7 @@
  * Reusable page sections. Each returns an HTML string.
  */
 import { PHONE, PHONE_RAW, EMAIL, RFQ, products, groups, delivery, gccMarkets, webp } from '../site-data.mjs';
-import { articleMeta, sectors, testimonials as quotes, trust } from '../content/site-content.mjs';
+import { articleMeta, sectors, testimonials as quotes } from '../content/site-content.mjs';
 import { esc, icon, img } from './html.mjs';
 import { waLink } from './layout.mjs';
 
@@ -100,14 +100,8 @@ export const faqSchema = (faqs) => ({
 });
 
 /* ------------------------------------------------------------------ */
-/* Trust, testimonials, delivery                                       */
+/* Testimonials, delivery                                              */
 /* ------------------------------------------------------------------ */
-
-export const trustStrip = () => `<section class="trust" aria-label="Why buyers work with us">
-      <ul class="wrap trust-list">
-${trust.map(([ic, t, d]) => `        <li>${icon(ic)}<span><strong>${esc(t)}</strong>${esc(d)}</span></li>`).join('\n')}
-      </ul>
-    </section>`;
 
 export const testimonials = () => `<div class="quotes">
 ${quotes

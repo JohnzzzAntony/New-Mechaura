@@ -315,9 +315,6 @@ body.nav-open { overflow: hidden; }
 .hero-search:focus-within, .finder-search:focus-within { box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.45), var(--shadow); }
 .search-pop { position: absolute; top: calc(100% + 6px); left: 0; right: 0; z-index: 20; max-height: 420px; overflow-y: auto; padding: 0.5rem; background: var(--bg); color: var(--text); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow-lg); }
 
-.popular { display: flex; flex-wrap: wrap; gap: 0.4rem 0.9rem; margin-top: 0.9rem; font-size: var(--fs-small); color: var(--on-ink-muted); }
-.popular a { color: var(--on-ink); text-decoration: underline; text-decoration-color: rgba(255, 255, 255, 0.25); text-underline-offset: 3px; }
-.popular a:hover { text-decoration-color: var(--accent-on-ink); }
 .hero-upload { margin-top: 1.25rem; font-size: var(--fs-small); color: var(--on-ink-muted); }
 .hero-upload a { display: inline-flex; align-items: center; gap: 0.35rem; color: var(--accent-on-ink); font-weight: 700; margin-left: 0.25rem; }
 
@@ -333,23 +330,6 @@ body.nav-open { overflow: hidden; }
   .hero .btn-row .btn { flex: 1 1 100%; }
 }
 
-/* ---------- Trust strip ---------- */
-.trust { background: var(--ink-2); color: var(--on-ink); border-top: 1px solid var(--ink-line); }
-.trust-list { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); }
-.trust-list li { display: flex; gap: 0.7rem; align-items: flex-start; padding: 1.25rem 1rem; border-left: 1px solid var(--ink-line); font-size: 0.8rem; color: var(--on-ink-muted); line-height: 1.4; }
-.trust-list li:first-child { border-left: 0; padding-left: 0; }
-.trust-list .i { color: var(--accent-on-ink); margin-top: 2px; }
-.trust-list strong { display: block; color: var(--on-ink); font-size: 0.9rem; margin-bottom: 0.15rem; }
-@media (max-width: 1100px) {
-  .trust-list { grid-template-columns: repeat(3, 1fr); }
-  .trust-list li:nth-child(4) { border-left: 0; padding-left: 0; }
-  .trust-list li:nth-child(n + 4) { border-top: 1px solid var(--ink-line); }
-}
-@media (max-width: 640px) {
-  .trust-list { grid-template-columns: 1fr 1fr; }
-  .trust-list li { border-left: 0 !important; padding-left: 0; padding-right: 0.5rem; border-top: 1px solid var(--ink-line); }
-  .trust-list li:nth-child(-n + 2) { border-top: 0; }
-}
 
 /* ==========================================================================
    Cards & grids

@@ -22,7 +22,7 @@ import { articles } from './article-content.mjs';
 import { esc, plain, icon, img, slugify, loadImageMeta, writeImageVariants } from './lib/html.mjs';
 import { page, breadcrumbs, orgSchema, waLink } from './lib/layout.mjs';
 import {
-  btn, sectionHead, productCard, productGrid, specTable, faqList, faqSchema, trustStrip, testimonials,
+  btn, sectionHead, productCard, productGrid, specTable, faqList, faqSchema, testimonials,
   deliveryBlock, articleCard, identifyPart, ctaBand, videoGrid, VIDEOS, rfqFull, rfqCompact, contactLines,
   groupName, productBySlug, sectorBySlug, articleBySlug,
 } from './lib/components.mjs';
@@ -80,7 +80,6 @@ const articlesForProduct = (slug) => articleMeta.filter((a) => a.products.includ
 /* ------------------------------------------------------------------ */
 
 function home() {
-  const popular = ['Spherical roller bearing', '4SP hydraulic hose', 'Coalescer filter', 'Bi-metal bandsaw blade', 'Elevator guide shoes', 'Abrasive brush segment'];
   const typesTotal = products.reduce((n, p) => n + p.types.length, 0);
 
   const body = `    <section class="hero">
@@ -97,9 +96,6 @@ function home() {
             <button class="btn btn-primary" type="submit">Search</button>
             <div class="search-results search-pop" data-search-results aria-live="polite"></div>
           </form>
-          <p class="popular"><span>Popular:</span>
-${popular.map((q) => `            <a href="/products?q=${encodeURIComponent(q)}">${q}</a>`).join('\n')}
-          </p>
           <div class="btn-row">
             ${btn('Request a Quote', '/request-quote', 'primary', 'file', ' data-rfq-link')}
             ${btn('Find a Product', '/products', 'ghost-light', 'search')}
@@ -109,8 +105,6 @@ ${popular.map((q) => `            <a href="/products?q=${encodeURIComponent(q)}"
         </div>
       </div>
     </section>
-
-    ${trustStrip()}
 
     <section class="section" id="catalogue" aria-labelledby="cat-h">
       <div class="wrap">

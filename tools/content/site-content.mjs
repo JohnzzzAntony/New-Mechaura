@@ -92,15 +92,6 @@ export const unverifiedStats = [
   ['500+', 'Product lines stocked'],
 ];
 
-export const trust = [
-  ['map', 'All seven Emirates', 'Delivery across the UAE'],
-  ['globe', 'GCC export', 'Saudi Arabia, Oman, Qatar, Kuwait, Bahrain'],
-  ['clock', '24 working hours', 'Typical itemised quote response'],
-  ['layers', 'Genuine & equivalent', 'Stated clearly on every quotation'],
-  ['wrench', 'Application-led', 'Specified to your operating conditions'],
-  ['file', 'Documentation', 'Certificates and datasheets on request'],
-];
-
 export const principles = [
   ['Quality-tested inventory', 'Stock is checked against the datasheet on arrival — dimensions, markings and batch traceability — so what you order is what reaches your floor.'],
   ['Transparent pricing', 'Itemised quotations with no hidden handling charges, so procurement teams can compare like for like and budget with confidence.'],
