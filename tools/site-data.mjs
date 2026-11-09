@@ -120,6 +120,64 @@ export const products = [
     ],
   },
   {
+    slug: 'cnc-punching-tools',
+    legacyId: 'punching-tools',
+    name: 'CNC Punching Tools',
+    short: 'Punching Tools',
+    category: 'Turret Punch Tooling',
+    title: 'CNC Punching Tools UAE | Turret Punches & Dies Dubai',
+    metaDesc:
+      'CNC turret punching tools in Dubai & UAE — punches, dies and strippers for thick and thin turret machines. Amada, Trumpf, Murata and Strippit compatible. Machine model confirmed before quoting.',
+    keywords:
+      'CNC Punching Tools UAE, Turret Punch Tooling Dubai, Punch and Die UAE, Thick Turret Tooling, Thin Turret Tooling, Amada Punch Dubai, Trumpf Punch UAE, Murata Tooling, Strippit Tooling',
+    hero: '/images/products/cnc-punching-tools.png',
+    photos: [],
+    lead:
+      'Punches, dies and strippers for thick and thin turret machines. Tell us the machine model and we confirm what fits before quoting.',
+    definition:
+      'A CNC punching tool is the punch, die and stripper set that a turret punch press uses to pierce or form sheet metal. The punch drives through the sheet into a matching die whose opening is slightly larger — the die clearance — and the stripper holds the sheet down as the punch withdraws. Tools are sized to a turret station (A – E) and must match the machine style.',
+    specs: [
+      ['Machine compatibility', 'Amada, Trumpf, Murata, Strippit'],
+      ['Turret style', 'Thick turret, thin turret'],
+      ['Stations', 'B, C, D (A and E to order)'],
+      ['Tool types', 'Punches, dies, strippers, lance and form tools'],
+      ['Round punch', 'Ø 10 mm · Station B · thick turret · Amada, Trumpf'],
+      ['Round punch, thin turret', 'Ø 6 mm · Station B · Murata, Strippit'],
+      ['Round die', 'Ø 10 mm · clearance 0.20 mm · Station B · thick turret · Amada, Trumpf'],
+      ['Oblong punch', '8 × 20 mm · Station B · thick turret · Amada, Murata'],
+      ['Square punch', '12 × 12 mm · Station C · thick turret · Amada, Trumpf'],
+      ['Square die', '12 × 12 mm · clearance 0.30 mm · Station C · thick turret · Amada, Trumpf'],
+      ['Stripper', 'Ø 30 mm · Station C · thick turret · Amada'],
+      ['Lance and form tool', '60 mm · Station D · thick turret · Trumpf'],
+      ['Custom tooling', 'Special shapes built from a drawing or a photo of the part'],
+    ],
+    applications: [
+      'Sheet-metal enclosures, cabinets and panels',
+      'HVAC duct and fabrication shop production',
+      'Louvres, lances and formed features in one hit',
+      'Replacing worn punches and dies on existing turret machines',
+      'Special-shape tooling for repeat production parts',
+    ],
+    faqs: [
+      [
+        'How do I know which punching tools fit my machine?',
+        'Tell us the machine make and model, the turret style (thick or thin) and the station size. We confirm specification, compatibility and availability before quoting, so you do not receive tools that will not seat in your turret.',
+      ],
+      [
+        'What die clearance should I use?',
+        'Die clearance is set by material type and thickness. As the configurations show, a Ø 10 mm round die is typically run at 0.20 mm clearance and a 12 × 12 mm square die at 0.30 mm. Too little clearance wears the punch; too much leaves a heavy burr. Give us the material and gauge and we specify it.',
+      ],
+      [
+        'Do you supply thin turret as well as thick turret tooling?',
+        'Yes. We supply both — for example a Ø 6 mm round punch in Station B for thin turret machines alongside Ø 10 mm Station B thick turret tooling.',
+      ],
+      [
+        'Can you make a tool for a shape that is not listed?',
+        'Yes. Send a drawing or a photo of the part and we quote custom tooling — special shapes, lance and form tools and multi-feature tools.',
+      ],
+    ],
+  },
+  {
     slug: 'hydraulic-hoses',
     legacyId: 'hose',
     name: 'Hydraulic Hoses & Fittings',
@@ -328,64 +386,6 @@ export const products = [
       [
         'Can you supply tool holders to match our machine spindles?',
         'Yes — tell us the spindle taper (BT30, BT40, HSK63, CAT40 and so on) and pull-stud type, and we will supply holders, collets and pull studs that match. We can also supply presetting and balancing to order.',
-      ],
-    ],
-  },
-  {
-    slug: 'cnc-punching-tools',
-    legacyId: 'punching-tools',
-    name: 'CNC Punching Tools',
-    short: 'Punching Tools',
-    category: 'Turret Punch Tooling',
-    title: 'CNC Punching Tools UAE | Turret Punches & Dies Dubai',
-    metaDesc:
-      'CNC turret punching tools in Dubai & UAE — punches, dies and strippers for thick and thin turret machines. Amada, Trumpf, Murata and Strippit compatible. Machine model confirmed before quoting.',
-    keywords:
-      'CNC Punching Tools UAE, Turret Punch Tooling Dubai, Punch and Die UAE, Thick Turret Tooling, Thin Turret Tooling, Amada Punch Dubai, Trumpf Punch UAE, Murata Tooling, Strippit Tooling',
-    hero: '/images/products/cnc-punching-tools.png',
-    photos: [],
-    lead:
-      'Punches, dies and strippers for thick and thin turret machines. Tell us the machine model and we confirm what fits before quoting.',
-    definition:
-      'A CNC punching tool is the punch, die and stripper set that a turret punch press uses to pierce or form sheet metal. The punch drives through the sheet into a matching die whose opening is slightly larger — the die clearance — and the stripper holds the sheet down as the punch withdraws. Tools are sized to a turret station (A – E) and must match the machine style.',
-    specs: [
-      ['Machine compatibility', 'Amada, Trumpf, Murata, Strippit'],
-      ['Turret style', 'Thick turret, thin turret'],
-      ['Stations', 'B, C, D (A and E to order)'],
-      ['Tool types', 'Punches, dies, strippers, lance and form tools'],
-      ['Round punch', 'Ø 10 mm · Station B · thick turret · Amada, Trumpf'],
-      ['Round punch, thin turret', 'Ø 6 mm · Station B · Murata, Strippit'],
-      ['Round die', 'Ø 10 mm · clearance 0.20 mm · Station B · thick turret · Amada, Trumpf'],
-      ['Oblong punch', '8 × 20 mm · Station B · thick turret · Amada, Murata'],
-      ['Square punch', '12 × 12 mm · Station C · thick turret · Amada, Trumpf'],
-      ['Square die', '12 × 12 mm · clearance 0.30 mm · Station C · thick turret · Amada, Trumpf'],
-      ['Stripper', 'Ø 30 mm · Station C · thick turret · Amada'],
-      ['Lance and form tool', '60 mm · Station D · thick turret · Trumpf'],
-      ['Custom tooling', 'Special shapes built from a drawing or a photo of the part'],
-    ],
-    applications: [
-      'Sheet-metal enclosures, cabinets and panels',
-      'HVAC duct and fabrication shop production',
-      'Louvres, lances and formed features in one hit',
-      'Replacing worn punches and dies on existing turret machines',
-      'Special-shape tooling for repeat production parts',
-    ],
-    faqs: [
-      [
-        'How do I know which punching tools fit my machine?',
-        'Tell us the machine make and model, the turret style (thick or thin) and the station size. We confirm specification, compatibility and availability before quoting, so you do not receive tools that will not seat in your turret.',
-      ],
-      [
-        'What die clearance should I use?',
-        'Die clearance is set by material type and thickness. As the configurations show, a Ø 10 mm round die is typically run at 0.20 mm clearance and a 12 × 12 mm square die at 0.30 mm. Too little clearance wears the punch; too much leaves a heavy burr. Give us the material and gauge and we specify it.',
-      ],
-      [
-        'Do you supply thin turret as well as thick turret tooling?',
-        'Yes. We supply both — for example a Ø 6 mm round punch in Station B for thin turret machines alongside Ø 10 mm Station B thick turret tooling.',
-      ],
-      [
-        'Can you make a tool for a shape that is not listed?',
-        'Yes. Send a drawing or a photo of the part and we quote custom tooling — special shapes, lance and form tools and multi-feature tools.',
       ],
     ],
   },
