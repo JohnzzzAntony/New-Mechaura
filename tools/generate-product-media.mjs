@@ -336,6 +336,25 @@ const schematics = {
       </g>`;
     };
   })(),
+  'punching-tools'() {
+    return `<g>
+      <!-- punch -->
+      <rect x="520" y="200" width="160" height="40" rx="6" fill="url(#metalH)" stroke="${LINE}" stroke-width="2"/>
+      <rect x="560" y="240" width="80" height="190" fill="url(#metalH)" stroke="${LINE}" stroke-width="2"/>
+      <rect x="560" y="300" width="80" height="6" fill="${ACCENT}"/>
+      <!-- stripper + sheet -->
+      <rect x="500" y="430" width="200" height="20" fill="${SURFACE}" stroke="${LINE}" stroke-width="2"/>
+      <rect x="300" y="456" width="600" height="14" fill="${LINE}"/>
+      <!-- die -->
+      <path d="M440 476H555V520H645V476H760V600H440z" fill="url(#metal)" stroke="${LINE}" stroke-width="2"/>
+      ${callout(640, 260, 860, 230, 'Punch — Station B / C / D')}
+      ${callout(700, 440, 860, 330, 'Stripper')}
+      ${callout(300, 463, 220, 380, 'Sheet')}
+      ${callout(760, 560, 860, 430, 'Die — clearance 0.20 – 0.30 mm')}
+      ${dimH(560, 640, 650, 'Ø 10 mm')}
+      <text x="64" y="700" fill="${MUTED}" font-family="Inter,sans-serif" font-size="18">Thick and thin turret · Amada, Trumpf, Murata, Strippit compatible</text>
+    </g>`;
+  },
 };
 
 /* -------------------------------------------------------------------------- */
@@ -448,6 +467,13 @@ const products = {
     apps: ['Manufacturing', 'Fabrication', 'Aerospace'],
     note: 'Solid carbide and HSS-Co · TiN / TiAlN / DLC coatings available',
     appNote: 'Cutting-data sheets supplied with every tooling package.',
+  },
+  'punching-tools': {
+    title: 'CNC Punching Tools',
+    specs: ['Round Punch / Die', 'Oblong Punch', 'Square Punch / Die', 'Stripper', 'Lance and Form Tool', 'Thin Turret Punch'],
+    apps: ['Fabrication', 'Manufacturing', 'Construction'],
+    note: 'Thick and thin turret · Stations B, C, D · Amada, Trumpf, Murata, Strippit',
+    appNote: 'Machine model confirmed before quoting.',
   },
 };
 
