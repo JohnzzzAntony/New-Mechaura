@@ -337,12 +337,12 @@ export const products = [
     name: 'CNC Punching Tools',
     short: 'Punching Tools',
     category: 'Turret Punch Tooling',
-    title: 'CNC Punching Tools UAE | Turret Punches, Dies & Strippers Dubai',
+    title: 'CNC Punching Tools UAE | Turret Punches & Dies Dubai',
     metaDesc:
       'CNC turret punching tools in Dubai & UAE — punches, dies and strippers for thick and thin turret machines. Amada, Trumpf, Murata and Strippit compatible. Machine model confirmed before quoting.',
     keywords:
       'CNC Punching Tools UAE, Turret Punch Tooling Dubai, Punch and Die UAE, Thick Turret Tooling, Thin Turret Tooling, Amada Punch Dubai, Trumpf Punch UAE, Murata Tooling, Strippit Tooling',
-    hero: '/images/products/punching-tools.png',
+    hero: '/images/products/cnc-punching-tools.png',
     photos: [],
     lead:
       'Punches, dies and strippers for thick and thin turret machines. Tell us the machine model and we confirm what fits before quoting.',
@@ -353,14 +353,14 @@ export const products = [
       ['Turret style', 'Thick turret, thin turret'],
       ['Stations', 'B, C, D (A and E to order)'],
       ['Tool types', 'Punches, dies, strippers, lance and form tools'],
-      ['Round punch', 'Ø 10 mm · Station B · thick turret'],
-      ['Round punch, thin turret', 'Ø 6 mm · Station B'],
-      ['Round die', 'Ø 10 mm · clearance 0.20 mm · Station B'],
-      ['Oblong punch', '8 × 20 mm · Station B'],
-      ['Square punch', '12 × 12 mm · Station C'],
-      ['Square die', '12 × 12 mm · clearance 0.30 mm · Station C'],
-      ['Stripper', 'Ø 30 mm · Station C'],
-      ['Lance and form tool', '60 mm · Station D'],
+      ['Round punch', 'Ø 10 mm · Station B · thick turret · Amada, Trumpf'],
+      ['Round punch, thin turret', 'Ø 6 mm · Station B · Murata, Strippit'],
+      ['Round die', 'Ø 10 mm · clearance 0.20 mm · Station B · thick turret · Amada, Trumpf'],
+      ['Oblong punch', '8 × 20 mm · Station B · thick turret · Amada, Murata'],
+      ['Square punch', '12 × 12 mm · Station C · thick turret · Amada, Trumpf'],
+      ['Square die', '12 × 12 mm · clearance 0.30 mm · Station C · thick turret · Amada, Trumpf'],
+      ['Stripper', 'Ø 30 mm · Station C · thick turret · Amada'],
+      ['Lance and form tool', '60 mm · Station D · thick turret · Trumpf'],
       ['Custom tooling', 'Special shapes built from a drawing or a photo of the part'],
     ],
     applications: [
@@ -615,6 +615,7 @@ export const groups = [
   { id: 'surface', name: 'Surface Treatment' },
   { id: 'motion', name: 'Motion & Power Transmission' },
   { id: 'cutting', name: 'Cutting & Machining' },
+  { id: 'punching', name: 'CNC Punching Tools' },
   { id: 'elevator', name: 'Elevator & Lift' },
 ];
 
@@ -676,7 +677,7 @@ const catalogue = {
     related: ['bandsaw-blades', 'abrasive-brushes', 'industrial-bearings'],
   },
   'cnc-punching-tools': {
-    group: 'cutting',
+    group: 'punching',
     types: ['Round Punch', 'Round Die', 'Oblong Punch', 'Square Punch', 'Square Die', 'Stripper', 'Lance and Form Tool', 'Round Punch, Thin Turret'],
     brands: [],
     industries: ['engineering-fabrication', 'manufacturing', 'construction'],
