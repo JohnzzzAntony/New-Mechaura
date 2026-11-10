@@ -178,11 +178,8 @@ address { font-style: normal; }
 .utility a:hover { color: var(--accent-on-ink); }
 
 .bar { display: flex; align-items: center; gap: 1.5rem; min-height: var(--header-h); }
-.logo { display: inline-flex; align-items: center; gap: 0.6rem; flex: none; }
-.logo img { width: 57px; height: 36px; object-fit: contain; }
-.logo-word { display: flex; flex-direction: column; line-height: 1; }
-.logo-word strong { font-size: 1.05rem; letter-spacing: 0.06em; }
-.logo-word span { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.32em; color: var(--accent-ink); margin-top: 3px; }
+.logo { display: inline-flex; align-items: center; flex: none; width: clamp(152px, 22vw, 196px); }
+.logo img { width: 100%; height: auto; }
 
 .primary { margin-left: auto; }
 .nav-list { display: flex; align-items: center; gap: 0.15rem; }
@@ -463,6 +460,7 @@ body.nav-open { overflow: hidden; }
 .facts dl div { display: grid; grid-template-columns: 9.5rem 1fr; gap: 1rem; padding: 0.7rem 0; border-top: 1px solid var(--line); font-size: 0.93rem; }
 .facts dt { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding-top: 0.15rem; }
 .facts dd { font-weight: 600; }
+.facts-logo { width: 10rem; margin: 1.25rem auto 0; }
 
 /* ==========================================================================
    Prose (articles, legal, long-form)
@@ -880,8 +878,7 @@ input:not([type='checkbox']):not([type='radio']):focus, select:focus, textarea:f
 
 .f-main { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 2.1fr); gap: 3rem; padding-block: 3.5rem 2.5rem; }
 .f-brand { display: grid; gap: 1.25rem; align-content: start; }
-.logo-f { color: var(--on-ink); }
-.logo-f .logo-word span { color: var(--accent-on-ink); }
+.logo-f { width: min(100%, 216px); }
 .f-brand address { display: grid; gap: 0.55rem; }
 .f-brand address > * { display: flex; align-items: center; gap: 0.55rem; }
 .f-brand address a { color: var(--on-ink); }

@@ -3,13 +3,14 @@
  * Versioned cache management, instant offline availability, and performance acceleration.
  */
 
-const CACHE_NAME = 'mechaura-v4.0.0';
+const CACHE_NAME = 'mechaura-v4.0.1';
 
 // Only URLs that exist in the production build. cache.addAll() is atomic, so a
 // single 404 here (e.g. Vite-hashed CSS/JS) would discard the whole precache.
 const PRECACHE_ASSETS = [
   '/',
-  '/images/logo.webp',
+  '/images/mechaura-logo-navy.webp',
+  '/images/mechaura-logo-white.webp',
   '/icons.svg',
   '/products',
   '/request-quote',

@@ -20,7 +20,7 @@ import {
 } from './content/site-content.mjs';
 import { articles } from './article-content.mjs';
 import { esc, plain, icon, img, slugify, loadImageMeta, writeImageVariants } from './lib/html.mjs';
-import { page, breadcrumbs, orgSchema, waLink } from './lib/layout.mjs';
+import { page, breadcrumbs, brandLogo, orgSchema, waLink } from './lib/layout.mjs';
 import {
   btn, sectionHead, productCard, productGrid, specTable, faqList, faqSchema, testimonials,
   deliveryBlock, articleCard, identifyPart, ctaBand, videoGrid, VIDEOS, rfqFull, rfqCompact, contactLines,
@@ -242,7 +242,7 @@ ${sectionHead({ eyebrow: 'FAQ', title: 'Frequently asked questions', id: 'faq-h'
         '@type': 'WholesaleStore',
         name: LEGAL,
         url: `${SITE}/`,
-        image: `${SITE}/images/logo.png`,
+        image: `${SITE}${brandLogo}`,
         telephone: PHONE_RAW,
         email: EMAIL,
         address: { '@type': 'PostalAddress', addressLocality: 'Dubai', addressRegion: 'Dubai', addressCountry: 'AE' },
@@ -669,7 +669,7 @@ ${['abrasive-brushes', 'industrial-bearings', 'industrial-air-filters'].map((s) 
         datePublished: pillar.date,
         dateModified: pillar.date,
         author: { '@type': 'Organization', name: AUTHOR.name, url: `${SITE}/about` },
-        publisher: { '@type': 'Organization', name: LEGAL, logo: { '@type': 'ImageObject', url: `${SITE}/images/logo.png` } },
+        publisher: { '@type': 'Organization', name: LEGAL, logo: { '@type': 'ImageObject', url: `${SITE}${brandLogo}` } },
         mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE}${url}` },
       },
       {
@@ -968,7 +968,6 @@ ${byBrand
     path: '/brands',
     title: 'Industrial Brands We Source | SKF, Parker, Osborn | Mechaura',
     desc: 'Genuine brand stock and verified equivalents for bearings, hydraulics, brushes, bandsaw blades and cutting tools in the UAE — SKF, FAG, NSK, Timken, Parker, Gates, Osborn and more.',
-    ogImage: '/images/logo.png',
     active: 'brands',
     trail,
     body,
@@ -1130,7 +1129,7 @@ ${others.map((o) => `            <li><a href="/blog/${o.slug}">${esc(o.headline)
         datePublished: ARTICLE_PUBLISHED,
         dateModified: ARTICLE_MODIFIED,
         author: { '@type': 'Organization', name: AUTHOR.name, url: `${SITE}/about` },
-        publisher: { '@type': 'Organization', name: LEGAL, logo: { '@type': 'ImageObject', url: `${SITE}/images/logo.png` } },
+        publisher: { '@type': 'Organization', name: LEGAL, logo: { '@type': 'ImageObject', url: `${SITE}${brandLogo}` } },
         mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE}${url}` },
         articleSection: m.category,
         inLanguage: 'en-AE',
@@ -1214,6 +1213,7 @@ function aboutPage() {
             <div><dt>Industries served</dt><dd>${sectors.length}</dd></div>
             <div><dt>Hours</dt><dd>${esc(HOURS)}</dd></div>
           </dl>
+          <img class="facts-logo" src="${brandLogo}" alt="" width="480" height="354" loading="lazy" decoding="async">
         </aside>
       </div>
     </section>
@@ -1420,7 +1420,7 @@ ${sectionHead({ eyebrow: 'FAQ', title: `Supplying ${esc(loc.city)}: common quest
         url: `${SITE}${url}`,
         telephone: PHONE_RAW,
         email: EMAIL,
-        image: `${SITE}/images/logo.png`,
+        image: `${SITE}${brandLogo}`,
         address: { '@type': 'PostalAddress', addressLocality: 'Dubai', addressRegion: 'Dubai', addressCountry: 'AE' },
         areaServed: loc.areas.map((a) => ({ '@type': 'Place', name: `${a}, ${loc.city}` })),
         parentOrganization: { '@type': 'Organization', name: LEGAL, url: `${SITE}/` },

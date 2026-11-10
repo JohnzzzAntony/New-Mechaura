@@ -10,6 +10,7 @@ import { solutions, sectors, legalPages, pillar } from '../content/site-content.
 import { esc, icon, img, jsonLd } from './html.mjs';
 
 export const waLink = (text) => `https://wa.me/${WHATSAPP}${text ? `?text=${encodeURIComponent(text)}` : ''}`;
+export const brandLogo = '/images/mechaura-logo-stacked.webp';
 
 /* ------------------------------------------------------------------ */
 /* Navigation model                                                    */
@@ -83,7 +84,7 @@ const analytics = `  <script>
     else { window.addEventListener('load', _loadGTM); }
   </script>`;
 
-function head({ path, title, desc, keywords, ogImage = '/images/logo.png', ogType = 'website', schema = [], noindex, preload, article }) {
+function head({ path, title, desc, keywords, ogImage = '/images/mechaura-og.jpg', ogType = 'website', schema = [], noindex, preload, article }) {
   const url = `${SITE}${path === '/' ? '/' : path}`;
   const og = ogImage.startsWith('http') ? ogImage : `${SITE}${ogImage}`;
   return `<!DOCTYPE html>
@@ -98,8 +99,8 @@ ${keywords ? `  <meta name="keywords" content="${esc(keywords)}">\n` : ''}  <met
   <meta name="theme-color" content="#0d1014">
   <meta name="geo.region" content="AE-DU">
   <meta name="geo.placename" content="Dubai">
-  <link rel="icon" type="image/png" href="/images/logo.png">
-  <link rel="apple-touch-icon" href="/images/logo.png">
+  <link rel="icon" type="image/png" sizes="180x180" href="/mechaura-icon.png">
+  <link rel="apple-touch-icon" href="/mechaura-icon.png">
 
   <meta property="og:type" content="${ogType}">
   <meta property="og:url" content="${url}">
@@ -130,9 +131,8 @@ ${preload ? `  <link rel="preload" as="image" href="${esc(preload)}" fetchpriori
 /* Header                                                              */
 /* ------------------------------------------------------------------ */
 
-const logo = (variant = '') => `<a href="/" class="logo${variant}" aria-label="${BRAND} — home">
-        <img src="/images/logo.webp" alt="" width="57" height="36" decoding="async">
-        <span class="logo-word"><strong>MECHAURA</strong><span>INTERNATIONAL</span></span>
+const logo = (onDark = false) => `<a href="/" class="logo${onDark ? ' logo-f' : ''}" aria-label="${BRAND} — home">
+        <img src="/images/mechaura-logo-${onDark ? 'white' : 'navy'}.webp" alt="" width="600" height="134" decoding="async">
       </a>`;
 
 function megaPanel() {
@@ -202,7 +202,7 @@ ${n.items.map((i) => `              <li><a href="${i.href}">${esc(i.name)}</a></
   };
   return `  <div class="m-nav" id="m-nav" hidden>
     <div class="m-nav-head">
-      ${logo(' logo-m')}
+      ${logo()}
       <button class="icon-btn" type="button" data-close-nav aria-label="Close menu">${icon('x')}</button>
     </div>
     <nav aria-label="Mobile">
@@ -290,7 +290,7 @@ ${links.map(([h, l]) => `            <li><a href="${h}">${esc(l)}</a></li>`).joi
     </div>
     <div class="wrap f-main">
       <div class="f-brand">
-        ${logo(' logo-f')}
+        ${logo(true)}
         <p>Industrial components &amp; MRO supply for manufacturing, fabrication, oil &amp; gas, construction and facility management across the UAE and GCC.</p>
         <address>
           <span>${icon('map-pin', 'i-sm')} ${HQ}</span>
@@ -358,7 +358,7 @@ export const orgSchema = {
   name: LEGAL,
   alternateName: BRAND,
   url: `${SITE}/`,
-  logo: `${SITE}/images/logo.png`,
+  logo: `${SITE}${brandLogo}`,
   telephone: PHONE_RAW,
   email: EMAIL,
   address: { '@type': 'PostalAddress', addressLocality: 'Dubai', addressRegion: 'Dubai', addressCountry: 'AE' },
