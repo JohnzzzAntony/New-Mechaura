@@ -177,6 +177,27 @@ address { font-style: normal; }
 .utility a { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--on-ink); }
 .utility a:hover { color: var(--accent-on-ink); }
 
+/* UAE National Day — flag-colour glow on the announcement bar */
+.utility { position: relative; background: linear-gradient(90deg, rgba(206, 17, 38, 0.38), transparent 22%, transparent 70%, rgba(0, 115, 47, 0.42)), var(--ink); color: var(--on-ink); }
+.utility::before, .utility::after { content: ''; position: absolute; left: 0; right: 0; pointer-events: none; }
+.utility::before { top: 0; bottom: 0; background: linear-gradient(100deg, transparent 40%, rgba(255, 255, 255, 0.1) 50%, transparent 60%) -100% 0 / 200% 100% no-repeat; animation: uae-sheen 7s ease-in-out infinite; }
+.utility::after { bottom: 0; height: 3px; background: linear-gradient(90deg, #ce1126, #00732f, #fff, #6b6b6b, #ce1126) 0 0 / 200% 100%; animation: uae-flow 6s linear infinite, uae-glow 2.4s ease-in-out infinite alternate; }
+.utility-in { position: relative; z-index: 1; }
+.uae-flag { display: inline-block; width: 18px; height: 12px; margin-right: 0.55rem; vertical-align: -1px; border-radius: 1px; background: linear-gradient(90deg, #ce1126 26%, transparent 26%), linear-gradient(#00732f 33.3%, #fff 33.3% 66.6%, #000 66.6%); box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3), 0 0 8px rgba(0, 115, 47, 0.7); }
+@keyframes uae-flow { to { background-position: 200% 0; } }
+@keyframes uae-glow { from { box-shadow: 0 0 8px 1px rgba(0, 115, 47, 0.85); } to { box-shadow: 0 0 12px 2px rgba(206, 17, 38, 0.85); } }
+@keyframes uae-sheen { 0%, 55% { background-position: -100% 0; } 100% { background-position: 200% 0; } }
+@media (prefers-reduced-motion: reduce) { .utility::before, .utility::after { animation: none; } }
+
+.uae-day { position: relative; overflow: hidden; background: linear-gradient(180deg, #fff, var(--bg-2)); border-bottom: 1px solid var(--line, #e6e6e1); }
+.uae-day::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: linear-gradient(90deg, #ce1126 0 25%, #00732f 25% 50%, #fff 50% 75%, #000 75%); }
+.uae-day-in { display: grid; grid-template-columns: 1fr 1.1fr; align-items: center; gap: 2rem; padding-block: 1.5rem 0; }
+.uae-day-copy h2 { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.2rem); max-width: 20ch; }
+.uae-day-copy p:last-child { color: var(--muted); margin-top: 0.75rem; max-width: 52ch; }
+/* multiply drops the photo's white sky into the band; the mask feathers its hard edges */
+.uae-day-art { width: 100%; height: auto; mix-blend-mode: multiply; -webkit-mask-image: radial-gradient(farthest-side at 55% 50%, #000 58%, transparent); mask-image: radial-gradient(farthest-side at 55% 50%, #000 58%, transparent); }
+@media (max-width: 899px) { .uae-day-in { grid-template-columns: 1fr; padding-top: 2rem; } }
+
 .bar { display: flex; align-items: center; gap: 1.5rem; min-height: var(--header-h); }
 .logo { display: inline-flex; align-items: center; flex: none; width: clamp(152px, 22vw, 196px); }
 .logo img { width: 100%; height: auto; }

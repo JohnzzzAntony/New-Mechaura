@@ -106,6 +106,17 @@ function home() {
       </div>
     </section>
 
+    <section class="uae-day" aria-labelledby="uae-h">
+      <div class="wrap uae-day-in">
+        <div class="uae-day-copy">
+          <p class="eyebrow">Eid Al Etihad · 2 December</p>
+          <h2 id="uae-h">Proud to supply the industry that builds the UAE</h2>
+          <p>Mechaura International celebrates 55 years of the Union — and the factories, sites and workshops across the Emirates we keep running every day.</p>
+        </div>
+        ${img({ src: '/images/uae-national-day.webp', alt: 'UAE flag ribbon flowing over a city skyline with an aerobatic jet flypast, celebrating UAE National Day', sizes: '(min-width: 900px) 560px, 92vw', cls: 'uae-day-art' })}
+      </div>
+    </section>
+
     <section class="section" id="catalogue" aria-labelledby="cat-h">
       <div class="wrap">
 ${sectionHead({ eyebrow: 'Product catalogue', title: 'Product categories', id: 'cat-h', intro: `${products.length} product families and ${typesTotal} sub-ranges, supplied as genuine brand stock or verified equivalents.`, action: btn('View full catalogue', '/products', 'ghost', 'arrow-right') })}

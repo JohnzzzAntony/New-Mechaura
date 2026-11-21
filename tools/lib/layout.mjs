@@ -223,7 +223,7 @@ function header(active) {
   <header class="site-header">
     <div class="utility">
       <div class="wrap utility-in">
-        <p>Industrial components &amp; MRO supply · UAE &amp; GCC</p>
+        <p><span class="uae-flag" aria-hidden="true"></span>Happy Eid Al Etihad · Celebrating 55 years of the UAE · 2 December</p>
         <ul>
           <li><a href="tel:${PHONE_RAW}" data-track="phone_click">${icon('phone', 'i-sm')} ${PHONE}</a></li>
           <li><a href="mailto:${EMAIL}" data-track="email_click">${icon('mail', 'i-sm')} ${EMAIL}</a></li>
