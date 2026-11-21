@@ -82,7 +82,9 @@ const articlesForProduct = (slug) => articleMeta.filter((a) => a.products.includ
 function home() {
   const typesTotal = products.reduce((n, p) => n + p.types.length, 0);
 
-  const body = `    <section class="hero">
+  const body = `${uaeBand(true)}
+
+    <section class="hero">
       ${img({ src: '/images/hero-banner.webp', alt: 'Industrial brush segments, hydraulic hoses, hydraulic power units, bearings and filtration elements supplied by Mechaura International', sizes: '100vw', priority: true, cls: 'hero-bg' })}
       <div class="wrap hero-in">
         <div class="hero-copy">
@@ -106,7 +108,6 @@ function home() {
       </div>
     </section>
 
-${uaeBand()}
 
     <section class="section" id="catalogue" aria-labelledby="cat-h">
       <div class="wrap">

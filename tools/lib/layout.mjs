@@ -378,14 +378,14 @@ export const orgSchema = {
  * @param {boolean} [o.actionBar=true] mobile WhatsApp / quote bar
  */
 /** UAE National Day band — shared so every page carries the theme. */
-export const uaeBand = () => `    <section class="uae-day" aria-labelledby="uae-h">
+export const uaeBand = (priority = false) => `    <section class="uae-day" aria-labelledby="uae-h">
       <div class="wrap uae-day-in">
         <div class="uae-day-copy">
           <p class="eyebrow">Eid Al Etihad · 2 December</p>
           <h2 id="uae-h">Proud to supply the industry that builds the UAE</h2>
           <p>Mechaura International celebrates 55 years of the Union — and the factories, sites and workshops across the Emirates we keep running every day.</p>
         </div>
-        ${img({ src: '/images/uae-national-day.webp', alt: 'UAE flag ribbon flowing over a city skyline with an aerobatic jet flypast, celebrating UAE National Day', sizes: '(min-width: 900px) 560px, 92vw', cls: 'uae-day-art' })}
+        ${img({ src: '/images/uae-national-day.webp', alt: 'UAE flag ribbon flowing over a city skyline with an aerobatic jet flypast, celebrating UAE National Day', sizes: '(min-width: 900px) 560px, 92vw', cls: 'uae-day-art', priority })}
       </div>
     </section>`;
 
