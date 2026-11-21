@@ -37,7 +37,7 @@ export const SOCIAL = [
  */
 const FORMSPREE_ID = 'mwlpgzod';
 export const RFQ = {
-  endpoint: FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '',
+  endpoint: 'https://formspree.io/f/mwlpgzod',
   uploads: false,
   maxFiles: 5,
   maxFileMB: 10,
