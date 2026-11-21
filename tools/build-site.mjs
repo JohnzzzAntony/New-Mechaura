@@ -20,7 +20,7 @@ import {
 } from './content/site-content.mjs';
 import { articles } from './article-content.mjs';
 import { esc, plain, icon, img, slugify, loadImageMeta, writeImageVariants } from './lib/html.mjs';
-import { page, breadcrumbs, brandLogo, orgSchema, waLink } from './lib/layout.mjs';
+import { page, uaeBand, breadcrumbs, brandLogo, orgSchema, waLink } from './lib/layout.mjs';
 import {
   btn, sectionHead, productCard, productGrid, specTable, faqList, faqSchema, testimonials,
   deliveryBlock, articleCard, identifyPart, ctaBand, videoGrid, VIDEOS, rfqFull, rfqCompact, contactLines,
@@ -106,16 +106,7 @@ function home() {
       </div>
     </section>
 
-    <section class="uae-day" aria-labelledby="uae-h">
-      <div class="wrap uae-day-in">
-        <div class="uae-day-copy">
-          <p class="eyebrow">Eid Al Etihad · 2 December</p>
-          <h2 id="uae-h">Proud to supply the industry that builds the UAE</h2>
-          <p>Mechaura International celebrates 55 years of the Union — and the factories, sites and workshops across the Emirates we keep running every day.</p>
-        </div>
-        ${img({ src: '/images/uae-national-day.webp', alt: 'UAE flag ribbon flowing over a city skyline with an aerobatic jet flypast, celebrating UAE National Day', sizes: '(min-width: 900px) 560px, 92vw', cls: 'uae-day-art' })}
-      </div>
-    </section>
+${uaeBand()}
 
     <section class="section" id="catalogue" aria-labelledby="cat-h">
       <div class="wrap">

@@ -243,13 +243,14 @@ address { font-style: normal; }
 .menu-open { display: none; }
 
 @media (max-width: 1099px) {
-  .primary, .utility p, .icon-btn kbd { display: none; }
+  .primary, .utility ul, .icon-btn kbd { display: none; }
+  .utility-in { justify-content: center; min-height: 30px; padding-block: 0.3rem; }
+  .utility p { text-align: center; font-size: 0.72rem; line-height: 1.35; }
   .menu-open { display: inline-grid; }
   .bar { justify-content: space-between; }
   .bar-actions { margin-left: auto; }
 }
 @media (max-width: 720px) {
-  .utility { display: none; }
   .bar-rfq { display: none; }
   :root { --header-h: 64px; }
 }
@@ -342,10 +343,11 @@ body.nav-open { overflow: hidden; }
   .hero-in { min-height: 0; padding-block: 1.75rem 3rem; }
 }
 @media (max-width: 560px) {
-  .hero-search { flex-wrap: wrap; padding: 0.4rem 0.4rem 0.4rem 0.9rem; }
-  .hero-search .btn { width: 100%; }
-  .hero-search input { flex-basis: calc(100% - 2.5rem); }
-  .hero .btn-row .btn { flex: 1 1 100%; }
+  /* phones: search lives in the header icon; two secondary actions side by side, quote full width beneath */
+  .hero-search { display: none; }
+  .hero .btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .hero .btn-row .btn { padding-inline: 0.5rem; font-size: 0.86rem; gap: 0.4rem; }
+  .hero .btn-row .btn-primary { grid-column: 1 / -1; order: 1; min-height: 52px; font-size: 1rem; }
 }
 
 
@@ -645,7 +647,6 @@ body.nav-open { overflow: hidden; }
 @media (max-width: 480px) { .pd-facts div, .facts dl div { grid-template-columns: 1fr; gap: 0.15rem; } }
 
 .pd-tabs { position: sticky; top: calc(var(--header-h) + 34px); z-index: 30; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
-@media (max-width: 720px) { .pd-tabs { top: var(--header-h); } }
 .pd-tabs ul { display: flex; gap: 0.25rem; overflow-x: auto; scrollbar-width: none; }
 .pd-tabs a { display: block; padding: 0.95rem 0.8rem; font-size: 0.9rem; font-weight: 600; color: var(--muted); border-bottom: 2px solid transparent; white-space: nowrap; }
 .pd-tabs a:hover, .pd-tabs a[aria-current='true'] { color: var(--text); border-color: var(--accent); }
