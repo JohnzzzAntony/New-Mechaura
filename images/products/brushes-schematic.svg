@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Specialized Brushes">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#FFFFFF" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glow" cx="50%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#FF4500" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#FF4500" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4A4A4A"/>
+      <stop offset="45%" stop-color="#2A2A2A"/>
+      <stop offset="55%" stop-color="#333333"/>
+      <stop offset="100%" stop-color="#1A1A1A"/>
+    </linearGradient>
+    <linearGradient id="metalH" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1E1E1E"/>
+      <stop offset="35%" stop-color="#4A4A4A"/>
+      <stop offset="65%" stop-color="#2E2E2E"/>
+      <stop offset="100%" stop-color="#1A1A1A"/>
+    </linearGradient>
+    <linearGradient id="ember" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF4500"/>
+      <stop offset="100%" stop-color="#B32F00"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="#0A0A0A"/>
+  <rect width="1200" height="800" fill="url(#grid)"/>
+  <rect width="1200" height="800" fill="url(#glow)"/>
+
+  <!-- corner ticks -->
+  <g stroke="#FF4500" stroke-width="2" fill="none" opacity="0.9">
+    <path d="M40 76V40h36"/><path d="M1124 40h36v36"/>
+    <path d="M40 724v36h36"/><path d="M1160 724v36h-36"/>
+  </g>
+
+  <text x="64" y="90" fill="#FF4500" font-family="'Space Grotesk',sans-serif" font-size="17" font-weight="700" letter-spacing="4.5">TECHNICAL VIEW</text>
+  <text x="64" y="134" fill="#FFFFFF" font-family="'Space Grotesk',sans-serif" font-size="40" font-weight="700">Specialized Brushes</text>
+
+  <g>
+      <!-- strip brush -->
+      <path d="M186 246h296v84h-40v-44H226v44h-40z" fill="url(#metal)" stroke="#3A3A3A" stroke-width="2"/>
+      <g fill="none"><path d="M190 330V470" stroke="#3A3A3A" stroke-width="2"/><path d="M196 330V476" stroke="#3A3A3A" stroke-width="2"/><path d="M202 330V482" stroke="#3A3A3A" stroke-width="2"/><path d="M208 330V470" stroke="#3A3A3A" stroke-width="2"/><path d="M214 330V476" stroke="#3A3A3A" stroke-width="2"/><path d="M220 330V482" stroke="#3A3A3A" stroke-width="2"/><path d="M226 330V470" stroke="#3A3A3A" stroke-width="2"/><path d="M232 330V476" stroke="#3A3A3A" stroke-width="2"/><path d="M238 330V482" stroke="#3A3A3A" stroke-width="2"/><path d="M244 330V470" stroke="#3A3A3A" stroke-width="2"/><path d="M250 330V476" stroke="#3A3A3A" stroke-width="2"/><path d="M256 330V482" stroke="#3A3A3A" stroke-width="2"/><path d="M262 330V470" stroke="#3A3A3A" stroke-width="2"/><path d="M268 330V476" stroke="#3A3A3A" stroke-width="2"/><path d="M274 330V482" stroke="#3A3A3A" stroke-width="2"/><path d="M280 330V470" stroke="#3A3A3A" stroke-width="2"/><path d="M286 330V476" stroke="#3A3A3A" stroke-width="2"/><path d="M292 330V482" stroke="#3A3A3A" stroke-width="2"/><path d="M298 330V470" stroke="#3A3A3A" stroke-width="2"/><path d="M304 330V476" stroke="#3A3A3A" stroke-width="2"/><path d="M310 330V482" stroke="#3A3A3A" stroke-width="2"/><path d="M316 330V470" stroke="#3A3A3A" stroke-width="2"/><path d="M322 330V476" stroke="#3A3A3A" stroke-width="2"/><path d="M328 330V482" stroke="#3A3A3A" stroke-width="2"/><path d="M334 330V470" stroke="#3A3A3A" stroke-width="2"/><path d="M340 330V476" stroke="#3A3A3A" stroke-width="2"/><path d="M346 330V482" stroke="#3A3A3A" stroke-width="2"/><path d="M352 330V470" stroke="#3A3A3A" stroke-width="2"/><path d="M358 330V476" stroke="#3A3A3A" stroke-width="2"/><path d="M364 330V482" stroke="#3A3A3A" stroke-width="2"/><path d="M370 330V470" stroke="#3A3A3A" stroke-width="2"/><path d="M376 330V476" stroke="#3A3A3A" stroke-width="2"/><path d="M382 330V482" stroke="#3A3A3A" stroke-width="2"/><path d="M388 330V470" stroke="#3A3A3A" stroke-width="2"/><path d="M394 330V476" stroke="#3A3A3A" stroke-width="2"/><path d="M400 330V482" stroke="#3A3A3A" stroke-width="2"/><path d="M406 330V470" stroke="#3A3A3A" stroke-width="2"/><path d="M412 330V476" stroke="#3A3A3A" stroke-width="2"/><path d="M418 330V482" stroke="#3A3A3A" stroke-width="2"/><path d="M424 330V470" stroke="#3A3A3A" stroke-width="2"/><path d="M430 330V476" stroke="#3A3A3A" stroke-width="2"/><path d="M436 330V482" stroke="#3A3A3A" stroke-width="2"/><path d="M442 330V470" stroke="#3A3A3A" stroke-width="2"/><path d="M448 330V476" stroke="#3A3A3A" stroke-width="2"/><path d="M454 330V482" stroke="#3A3A3A" stroke-width="2"/><path d="M460 330V470" stroke="#3A3A3A" stroke-width="2"/><path d="M466 330V476" stroke="#3A3A3A" stroke-width="2"/></g>
+      <text x="334" y="222" fill="#8A8A8A" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="17" letter-spacing="2">STRIP / CHANNEL</text>
+      <g stroke="#FF4500" stroke-width="1.5" fill="none" opacity="0.85">
+    <path d="M186 551v18"/><path d="M482 551v18"/><path d="M186 560H482"/>
+  </g>
+  <text x="334" y="544" fill="#FF4500" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="16" font-weight="600">Backing 6 – 30 mm</text>
+      <!-- wheel brush -->
+      <g fill="none"><path d="M978.0 420.0L1038.0 420.0" stroke="#FF4500" stroke-width="2.4"/><path d="M977.6 428.2L1037.2 434.4" stroke="#3A3A3A" stroke-width="2.4"/><path d="M976.3 436.2L1035.0 448.7" stroke="#3A3A3A" stroke-width="2.4"/><path d="M974.2 444.1L1031.2 462.6" stroke="#3A3A3A" stroke-width="2.4"/><path d="M971.3 451.7L1026.1 476.1" stroke="#3A3A3A" stroke-width="2.4"/><path d="M967.5 459.0L1019.5 489.0" stroke="#FF4500" stroke-width="2.4"/><path d="M963.1 465.8L1011.6 501.1" stroke="#3A3A3A" stroke-width="2.4"/><path d="M958.0 472.2L1002.6 512.3" stroke="#3A3A3A" stroke-width="2.4"/><path d="M952.2 478.0L992.3 522.6" stroke="#3A3A3A" stroke-width="2.4"/><path d="M945.8 483.1L981.1 531.6" stroke="#3A3A3A" stroke-width="2.4"/><path d="M939.0 487.5L969.0 539.5" stroke="#FF4500" stroke-width="2.4"/><path d="M931.7 491.3L956.1 546.1" stroke="#3A3A3A" stroke-width="2.4"/><path d="M924.1 494.2L942.6 551.2" stroke="#3A3A3A" stroke-width="2.4"/><path d="M916.2 496.3L928.7 555.0" stroke="#3A3A3A" stroke-width="2.4"/><path d="M908.2 497.6L914.4 557.2" stroke="#3A3A3A" stroke-width="2.4"/><path d="M900.0 498.0L900.0 558.0" stroke="#FF4500" stroke-width="2.4"/><path d="M891.8 497.6L885.6 557.2" stroke="#3A3A3A" stroke-width="2.4"/><path d="M883.8 496.3L871.3 555.0" stroke="#3A3A3A" stroke-width="2.4"/><path d="M875.9 494.2L857.4 551.2" stroke="#3A3A3A" stroke-width="2.4"/><path d="M868.3 491.3L843.9 546.1" stroke="#3A3A3A" stroke-width="2.4"/><path d="M861.0 487.5L831.0 539.5" stroke="#FF4500" stroke-width="2.4"/><path d="M854.2 483.1L818.9 531.6" stroke="#3A3A3A" stroke-width="2.4"/><path d="M847.8 478.0L807.7 522.6" stroke="#3A3A3A" stroke-width="2.4"/><path d="M842.0 472.2L797.4 512.3" stroke="#3A3A3A" stroke-width="2.4"/><path d="M836.9 465.8L788.4 501.1" stroke="#3A3A3A" stroke-width="2.4"/><path d="M832.5 459.0L780.5 489.0" stroke="#FF4500" stroke-width="2.4"/><path d="M828.7 451.7L773.9 476.1" stroke="#3A3A3A" stroke-width="2.4"/><path d="M825.8 444.1L768.8 462.6" stroke="#3A3A3A" stroke-width="2.4"/><path d="M823.7 436.2L765.0 448.7" stroke="#3A3A3A" stroke-width="2.4"/><path d="M822.4 428.2L762.8 434.4" stroke="#3A3A3A" stroke-width="2.4"/><path d="M822.0 420.0L762.0 420.0" stroke="#FF4500" stroke-width="2.4"/><path d="M822.4 411.8L762.8 405.6" stroke="#3A3A3A" stroke-width="2.4"/><path d="M823.7 403.8L765.0 391.3" stroke="#3A3A3A" stroke-width="2.4"/><path d="M825.8 395.9L768.8 377.4" stroke="#3A3A3A" stroke-width="2.4"/><path d="M828.7 388.3L773.9 363.9" stroke="#3A3A3A" stroke-width="2.4"/><path d="M832.5 381.0L780.5 351.0" stroke="#FF4500" stroke-width="2.4"/><path d="M836.9 374.2L788.4 338.9" stroke="#3A3A3A" stroke-width="2.4"/><path d="M842.0 367.8L797.4 327.7" stroke="#3A3A3A" stroke-width="2.4"/><path d="M847.8 362.0L807.7 317.4" stroke="#3A3A3A" stroke-width="2.4"/><path d="M854.2 356.9L818.9 308.4" stroke="#3A3A3A" stroke-width="2.4"/><path d="M861.0 352.5L831.0 300.5" stroke="#FF4500" stroke-width="2.4"/><path d="M868.3 348.7L843.9 293.9" stroke="#3A3A3A" stroke-width="2.4"/><path d="M875.9 345.8L857.4 288.8" stroke="#3A3A3A" stroke-width="2.4"/><path d="M883.8 343.7L871.3 285.0" stroke="#3A3A3A" stroke-width="2.4"/><path d="M891.8 342.4L885.6 282.8" stroke="#3A3A3A" stroke-width="2.4"/><path d="M900.0 342.0L900.0 282.0" stroke="#FF4500" stroke-width="2.4"/><path d="M908.2 342.4L914.4 282.8" stroke="#3A3A3A" stroke-width="2.4"/><path d="M916.2 343.7L928.7 285.0" stroke="#3A3A3A" stroke-width="2.4"/><path d="M924.1 345.8L942.6 288.8" stroke="#3A3A3A" stroke-width="2.4"/><path d="M931.7 348.7L956.1 293.9" stroke="#3A3A3A" stroke-width="2.4"/><path d="M939.0 352.5L969.0 300.5" stroke="#FF4500" stroke-width="2.4"/><path d="M945.8 356.9L981.1 308.4" stroke="#3A3A3A" stroke-width="2.4"/><path d="M952.2 362.0L992.3 317.4" stroke="#3A3A3A" stroke-width="2.4"/><path d="M958.0 367.8L1002.6 327.7" stroke="#3A3A3A" stroke-width="2.4"/><path d="M963.1 374.2L1011.6 338.9" stroke="#3A3A3A" stroke-width="2.4"/><path d="M967.5 381.0L1019.5 351.0" stroke="#FF4500" stroke-width="2.4"/><path d="M971.3 388.3L1026.1 363.9" stroke="#3A3A3A" stroke-width="2.4"/><path d="M974.2 395.9L1031.2 377.4" stroke="#3A3A3A" stroke-width="2.4"/><path d="M976.3 403.8L1035.0 391.3" stroke="#3A3A3A" stroke-width="2.4"/><path d="M977.6 411.8L1037.2 405.6" stroke="#3A3A3A" stroke-width="2.4"/></g>
+      <circle cx="900" cy="420" r="78" fill="url(#metal)" stroke="#3A3A3A" stroke-width="2"/>
+      <circle cx="900" cy="420" r="30" fill="#0A0A0A" stroke="#FF4500" stroke-width="2.5"/>
+      <text x="900" y="222" fill="#8A8A8A" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="17" letter-spacing="2">WHEEL / CUP</text>
+      <g stroke="#FF4500" stroke-width="1.5" fill="none" opacity="0.85">
+    <path d="M762 611v18"/><path d="M1038 611v18"/><path d="M762 620H1038"/>
+  </g>
+  <text x="900" y="604" fill="#FF4500" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="16" font-weight="600">Ø 75 – 350 mm</text>
+      <line x1="620" y1="200" x2="620" y2="640" stroke="#242424" stroke-width="1" stroke-dasharray="6 8"/>
+    </g>
+
+  <line x1="64" y1="704" x2="1136" y2="704" stroke="#242424" stroke-width="1"/>
+  <text x="64" y="740" fill="#8A8A8A" font-family="Inter,sans-serif" font-size="19">Indicative schematic — dimensions confirmed against your specification at quotation.</text>
+  <text x="1136" y="740" fill="#8A8A8A" text-anchor="end" font-family="'Space Grotesk',sans-serif" font-size="15" letter-spacing="3">MECHAURA INTERNATIONAL</text>
+</svg>
